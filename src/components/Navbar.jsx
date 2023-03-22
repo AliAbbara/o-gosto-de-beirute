@@ -26,7 +26,7 @@ function Navbar() {
             <GiBeard /> <p className='ml-2'>O GOSTO DE BEIRUTE</p>
           </Link>
           <button
-            className='relative text-white text-2xl px-3 py-1 rounded block lg:hidden outline-none focus:outline-none mr-9 hover:bg-red-600 rounded-lg'
+            className='relative text-white text-2xl px-3 py-1 rounded block lg:hidden outline-none focus:outline-none mr-9 hover:bg-red-600 rounded-lg duration-100'
             type='button'
             onClick={() => setNavbarOpen(!navbarOpen)}>
             <TfiLayoutListPost />
@@ -42,7 +42,7 @@ function Navbar() {
             {menuItems.map((item, index) => (
               <li
                 key={index}
-                className='flex-1 text-white text-lg p-2 py-3 hover:bg-red-600 rounded-lg'>
+                className='flex-1 text-white text-lg p-2 py-3 hover:bg-red-600 rounded-lg duration-100'>
                 <Link
                   to={'/' + item.path}
                   onClick={() => setNavbarOpen(!navbarOpen)}

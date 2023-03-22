@@ -6,10 +6,13 @@ import Orders from './pages/Orders'
 import Admins from './pages/Admins'
 import Contact from './pages/Contact'
 import AboutUs from './pages/AboutUs'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import ForgotPassword from './pages/ForgotPassword'
 
 function App() {
   return (
-    <>
+    <div className='scroll-smooth'>
       <Router>
         <Navbar />
         <Routes>
@@ -19,9 +22,12 @@ function App() {
           <Route path='/admins' element={<Admins />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
         </Routes>
       </Router>
-    </>
+    </div>
   )
 }
 
