@@ -7,7 +7,7 @@ import { db } from '../firebase.config'
 //--------------------------
 
 function Menu() {
-  const [items, setItems] = useState({})
+  const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
 
   //------------------Firebase database fetch-------------------
