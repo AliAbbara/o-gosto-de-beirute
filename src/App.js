@@ -1,14 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
 import Orders from './pages/Orders'
-import Admins from './pages/Admins'
+import Admins from './pages/admins/Admins'
 import Contact from './pages/Contact'
 import AboutUs from './pages/AboutUs'
+import NotFound from './pages/NotFound'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import ForgotPassword from './pages/ForgotPassword'
+import Profile from './pages/Profile'
 
 function App() {
   return (
@@ -19,14 +23,20 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/menu' element={<Menu />} />
           <Route path='/orders' element={<Orders />} />
-          <Route path='/admins' element={<Admins />} />
+          <Route path='/admins/cashier' element={<Admins />} />
+          <Route path='/admins/orders' element={<Admins />} />
+          <Route path='/admins/summary' element={<Admins />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/not-found' element={<NotFound />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
         </Routes>
       </Router>
+
+      <ToastContainer />
     </div>
   )
 }
