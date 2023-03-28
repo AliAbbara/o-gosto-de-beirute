@@ -26,7 +26,7 @@ function Admins() {
   }
 
   // useEffect(() => {
-  //   // Checking for loggedin
+  //   // Checking if loggedIn
   //   onAuthStateChanged(auth, (user) => {
   //     if (user) {
   //       setLoggedIn(true)
@@ -35,7 +35,7 @@ function Admins() {
   //       setLoggedIn(false)
   //     }
   //   })
-  //   // Checking if admin async function
+  //   // Checking if admin
   //   const checkAdmin = async () => {
   //     const usersRef = doc(db, 'users', id)
   //     const userSnap = await getDoc(usersRef)

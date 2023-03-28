@@ -10,11 +10,11 @@ function Navbar() {
   const [loggedIn, setLoggedIn] = useState(false)
   const auth = getAuth()
   const menuItems = [
-    { title: 'MENU', path: 'menu' },
-    { title: 'ORDERS', path: 'orders' },
-    { title: 'ADMINS', path: 'admins/cashier' },
-    { title: 'CONTACT', path: 'contact' },
-    { title: 'ABOUT US', path: 'about-us' },
+    { id: '098asd7a0', title: 'MENU', path: 'menu' },
+    { id: '2h8v6b5', title: 'ORDERS', path: 'orders' },
+    { id: '44334llk', title: 'ADMINS', path: 'admins/cashier' },
+    { id: '00gjkbnf5', title: 'CONTACT', path: 'contact' },
+    { id: '65yuer23t', title: 'ABOUT US', path: 'about-us' },
   ]
 
   useEffect(() => {
@@ -60,9 +60,9 @@ function Navbar() {
             (navbarOpen ? ' flex' : ' hidden')
           }>
           <ul className='flex flex-col lg:flex-row list-none w-full h-auto text-center'>
-            {menuItems.map((item, index) => (
+            {menuItems.map((item) => (
               <li
-                key={index}
+                key={item.id}
                 className='flex-1 text-white text-lg p-2 py-3 hover:bg-red-600 rounded-lg duration-100'>
                 <Link
                   to={'/' + item.path}

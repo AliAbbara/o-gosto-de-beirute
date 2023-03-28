@@ -1,4 +1,4 @@
-export const menuItems = [
+export const menu = [
   {
     id: '1ShawarmaCarne',
     name: 'Shawarma Carne',

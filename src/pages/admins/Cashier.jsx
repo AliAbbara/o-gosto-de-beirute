@@ -1,24 +1,33 @@
 import { useState, useEffect } from 'react'
+// eslint-disable-next-line
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import { menuItems } from '../../assets/menuItems'
+import { menu } from '../../assets/menuItems'
+import { v4 as uuidv4 } from 'uuid'
+// eslint-disable-next-line
 import {
+  // eslint-disable-next-line
   query,
+  // eslint-disable-next-line
   orderBy,
+  // eslint-disable-next-line
   getDocs,
+  // eslint-disable-next-line
   addDoc,
+  // eslint-disable-next-line
   collection,
+  // eslint-disable-next-line
   serverTimestamp,
 } from 'firebase/firestore'
+// eslint-disable-next-line
 import { db } from '../../firebase.config'
-import Popup from 'reactjs-popup'
-import 'reactjs-popup/dist/index.css'
+import Spinner from './../../components/Spinner'
 
 function Cashier() {
   // eslint-disable-next-line
-  const [loading, setLoading] = useState(true)
+  const [menuItems, setMenuItems] = useState(menu)
+  const [loading, setLoading] = useState(false)
   const [bag, setBag] = useState([])
   const [bagTotal, setBagTotal] = useState(0)
-  // eslint-disable-next-line
   const [bagSubtotal, setBagSubtotal] = useState(0)
   const [order, setOrder] = useState({
     items: [
@@ -30,6 +39,7 @@ function Cashier() {
         comment: '',
         price: 0,
         priceIfood: 0,
+        uuid: '',
       },
     ],
     time: {},
@@ -42,12 +52,10 @@ function Cashier() {
     subtotal: 0,
     preparing: true,
     done: false,
-    orderType: '',
+    orderType: 'Takeaway',
   })
 
   const {
-    items,
-    time,
     customer,
     ifood,
     paidiFood,
@@ -55,14 +63,13 @@ function Cashier() {
     discountPer,
     total,
     subtotal,
-    preparing,
-    done,
     orderType,
   } = order
 
+  // eslint-disable-next-line
   const auth = getAuth()
 
-  // -------------------Order Form------------------------------
+  // -------------------onMutate - Order Form------------------------------
   const onMutate = (e) => {
     let boolean = null
     if (e.target.value === 'true') {
@@ -71,7 +78,6 @@ function Cashier() {
     if (e.target.value === 'false') {
       boolean = false
     }
-    //Text/Booleans/Numbers
     setOrder((prevState) => ({
       ...prevState,
       [e.target.id]: boolean ?? e.target.value,
@@ -79,71 +85,102 @@ function Cashier() {
   }
   // ----------------------------------------------------------
 
-  // --------------------Bag Form-------------------------
-  const onMutateBag = (e, index) => {
+  // --------------------onMutate - Bag Form-------------------------
+  const onBagMutate = (index) => (e) => {
     let newBag = [...bag]
-    if (e.target.id === 'comment') {
-      newBag[index].comment = e.target.value
-      setBag(newBag)
-    } else {
-      newBag[index].quantity = e.target.value
-      setBag(newBag)
-    }
+    let itemId = newBag[index].uuid
+    newBag.map((item) => {
+      if (item.uuid === itemId) {
+        return (item[e.target.id] = e.target.value)
+      } else {
+        return item
+      }
+    })
+    setBag(newBag)
   }
   // ----------------------------------------------------
 
-  useEffect(() => {
-    getTotals()
-    console.log(bagTotal)
-  })
-
-  // -------------------Calculating totals-------------------
+  // -------------------Calculating order totals-------------------
   const getTotals = () => {
     let total = 0
     let subtotal = 0
     let percentage = 0
     let valuesArray = []
-
     bag.map((item) => {
-      valuesArray.push(item.price * item.quantity)
+      if (ifood) {
+        return valuesArray.push(item.priceIfood * item.quantity)
+      } else {
+        return valuesArray.push(item.price * item.quantity)
+      }
     })
     valuesArray.map((item) => {
-      total = total + item
+      return (total = total + item)
     })
-    setBagTotal(total)
-    if (discount) {
-      percentage = (100 - discountPer) / 100
-      subtotal = total * percentage
+    if (ifood) {
+      if (paidiFood) {
+        subtotal = total * 0.74
+      } else {
+        subtotal = total * 0.77
+      }
+    } else {
+      if (discount) {
+        percentage = (100 - discountPer) / 100
+        subtotal = total * percentage
+      } else {
+        subtotal = total
+      }
     }
-    // setBagSubtotal(subtotal)
-    valuesArray = []
+    setBagTotal(total.toFixed(2))
+    setBagSubtotal(subtotal.toFixed(2))
+    setOrder((prevState) => ({
+      ...prevState,
+      total: bagTotal,
+      subtotal: bagSubtotal,
+    }))
     total = 0
     subtotal = 0
+    percentage = 0
+    valuesArray = []
   }
   // ---------------------------------------------------------
 
   // --------------------------onItemAdd----------------------
-  const handleItemAdd = (menuItem) => {
-    bag.push(menuItem)
-    getTotals()
+  const onItemAdd = (menuItem) => {
+    setBag((prevState) => [...prevState, { ...menuItem, uuid: uuidv4() }])
   }
   // ---------------------------------------------------------
 
-  // ------------------------onBagItemClick-------------------
-  const handleBagItemClick = (bagItem) => {
-    console.log(bag)
+  // ------------------------onBagItemDelete-------------------
+  const onBagItemDelete = (bagItem) => {
+    const newBag = bag.filter((item) => item.uuid !== bagItem.uuid)
+    setBag(newBag)
   }
   // --------------------------------------------------------
 
   // ------------------------onOrderSubmit-------------------
   const onOrderSubmit = (e) => {
     e.preventDefault()
-    // setOrder((prevState) => ({ ...prevState, items: bag }))
     console.log(order)
-    setBag([])
+    // setBag([])
+    setLoading(false)
   }
   // --------------------------------------------------------
 
+  useEffect(() => {
+    getTotals()
+    setOrder((prevState) => ({
+      ...prevState,
+      items: bag,
+      time: serverTimestamp(),
+      preparing: true,
+      done: false,
+    }))
+    // eslint-disable-next-line
+  }, [bagTotal, bagSubtotal, bag, ifood, paidiFood, discount])
+
+  if (loading) {
+    return <Spinner />
+  }
   return (
     <div className='flex flex-col h-auto justify-between'>
       <form onSubmit={(e) => onOrderSubmit(e)}>
@@ -163,11 +200,11 @@ function Cashier() {
         {/* Items select div */}
         <div className='flex flex-row flex-wrap'>
           <label>Items:</label>
-          {menuItems?.map((menuItem, index) => (
+          {menuItems?.map((menuItem) => (
             <button
               key={menuItem.id}
               type='button'
-              onClick={() => handleItemAdd(menuItem)}
+              onClick={() => onItemAdd(menuItem)}
               className='bg-yellow-400 rounded-lg text-red-700 m-1 px-1 hover:bg-yellow-500 focus:ring-2 focus:outline-none focus:ring-yellow-600 duration-100'>
               {menuItem?.name}
             </button>
@@ -265,7 +302,7 @@ function Cashier() {
             </button>
           </div>
           <div>
-            <label>Discount %: </label>
+            <label>Discount % : </label>
             <input
               className='rounded-lg text-red-700'
               type='number'
@@ -286,32 +323,34 @@ function Cashier() {
           {bag.length !== 0 &&
             bag.map((bagItem, index) => (
               <div
-                key={bagItem.name + index}
-                className='flex flex-col border rounded-lg border-white p-1'>
-                <button
-                  type='button'
-                  onClick={() => handleBagItemClick(bagItem)}
-                  className='bg-yellow-400 py-1 rounded-lg text-red-700 hover:bg-yellow-500 focus:ring-2 focus:outline-none dark:focus:ring-yellow-600 duration-100'>
-                  {bagItem.name}
-                </button>
-                <div className='flex flex-row justify-center mt-1'>
+                key={index}
+                className='flex flex-col border rounded-lg border-white p-1 m-1'>
+                <div className='flex flex-row w-full h-8 justify-between text-red-700'>
+                  <div className='bg-yellow-400 py-1 rounded-lg w-full text-center mr-1'>
+                    {bagItem.name}
+                  </div>
+                  <button
+                    type='button'
+                    onClick={() => onBagItemDelete(bagItem)}
+                    className='bg-yellow-400 py-1 px-2 rounded-lg w-8 hover:bg-yellow-500 focus:ring-2 dark:focus:ring-yellow-600 duration-100'>
+                    X
+                  </button>
+                </div>
+                <div className='flex flex-row justify-center mt-1 h-7'>
                   <input
                     className='w-8 px-1 rounded-lg text-red-700'
                     type='number'
                     id='quantity'
                     value={bagItem.quantity}
-                    onChange={(e) => onMutateBag(e, index)}
+                    onChange={onBagMutate(index)}
                   />
-                  {(bagItem.type === 'Sandwitch' ||
-                    bagItem.type === 'Porcao') && (
-                    <input
-                      className='w-auto rounded-lg text-red-700 ml-1'
-                      type='text'
-                      id='comment'
-                      value={bagItem.comment}
-                      onChange={(e) => onMutateBag(e, index)}
-                    />
-                  )}
+                  <input
+                    className='w-auto px-1 rounded-lg text-red-700 ml-1'
+                    type='text'
+                    id='comment'
+                    value={bagItem.comment}
+                    onChange={onBagMutate(index)}
+                  />
                 </div>
               </div>
             ))}
