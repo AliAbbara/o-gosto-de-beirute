@@ -1,24 +1,8 @@
 import { useState, useEffect } from 'react'
-// eslint-disable-next-line
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { getAuth } from 'firebase/auth'
 import { menu } from '../../assets/menuItems'
 import { v4 as uuidv4 } from 'uuid'
-// eslint-disable-next-line
-import {
-  // eslint-disable-next-line
-  query,
-  // eslint-disable-next-line
-  orderBy,
-  // eslint-disable-next-line
-  getDocs,
-  // eslint-disable-next-line
-  addDoc,
-  // eslint-disable-next-line
-  collection,
-  // eslint-disable-next-line
-  serverTimestamp,
-} from 'firebase/firestore'
-// eslint-disable-next-line
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import Spinner from './../../components/Spinner'
 
@@ -158,10 +142,12 @@ function Cashier() {
   // --------------------------------------------------------
 
   // ------------------------onOrderSubmit-------------------
-  const onOrderSubmit = (e) => {
+  const onOrderSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault()
-    console.log(order)
-    // setBag([])
+    const docRef = await addDoc(collection(db, 'orders'), order)
+    console.log(docRef)
+    setBag([])
     setLoading(false)
   }
   // --------------------------------------------------------

@@ -14,7 +14,7 @@ function OrderCard({ order }) {
           {order.items?.map((item, index) => (
             <div key={index}>
               <p>
-                -{item.quantity}-{item.itemName}
+                -{item.quantity}-{item.name}
               </p>
               <p>{item.comment}</p>
             </div>

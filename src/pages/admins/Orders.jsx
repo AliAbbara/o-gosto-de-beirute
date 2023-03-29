@@ -8,22 +8,22 @@ function Orders() {
   const [orders, setOrders] = useState([])
   const [loading, setLoading] = useState(true)
 
-  // useEffect(() => {
-  //   const fetchOrders = async () => {
-  //     const ordersRef = collection(db, 'orders')
-  //     const q = query(ordersRef, orderBy('time', 'asc'))
-  //     const ordersSnap = await getDocs(q)
+  useEffect(() => {
+    const fetchOrders = async () => {
+      const ordersRef = collection(db, 'orders')
+      const q = query(ordersRef, orderBy('time', 'asc'))
+      const ordersSnap = await getDocs(q)
 
-  //     let orders = []
+      let orders = []
 
-  //     ordersSnap.forEach((doc) => {
-  //       return orders.push(doc.data())
-  //     })
-  //     setOrders(orders)
-  //     setLoading(false)
-  //   }
-  //   fetchOrders()
-  // }, [])
+      ordersSnap.forEach((doc) => {
+        return orders.push(doc.data())
+      })
+      setOrders(orders)
+      setLoading(false)
+    }
+    fetchOrders()
+  }, [])
 
   if (loading) {
     return <Spinner />

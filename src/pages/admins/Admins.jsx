@@ -1,6 +1,9 @@
+// eslint-disable-next-line
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
+// eslint-disable-next-line
 import { getDoc, doc } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
+// eslint-disable-next-line
 import { db } from '../../firebase.config'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Spinner from '../../components/Spinner'
@@ -9,13 +12,17 @@ import Orders from './Orders'
 import Summary from './Summary'
 
 function Admins() {
+  // eslint-disable-next-line
   const auth = getAuth()
   const location = useLocation()
   const navigate = useNavigate()
+  // eslint-disable-next-line
   const [loggedIn, setLoggedIn] = useState(false)
   // eslint-disable-next-line
   const [isAdmin, setIsAdmin] = useState(false)
+  // eslint-disable-next-line
   const [loading, setLoading] = useState(true)
+  // eslint-disable-next-line
   const [id, setId] = useState('')
 
   // Checking for route match
@@ -25,35 +32,35 @@ function Admins() {
     }
   }
 
-  // useEffect(() => {
-  //   // Checking if loggedIn
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       setLoggedIn(true)
-  //       setId(user.uid)
-  //     } else {
-  //       setLoggedIn(false)
-  //     }
-  //   })
-  //   // Checking if admin
-  //   const checkAdmin = async () => {
-  //     const usersRef = doc(db, 'users', id)
-  //     const userSnap = await getDoc(usersRef)
-  //     const user = userSnap.data()
-  //     if (user.admin) {
-  //       setIsAdmin(true)
-  //     } else {
-  //       setIsAdmin(false)
-  //     }
-  //   }
-  //   if (loggedIn) {
-  //     checkAdmin()
-  //     setLoading(false)
-  //   } else {
-  //     setLoading(false)
-  //   }
-  //   // eslint-disable-next-line
-  // }, [])
+  useEffect(() => {
+    // // Checking if loggedIn
+    // onAuthStateChanged(auth, (user) => {
+    //   if (user) {
+    //     setLoggedIn(true)
+    //     setId(user.uid)
+    //   } else {
+    //     setLoggedIn(false)
+    //   }
+    // })
+    // // Checking if admin
+    // const checkAdmin = async () => {
+    //   const usersRef = doc(db, 'users', id)
+    //   const userSnap = await getDoc(usersRef)
+    //   const user = userSnap.data()
+    //   if (user.admin) {
+    //     setIsAdmin(true)
+    //   } else {
+    //     setIsAdmin(false)
+    //   }
+    // }
+    // if (loggedIn) {
+    //   checkAdmin()
+    //   setLoading(false)
+    // } else {
+    //   setLoading(false)
+    // }
+    // eslint-disable-next-line
+  }, [])
 
   if (!loading) {
     return <Spinner />
