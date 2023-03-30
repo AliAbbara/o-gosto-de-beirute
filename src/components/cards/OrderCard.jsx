@@ -3,15 +3,17 @@ function OrderCard({ order }) {
     <>
       <div className='max-w-full h-auto flex flex-col justify-between bg-red-700 rounded-lg shadow border border-yellow-400 mb-2'>
         {/* order time div */}
-        <div className='p-1 text-xl border-solid border-b border-white'>
+        <div className='flex flex-row justify-between px-1 text-xl border-solid border-b border-white'>
           <p>
-            {order.time.toDate().toLocaleTimeString('en-US')} -{' '}
-            {order.time.toDate().toDateString()}
+            {/* {order.time.toDate().toLocaleTimeString('en-US')} */}
+            {order.time}
           </p>
+          <p>{order.ifood ? order.ifoodNum : 'Not ifood'}</p>
+          <p>ba3d shagle</p>
         </div>
         {/* order items div */}
         <div className='p-1 flex flex-col border-solid border-b border-white'>
-          {order.items?.map((item, index) => (
+          {order?.items?.map((item, index) => (
             <div key={index}>
               <p>
                 -{item.quantity}-{item.name}

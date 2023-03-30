@@ -5,6 +5,11 @@
   z-index: 0;
 }
 
+body {
+  background-color: #b91c1c;
+  padding: 0 1rem 1rem 1rem;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

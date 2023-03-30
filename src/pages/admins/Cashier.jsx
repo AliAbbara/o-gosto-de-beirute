@@ -29,7 +29,8 @@ function Cashier() {
     time: {},
     customer: '',
     ifood: false,
-    paidiFood: true,
+    ifoodNum: 0,
+    paidIfood: true,
     discount: false,
     discountPer: 0,
     total: 0,
@@ -42,7 +43,8 @@ function Cashier() {
   const {
     customer,
     ifood,
-    paidiFood,
+    ifoodNum,
+    paidIfood,
     discount,
     discountPer,
     total,
@@ -101,7 +103,7 @@ function Cashier() {
       return (total = total + item)
     })
     if (ifood) {
-      if (paidiFood) {
+      if (paidIfood) {
         subtotal = total * 0.74
       } else {
         subtotal = total * 0.77
@@ -114,8 +116,8 @@ function Cashier() {
         subtotal = total
       }
     }
-    setBagTotal(total.toFixed(2))
-    setBagSubtotal(subtotal.toFixed(2))
+    setBagTotal(parseFloat(total.toFixed(2)))
+    setBagSubtotal(parseFloat(subtotal.toFixed(2)))
     setOrder((prevState) => ({
       ...prevState,
       total: bagTotal,
@@ -145,6 +147,11 @@ function Cashier() {
   const onOrderSubmit = async (e) => {
     setLoading(true)
     e.preventDefault()
+    setOrder((prevState) => ({
+      ...prevState,
+      items: bag,
+      time: serverTimestamp(),
+    }))
     const docRef = await addDoc(collection(db, 'orders'), order)
     console.log(docRef)
     setBag([])
@@ -156,13 +163,11 @@ function Cashier() {
     getTotals()
     setOrder((prevState) => ({
       ...prevState,
-      items: bag,
-      time: serverTimestamp(),
       preparing: true,
       done: false,
     }))
     // eslint-disable-next-line
-  }, [bagTotal, bagSubtotal, bag, ifood, paidiFood, discount])
+  }, [bagTotal, bagSubtotal, bag, ifood, paidIfood, discount])
 
   if (loading) {
     return <Spinner />
@@ -234,15 +239,27 @@ function Cashier() {
               No
             </button>
           </div>
+
+          <div>
+            <label className='mr-3'>iFood Number: </label>
+            <input
+              className='w-10 rounded-lg ml-1 text-red-700'
+              type='number'
+              id='ifoodNum'
+              value={ifoodNum}
+              onChange={onMutate}
+            />
+          </div>
+
           <div>
             <label className='mr-3'>Paid via iFood: </label>
             <button
               className={
                 'px-1 bg-yellow-400 rounded-lg text-red-700 hover:bg-yellow-500 focus:ring-2 focus:outline-none dark:focus:ring-yellow-600 duration-100' +
-                (paidiFood ? ' bg-yellow-500' : '')
+                (paidIfood ? ' bg-yellow-500' : '')
               }
               type='button'
-              id='paidiFood'
+              id='paidIfood'
               value={true}
               onClick={onMutate}>
               Yes
@@ -250,10 +267,10 @@ function Cashier() {
             <button
               className={
                 'px-1 bg-yellow-400 rounded-lg text-red-700 hover:bg-yellow-500 focus:ring-2 focus:outline-none dark:focus:ring-yellow-600 duration-100' +
-                (paidiFood ? '' : ' bg-yellow-500')
+                (paidIfood ? '' : ' bg-yellow-500')
               }
               type='button'
-              id='paidiFood'
+              id='paidIfood'
               value={false}
               onClick={onMutate}>
               No

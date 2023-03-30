@@ -1,4 +1,4 @@
-import ItemCard from './../components/ItemCard'
+import ItemCard from './../components/cards/ItemCard'
 import { useEffect, useState } from 'react'
 import Spinner from '../components/Spinner'
 //-----------------------
