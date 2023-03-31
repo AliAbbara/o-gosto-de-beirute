@@ -15,7 +15,7 @@ import Profile from './pages/authen/Profile'
 
 function App() {
   return (
-    <div className='scroll-smooth'>
+    <>
       <Router>
         <Navbar />
         <Routes>
@@ -35,7 +35,7 @@ function App() {
       </Router>
 
       <ToastContainer />
-    </div>
+    </>
   )
 }
 

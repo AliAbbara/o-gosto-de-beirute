@@ -18,17 +18,13 @@ function ForgotPassword() {
   // ---------------------onSubmit------------------
   const onSubmit = async (e) => {
     e.preventDefault()
-    if (email === '') {
-      toast.warning('Please enter your email!')
-    } else {
-      try {
-        const auth = getAuth()
-        await sendPasswordResetEmail(auth, email)
-        toast.success('The password reset link was sent!')
-        setTimeout(navigate('/'), 1000)
-      } catch (error) {
-        toast.error('Something went wrong, please check for a correct email!')
-      }
+    try {
+      const auth = getAuth()
+      await sendPasswordResetEmail(auth, email)
+      toast.success('The password reset link was sent!')
+      setTimeout(navigate('/'), 1000)
+    } catch (error) {
+      toast.error('Something went wrong, please check for a correct email!')
     }
   }
   // -----------------------------------------------

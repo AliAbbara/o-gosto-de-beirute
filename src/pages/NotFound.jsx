@@ -1,6 +1,5 @@
 import ContainerCard from '../components/cards/ContainerCard'
 import RedLink from '../components/links/RedLink'
-import { Link } from 'react-router-dom'
 import { FaHome } from 'react-icons/fa'
 
 function NotFound() {
