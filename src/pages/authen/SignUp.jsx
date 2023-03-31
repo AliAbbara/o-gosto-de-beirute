@@ -113,15 +113,15 @@ function SignUp() {
         </RedButton>
       </form>
 
-      <p className='mt-6 text-center'>
+      <div className='mt-6 text-center'>
         <p>Already have an account ?</p>
         <RedLink to='/sign-in'>Sign In</RedLink>
-      </p>
+      </div>
 
-      <p className='mt-6 flex flex-col items-center'>
+      <div className='mt-6 flex flex-col items-center'>
         <p>Or sign up with Google instead</p>
         <FcGoogle className='p-1 bg-white rounded-lg w-8 h-8 hover:cursor-pointer hover:bg-slate-200 duration-100' />
-      </p>
+      </div>
     </ContainerCard>
   )
 }
