@@ -1,7 +1,7 @@
-import React from 'react'
+import ContainerCard from '../components/cards/ContainerCard'
 
 function Contact() {
-  return <div>Contact</div>
+  return <ContainerCard>Contact</ContainerCard>
 }
 
 export default Contact

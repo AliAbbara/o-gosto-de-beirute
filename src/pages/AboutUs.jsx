@@ -1,7 +1,7 @@
-import React from 'react'
+import ContainerCard from '../components/cards/ContainerCard'
 
 function AboutUs() {
-  return <div>AboutUs</div>
+  return <ContainerCard>About Us</ContainerCard>
 }
 
 export default AboutUs

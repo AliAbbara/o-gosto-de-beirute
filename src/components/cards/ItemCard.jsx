@@ -1,22 +1,24 @@
 import { useNavigate } from 'react-router-dom'
 import { GiChiliPepper } from 'react-icons/gi'
 import { SiVectorworks } from 'react-icons/si'
+import YellowButton from './../buttons/YellowButton'
+import ContainerCard from './ContainerCard'
 
 function ItemCard({ item }) {
   const navigate = useNavigate()
 
-  const handleMoreInfo = () => {
+  const onMoreInfo = () => {
     navigate('/sign-in')
   }
-  const handleAddToOrder = () => {
+  const onAddToOrder = () => {
     navigate('/sign-in')
   }
 
   return (
     <>
-      <div className='max-w-full h-44 flex bg-red-700 rounded-lg shadow border border-yellow-400 mb-3'>
+      <ContainerCard className='h-48 flex'>
         <img
-          className='w-44 max-w-xs rounded-lg border-2 border-white'
+          className='w-40 h-40 rounded-lg border-2 border-white'
           src={item?.image}
           alt={item?.name + ' image'}
         />
@@ -39,19 +41,13 @@ function ItemCard({ item }) {
           </div>
           {/* buttons and price div */}
           <div className='m-1 font-bold text-lg text-red-700'>
-            <button
-              onClick={handleMoreInfo}
-              className='p-1 bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:outline-none dark:focus:ring-yellow-600 duration-100'>
-              More Info
-            </button>
-            <button
-              onClick={handleAddToOrder}
-              className='ml-2 p-1 bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:outline-none dark:focus:ring-yellow-600 duration-100'>
-              Add to Order
-            </button>
+            <YellowButton onClick={onMoreInfo}>More Info</YellowButton>
+            <YellowButton className='ml-2' onClick={onAddToOrder}>
+              Add To Order
+            </YellowButton>
           </div>
         </div>
-      </div>
+      </ContainerCard>
     </>
   )
 }

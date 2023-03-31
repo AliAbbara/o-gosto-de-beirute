@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { db } from '../../firebase.config'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Spinner from '../../components/Spinner'
+import ContainerCard from '../../components/cards/ContainerCard'
 import Cashier from './Cashier'
 import Orders from './Orders'
 import Summary from './Summary'
@@ -66,7 +67,7 @@ function Admins() {
     return <Spinner />
   }
   return (
-    <div className='flex flex-col justify-center w-full p-6 m-auto bg-red-700 rounded-lg shadow-md lg:max-w-xl text-white border border-yellow-400 mb-3 font-semibold'>
+    <ContainerCard className='flex flex-col justify-center font-semibold m-auto'>
       <h1 className='text-3xl text-center text-white'>Admins</h1>
       <div className='flex justify-between text-xl my-2'>
         <Link
@@ -100,7 +101,7 @@ function Admins() {
       ) : (
         navigate('/not-found')
       )}
-    </div>
+    </ContainerCard>
   )
 }
 

@@ -4,15 +4,14 @@ import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
-import Orders from './pages/Orders'
 import Admins from './pages/admins/Admins'
 import Contact from './pages/Contact'
 import AboutUs from './pages/AboutUs'
 import NotFound from './pages/NotFound'
-import SignIn from './pages/SignIn'
-import SignUp from './pages/SignUp'
-import ForgotPassword from './pages/ForgotPassword'
-import Profile from './pages/Profile'
+import SignIn from './pages/authen/SignIn'
+import SignUp from './pages/authen/SignUp'
+import ForgotPassword from './pages/authen/ForgotPassword'
+import Profile from './pages/authen/Profile'
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/menu' element={<Menu />} />
-          <Route path='/orders' element={<Orders />} />
           <Route path='/admins/cashier' element={<Admins />} />
           <Route path='/admins/orders' element={<Admins />} />
           <Route path='/admins/summary' element={<Admins />} />
