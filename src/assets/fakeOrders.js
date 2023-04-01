@@ -44,7 +44,9 @@ export const fakeOrders = [
     paidIfood: true,
     preparing: true,
     subtotal: 18,
-    time: '1:12:12 PM',
+    createdAt: '1:23:45 PM',
+    editedAt: '6:78:09 PM',
+    closedAt: '12:34:56 PM',
     total: 18,
   },
   {
@@ -90,7 +92,9 @@ export const fakeOrders = [
     paidIfood: true,
     preparing: true,
     subtotal: 18,
-    time: '1:12:12 PM',
+    createdAt: '1:23:45 PM',
+    editedAt: '6:78:09 PM',
+    closedAt: '12:34:56 PM',
     total: 18,
   },
   {
@@ -136,7 +140,9 @@ export const fakeOrders = [
     paidIfood: true,
     preparing: true,
     subtotal: 18,
-    time: '1:12:12 PM',
+    createdAt: '1:23:45 PM',
+    editedAt: '6:78:09 PM',
+    closedAt: '12:34:56 PM',
     total: 18,
   },
   {
@@ -162,7 +168,9 @@ export const fakeOrders = [
     paidIfood: true,
     preparing: true,
     subtotal: 18,
-    time: '1:12:12 PM',
+    createdAt: '1:23:45 PM',
+    editedAt: '6:78:09 PM',
+    closedAt: '12:34:56 PM',
     total: 18,
   },
 ]

@@ -8,6 +8,7 @@ import { db } from '../../firebase.config'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Spinner from '../../components/Spinner'
 import ContainerCard from '../../components/cards/ContainerCard'
+import RedLink from '../../components/links/RedLink'
 import Cashier from './Cashier'
 import Orders from './Orders'
 import Summary from './Summary'
@@ -67,30 +68,36 @@ function Admins() {
     return <Spinner />
   }
   return (
-    <ContainerCard className='flex flex-col justify-center font-semibold m-auto'>
-      <h1 className='text-3xl text-center text-white'>Admins</h1>
-      <div className='flex justify-between text-xl my-2'>
-        <Link
+    <ContainerCard className='flex flex-col justify-center m-auto'>
+      <h1 className='text-3xl text-center'>Admins</h1>
+      <div className='flex justify-between text-center my-2'>
+        <RedLink
           to='/admins/cashier'
           className={
-            matchRoute('/admins/cashier') ? 'text-yellow-200' : 'text-white'
+            matchRoute('/admins/cashier')
+              ? 'bg-red-600 text-yellow-400 w-24'
+              : 'text-white w-24'
           }>
           Cashier
-        </Link>
-        <Link
+        </RedLink>
+        <RedLink
           to='/admins/orders'
           className={
-            matchRoute('/admins/orders') ? 'text-yellow-200' : 'text-white'
+            matchRoute('/admins/orders')
+              ? 'bg-red-600 text-yellow-400 w-24'
+              : 'text-white w-24'
           }>
           Orders
-        </Link>
-        <Link
+        </RedLink>
+        <RedLink
           to='/admins/summary'
           className={
-            matchRoute('/admins/summary') ? 'text-yellow-200' : 'text-white'
+            matchRoute('/admins/summary')
+              ? 'bg-red-600 text-yellow-400 w-24'
+              : 'text-white w-24'
           }>
           Summary
-        </Link>
+        </RedLink>
       </div>
       {location.pathname === '/admins/cashier' ? (
         <Cashier />

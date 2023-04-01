@@ -6,7 +6,7 @@ function OrderCard({ order }) {
         <div className='flex flex-row justify-between px-1 text-xl border-solid border-b border-white'>
           <p>
             {/* {order.time.toDate().toLocaleTimeString('en-US')} */}
-            {order.time}
+            {order.createdAt}
           </p>
           <p>{order.ifood ? order.ifoodNum : 'Not ifood'}</p>
           <p>ba3d shagle</p>

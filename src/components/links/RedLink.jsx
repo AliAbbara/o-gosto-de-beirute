@@ -5,7 +5,7 @@ function RedLink({ children, className, to }) {
     <Link
       to={to}
       className={
-        'hover:bg-red-600 rounded-lg duration-100 py-1 px-4 text-lg border-2 border-yellow-400 ' +
+        'hover:bg-red-600 rounded-lg duration-100 py-1 px-4 text-lg border-2 border-yellow-400 focus:ring-4 focus:ring-yellow-500 ' +
         className
       }>
       {children}

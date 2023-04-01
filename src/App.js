@@ -20,7 +20,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/menu' element={<Menu />} />
+          <Route path='/menu/sandwiches' element={<Menu />} />
+          <Route path='/menu/porcoes' element={<Menu />} />
+          <Route path='/menu/drinks' element={<Menu />} />
           <Route path='/admins/cashier' element={<Admins />} />
           <Route path='/admins/orders' element={<Admins />} />
           <Route path='/admins/summary' element={<Admins />} />

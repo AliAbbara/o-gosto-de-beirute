@@ -14,7 +14,7 @@ function Navbar() {
   const auth = getAuth()
   const menuItems = [
     { id: '2h8v6b5', title: 'HOME', path: '' },
-    { id: '098asd7a0', title: 'MENU', path: 'menu' },
+    { id: '098asd7a0', title: 'MENU', path: 'menu/sandwiches' },
     { id: '44334llk', title: 'ADMINS', path: 'admins/cashier' },
     { id: '00gjkbnf5', title: 'CONTACT', path: 'contact' },
     { id: '65yuer23t', title: 'ABOUT US', path: 'about-us' },
@@ -31,7 +31,7 @@ function Navbar() {
   }, [auth])
 
   return (
-    <ContainerCard className='w-full flex justify-between text-2xl'>
+    <ContainerCard className='w-full flex justify-between'>
       {/* Logo icon and name piece */}
       <Link
         to='/'
@@ -44,19 +44,19 @@ function Navbar() {
         {menuItems.map((item) => (
           <li
             key={item.id}
-            className='text-lg py-1 px-4 hover:bg-red-600 hover:cursor-pointer rounded-lg duration-100'>
+            className='py-1 px-4 hover:bg-red-600 hover:cursor-pointer rounded-lg duration-100'>
             <Link to={'/' + item.path}>{item.title}</Link>
           </li>
         ))}
       </ul>
-      {/* Sign in and menu button piece */}
-      <div className='flex items-center'>
+      {/* Sign in and menu button div */}
+      <div className='flex items-center text-xl'>
         <RedLink to={loggedIn ? '/profile' : '/sign-in'}>
-          {loggedIn ? <CgProfile /> : <p>Sign In</p>}
+          {loggedIn ? <CgProfile className='text-xl' /> : <p>Sign In</p>}
         </RedLink>
         <RedButton
           onClick={() => setNavbarOpen(!navbarOpen)}
-          className='relative block lg:hidden'>
+          className='relative block lg:hidden ml-2'>
           <TfiLayoutListPost />
         </RedButton>
       </div>
@@ -70,7 +70,7 @@ function Navbar() {
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className='flex-1 text-lg py-1 px-2 hover:bg-red-600 hover:cursor-pointer rounded-lg duration-100'>
+              className='flex-1 py-1 px-2 hover:bg-red-600 hover:cursor-pointer rounded-lg duration-100'>
               <Link
                 to={'/' + item.path}
                 onClick={() => setNavbarOpen(!navbarOpen)}>

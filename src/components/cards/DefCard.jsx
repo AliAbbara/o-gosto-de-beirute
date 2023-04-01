@@ -29,13 +29,13 @@ function DefCard({ items, slidesPer, images }) {
             slideShadows: false,
           }}>
           {items.map((item) => (
-            <SwiperSlide key={item.key}>
+            <SwiperSlide key={item.id}>
               {images ? (
                 <div className='text-white w-72 h-52 border-2 border-yellow-400 rounded-lg'>
                   <img
                     className='w-full h-full rounded-lg'
-                    src={item.name}
-                    alt={item.key}
+                    src={item.image}
+                    alt={item.name}
                   />
                 </div>
               ) : (

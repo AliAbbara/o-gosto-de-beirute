@@ -150,7 +150,7 @@ function Cashier() {
     setOrder((prevState) => ({
       ...prevState,
       items: bag,
-      time: serverTimestamp(),
+      createdAt: serverTimestamp(),
     }))
     const docRef = await addDoc(collection(db, 'orders'), order)
     console.log(docRef)
