@@ -5,10 +5,18 @@ import { v4 as uuidv4 } from 'uuid'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import Spinner from './../../components/Spinner'
+import ItemButton from '../../components/buttons/ItemButton'
+import RedButton from '../../components/buttons/RedButton'
+import SwitchButton from '../../components/buttons/SwitchButton'
 
 function Cashier() {
   // eslint-disable-next-line
-  const [menuItems, setMenuItems] = useState(menu)
+  const menuItems = menu
+  const sandwiches = menu.filter((item) => item.type === 'Sandwich')
+  const portions = menu.filter(
+    (item) => item.type === 'Porcao' || item.type === 'Salgado'
+  )
+  const drinks = menu.filter((item) => item.type === 'Drink')
   const [loading, setLoading] = useState(false)
   const [bag, setBag] = useState([])
   const [bagTotal, setBagTotal] = useState(0)
@@ -26,7 +34,9 @@ function Cashier() {
         uuid: '',
       },
     ],
-    time: {},
+    createdAt: {},
+    editedAt: {},
+    closedAt: {},
     customer: '',
     ifood: false,
     ifoodNum: 0,
@@ -153,7 +163,6 @@ function Cashier() {
       createdAt: serverTimestamp(),
     }))
     const docRef = await addDoc(collection(db, 'orders'), order)
-    console.log(docRef)
     setBag([])
     setLoading(false)
   }
@@ -163,8 +172,7 @@ function Cashier() {
     getTotals()
     setOrder((prevState) => ({
       ...prevState,
-      preparing: true,
-      done: false,
+      items: bag,
     }))
     // eslint-disable-next-line
   }, [bagTotal, bagSubtotal, bag, ifood, paidIfood, discount])
@@ -189,125 +197,82 @@ function Cashier() {
           </select>
         </div>
         {/* Items select div */}
-        <div className='flex flex-row flex-wrap'>
-          <label>Items:</label>
-          {menuItems?.map((menuItem) => (
-            <button
+        <div className='flex flex-wrap'>
+          <div className='flex-1 flex-wrap'>
+            <label>Sandwiches: </label>
+            {sandwiches.map((menuItem) => (
+              <ItemButton
+                key={menuItem.id}
+                type='button'
+                onClick={() => onItemAdd(menuItem)}>
+                {menuItem?.name}
+              </ItemButton>
+            ))}
+          </div>
+          <div className='flex-1 flex-wrap'>
+            <label>Portions: </label>
+            {portions.map((menuItem) => (
+              <ItemButton
+                key={menuItem.id}
+                type='button'
+                onClick={() => onItemAdd(menuItem)}>
+                {menuItem?.name}
+              </ItemButton>
+            ))}
+          </div>
+        </div>
+        <div className='w-full flex-wrap'>
+          <label>Drinks: </label>
+          {drinks.map((menuItem) => (
+            <ItemButton
               key={menuItem.id}
               type='button'
-              onClick={() => onItemAdd(menuItem)}
-              className='bg-yellow-400 rounded-lg text-red-700 m-1 px-1 hover:bg-yellow-500 focus:ring-2 focus:outline-none focus:ring-yellow-600 duration-100'>
+              onClick={() => onItemAdd(menuItem)}>
               {menuItem?.name}
-            </button>
+            </ItemButton>
           ))}
         </div>
         {/* Customer name div */}
         <div>
           <label>Customer name: </label>
           <input
-            className='rounded-lg ml-1 text-red-700'
+            className='rounded-lg ml-1 text-red-700 px-1'
             type='text'
             id='customer'
             value={customer}
             onChange={onMutate}
           />
         </div>
-        {/* Ifood select div */}
-        <div className='flex justify-between'>
-          <div>
-            <label className='mr-3'>iFood: </label>
-            <button
-              className={
-                'px-1 bg-yellow-400 rounded-lg text-red-700 hover:bg-yellow-500 focus:ring-2 focus:outline-none dark:focus:ring-yellow-600 duration-100' +
-                (ifood ? ' bg-yellow-500' : '')
-              }
-              type='button'
-              id='ifood'
-              value={true}
-              onClick={onMutate}>
-              Yes
-            </button>
-            <button
-              className={
-                'px-1 bg-yellow-400 rounded-lg text-red-700 hover:bg-yellow-500 focus:ring-2 focus:outline-none dark:focus:ring-yellow-600 duration-100' +
-                (ifood ? '' : ' bg-yellow-500')
-              }
-              type='button'
-              id='ifood'
-              value={false}
-              onClick={onMutate}>
-              No
-            </button>
-          </div>
-
-          <div>
-            <label className='mr-3'>iFood Number: </label>
-            <input
-              className='w-10 rounded-lg ml-1 text-red-700'
-              type='number'
-              id='ifoodNum'
-              value={ifoodNum}
-              onChange={onMutate}
-            />
-          </div>
-
-          <div>
-            <label className='mr-3'>Paid via iFood: </label>
-            <button
-              className={
-                'px-1 bg-yellow-400 rounded-lg text-red-700 hover:bg-yellow-500 focus:ring-2 focus:outline-none dark:focus:ring-yellow-600 duration-100' +
-                (paidIfood ? ' bg-yellow-500' : '')
-              }
-              type='button'
-              id='paidIfood'
-              value={true}
-              onClick={onMutate}>
-              Yes
-            </button>
-            <button
-              className={
-                'px-1 bg-yellow-400 rounded-lg text-red-700 hover:bg-yellow-500 focus:ring-2 focus:outline-none dark:focus:ring-yellow-600 duration-100' +
-                (paidIfood ? '' : ' bg-yellow-500')
-              }
-              type='button'
-              id='paidIfood'
-              value={false}
-              onClick={onMutate}>
-              No
-            </button>
-          </div>
+        {/* Total and subtotal div */}
+        <div>
+          <p>Total: {total}</p>
+          <p>Subtotal: {subtotal}</p>
         </div>
         {/* Discount select div */}
-        <div className='flex justify-between'>
+        <div className='flex'>
           <div>
             <label>Discount: </label>
-            <button
-              className={
-                'px-1 bg-yellow-400 rounded-lg text-red-700 hover:bg-yellow-500 focus:ring-2 focus:outline-none dark:focus:ring-yellow-600 duration-100' +
-                (discount ? ' bg-yellow-500' : '')
-              }
+            <SwitchButton
+              className={discount ? ' bg-red-500' : ''}
               type='button'
               id='discount'
               value={true}
               onClick={onMutate}>
               Yes
-            </button>
-            <button
-              className={
-                'px-1 bg-yellow-400 rounded-lg text-red-700 hover:bg-yellow-500 focus:ring-2 focus:outline-none dark:focus:ring-yellow-600 duration-100' +
-                (discount ? '' : ' bg-yellow-500')
-              }
+            </SwitchButton>
+            <SwitchButton
+              className={discount ? '' : ' bg-red-500'}
               type='button'
               id='discount'
               value={false}
               onClick={onMutate}>
               No
-            </button>
+            </SwitchButton>
           </div>
-          <div>
+          <div className='ml-4'>
             <label>Discount % : </label>
             <input
-              className='rounded-lg text-red-700'
+              className='rounded-lg text-red-700 w-14'
               type='number'
               id='discountPer'
               value={discountPer}
@@ -315,11 +280,60 @@ function Cashier() {
             />
           </div>
         </div>
-        {/* Total and subtotal div */}
-        <div>
-          <p>Total: {total}</p>
-          <p>Subtotal: {subtotal}</p>
+        {/* Ifood select div */}
+        <div className='flex flex-wrap'>
+          <div>
+            <label>iFood: </label>
+            <SwitchButton
+              className={ifood ? 'bg-red-500' : ''}
+              type='button'
+              id='ifood'
+              value={true}
+              onClick={onMutate}>
+              Yes
+            </SwitchButton>
+            <SwitchButton
+              className={ifood ? '' : 'bg-red-500'}
+              type='button'
+              id='ifood'
+              value={false}
+              onClick={onMutate}>
+              No
+            </SwitchButton>
+          </div>
+
+          <div className='ml-4 '>
+            <label>Paid via iFood: </label>
+            <SwitchButton
+              className={paidIfood ? ' bg-red-500' : ''}
+              type='button'
+              id='paidIfood'
+              value={true}
+              onClick={onMutate}>
+              Yes
+            </SwitchButton>
+            <SwitchButton
+              className={paidIfood ? '' : ' bg-red-500'}
+              type='button'
+              id='paidIfood'
+              value={false}
+              onClick={onMutate}>
+              No
+            </SwitchButton>
+          </div>
+
+          <div className='ml-4 '>
+            <label>iFood Number: </label>
+            <input
+              className='w-14 rounded-lg ml-1 text-red-700'
+              type='number'
+              id='ifoodNum'
+              value={ifoodNum}
+              onChange={onMutate}
+            />
+          </div>
         </div>
+
         {/* Bag div */}
         <div className='flex flex-wrap mb-2 justify-center'>
           <label className='mr-1'>Bag: </label>
@@ -328,7 +342,7 @@ function Cashier() {
               <div
                 key={index}
                 className='flex flex-col border rounded-lg border-white p-1 m-1'>
-                <div className='flex flex-row w-full h-8 justify-between text-red-700'>
+                <div className='flex w-full h-8 justify-between text-red-700'>
                   <div className='bg-yellow-400 py-1 rounded-lg w-full text-center mr-1'>
                     {bagItem.name}
                   </div>
@@ -358,11 +372,9 @@ function Cashier() {
               </div>
             ))}
         </div>
-        <button
-          type='submit'
-          className='p-1 w-full text-red-700 bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-2 focus:outline-none dark:focus:ring-yellow-600 duration-100'>
+        <RedButton className='w-full' type='submit'>
           Submit Order
-        </button>
+        </RedButton>
       </form>
     </div>
   )

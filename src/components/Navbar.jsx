@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TfiLayoutListPost } from 'react-icons/tfi'
-import { GiBeard } from 'react-icons/gi'
+import logo from '../assets/fullLogo.png'
 import { CgProfile } from 'react-icons/cg'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import ContainerCard from './cards/ContainerCard'
@@ -31,16 +31,17 @@ function Navbar() {
   }, [auth])
 
   return (
-    <ContainerCard className='w-full flex justify-between'>
+    <ContainerCard className='flex justify-between items-center'>
       {/* Logo icon and name piece */}
       <Link
         to='/'
         onClick={() => setNavbarOpen(false)}
-        className='ml-2 flex items-center font-semibold text-2xl'>
-        <GiBeard /> <p className='ml-2'>O GOSTO DE BEIRUTE</p>
+        className='flex items-center font-semibold text-2xl'>
+        <img src={logo} alt='full logo' className='w-10 mr-2' />
+        <p>O GOSTO DE BEIRUTE</p>
       </Link>
-      {/* Navbar items piece */}
-      <ul className='hidden flex-row list-none w-1/2 h-auto text-center lg:flex md:hidden'>
+      {/* Navbar items list */}
+      <ul className='hidden lg:flex list-none w-1/2 text-center'>
         {menuItems.map((item) => (
           <li
             key={item.id}
@@ -50,27 +51,27 @@ function Navbar() {
         ))}
       </ul>
       {/* Sign in and menu button div */}
-      <div className='flex items-center text-xl'>
+      <div className='flex items-center'>
         <RedLink to={loggedIn ? '/profile' : '/sign-in'}>
-          {loggedIn ? <CgProfile className='text-xl' /> : <p>Sign In</p>}
+          {loggedIn ? <CgProfile size={20} /> : <p>Sign In</p>}
         </RedLink>
         <RedButton
           onClick={() => setNavbarOpen(!navbarOpen)}
-          className='relative block lg:hidden ml-2'>
+          className='relative block lg:hidden ml-2 text-xl'>
           <TfiLayoutListPost />
         </RedButton>
       </div>
       {/* Dropdown menu container div */}
       <div
         className={
-          'absolute right-4 top-16 mt-1 bg-red-700 w-36 border-2 lg:hidden border-yellow-400 rounded-lg z-10 shadow-2xl shadow-black' +
+          'absolute lg:hidden right-4 top-16 mt-2 bg-red-700 w-36 border-2 border-yellow-400 rounded-lg z-10 shadow-2xl shadow-black' +
           (navbarOpen ? ' flex' : ' hidden')
         }>
-        <ul className='flex flex-col list-none w-full h-auto text-center'>
+        <ul className='flex flex-col list-none w-full text-center'>
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className='flex-1 py-1 px-2 hover:bg-red-600 hover:cursor-pointer rounded-lg duration-100'>
+              className='py-1 hover:bg-red-600 hover:cursor-pointer rounded-lg duration-100'>
               <Link
                 to={'/' + item.path}
                 onClick={() => setNavbarOpen(!navbarOpen)}>

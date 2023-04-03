@@ -60,7 +60,8 @@ export const porcoes = [
   // },
   {
     id: '12MolhoEspecial',
-    image: '',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/imagesGeneral%2FmolhoEspecial.jpg?alt=media&token=afe8703f-5851-43b0-b1be-10161ecffeb2',
     name: 'Molho Especial',
     ingredients: 'Nosso molho de casa, com os temperos de casa, Caseiro',
     type: 'Porcao',
@@ -71,7 +72,8 @@ export const porcoes = [
   },
   {
     id: '13CremeDeAlho',
-    image: '',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/imagesGeneral%2FcremeDeAlho.jpg?alt=media&token=61d1ddde-8b51-442f-ac76-dcd9a5b20a80',
     name: 'Creme de Alho',
     ingredients:
       'Nosso creme de alho de casa, com os temperos de casa, Caseiro',
@@ -83,7 +85,8 @@ export const porcoes = [
   },
   {
     id: '14MolhoDeTahine',
-    image: '',
+    image:
+      'https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/imagesGeneral%2FmolhoDeTahine.jpg?alt=media&token=caf5c8cb-b120-4c03-8037-fe1ccda48444',
     name: 'Molho de Tahine',
     ingredients: 'Nosso molho de Tahine, baseado do gergelim, Caseiro',
     type: 'Porcao',

@@ -12,6 +12,7 @@ import SignIn from './pages/authen/SignIn'
 import SignUp from './pages/authen/SignUp'
 import ForgotPassword from './pages/authen/ForgotPassword'
 import Profile from './pages/authen/Profile'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path='/profile' element={<Profile />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
         </Routes>
+        <Footer />
       </Router>
 
       <ToastContainer />

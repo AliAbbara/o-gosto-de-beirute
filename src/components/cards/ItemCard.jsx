@@ -40,8 +40,8 @@ function ItemCard({ item }) {
           <div className='flex flex-col text-base text-slate-100'>
             <p>{item?.ingredients}</p>
             <p>
-              Preparation Time: {item?.prepTime}{' '}
-              {item?.prepTime === '1' ? 'minute' : 'minutes'}
+              Preparation Time: {item?.prepTime}
+              {item?.prepTime === '1' ? ' minute' : ' minutes'}
             </p>
           </div>
           {/* Buttons div */}

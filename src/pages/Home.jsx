@@ -32,8 +32,8 @@ function Home() {
 
   return (
     <>
-      <DefCard items={images} slidesPer={3} images={true} />
-      <DefCard items={carouselItems1} slidesPer={3} images={false} />
+      <DefCard items={images} slidesPer={2.5} images={true} />
+      <DefCard items={carouselItems1} slidesPer={2.5} images={false} />
       <DefCard items={carouselItems2} slidesPer={1} images={false} />
     </>
   )
