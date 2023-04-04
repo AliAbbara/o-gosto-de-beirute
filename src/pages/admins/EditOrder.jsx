@@ -1,28 +1,36 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { menu } from '../../assets/menuItems'
 import { v4 as uuidv4 } from 'uuid'
 import {
-  addDoc,
   doc,
-  setDoc,
+  updateDoc,
+  getDocs,
+  addDoc,
   collection,
   serverTimestamp,
+  query,
+  where,
 } from 'firebase/firestore'
-import { db } from '../../firebase.config'
+import { db, auth } from '../../firebase.config'
+import { toast } from 'react-toastify'
 import Spinner from './../../components/Spinner'
+import ContainerCard from '../../components/cards/ContainerCard'
 import ItemButton from '../../components/buttons/ItemButton'
 import RedButton from '../../components/buttons/RedButton'
 import SwitchButton from '../../components/buttons/SwitchButton'
 
-function Cashier() {
+function EditOrder() {
+  //-------------------------Menu Categories--------------------------
   const sandwiches = menu.filter((item) => item.type === 'Sandwich')
   const portions = menu.filter(
     (item) => item.type === 'Porcao' || item.type === 'Salgado'
   )
   const drinks = menu.filter((item) => item.type === 'Drink')
-
+  //------------------------------------------------------------------
   const navigate = useNavigate()
+  const params = useParams()
+
   const [loading, setLoading] = useState(false)
   const [bag, setBag] = useState([])
   const [bagTotal, setBagTotal] = useState(0)
@@ -44,7 +52,6 @@ function Cashier() {
     editedAt: {},
     closedAt: {},
     customer: '',
-    id: '',
     ifood: false,
     ifoodNum: 0,
     paidIfood: true,
@@ -164,26 +171,43 @@ function Cashier() {
     setOrder((prevState) => ({
       ...prevState,
       items: bag,
-      id: uuidv4(),
       createdAt: serverTimestamp(),
     }))
-    const ordersRef = collection(db, 'orders')
-    await setDoc(doc(ordersRef), order)
+    await addDoc(collection(db, 'orders'), order)
     setBag([])
     setLoading(false)
-    navigate('/admins/orders')
   }
   // --------------------------------------------------------
 
+  // Fetching order to fill the forms
   useEffect(() => {
-    getTotals()
-    setOrder((prevState) => ({
-      ...prevState,
-      items: bag,
-      id: uuidv4(),
-      createdAt: serverTimestamp(),
-    }))
+    setLoading(true)
+    const fetchOrder = async () => {
+      const ordersRef = collection(db, 'orders')
+      const q = query(ordersRef, where('id', '==', params.orderId))
+      const docsSnap = await getDocs(q)
+      try {
+        docsSnap.forEach((doc) => {
+          setOrder(doc.data())
+        })
+      } catch (error) {
+        console.log(error)
+      }
+      setLoading(false)
+    }
+    fetchOrder()
+    console.log(order)
+    // getTotals()
+    // setOrder((prevState) => ({
+    //   ...prevState,
+    //   items: bag,
+    //   createdAt: serverTimestamp(),
+    // }))
     // eslint-disable-next-line
+  }, [params.orderId])
+
+  useEffect(() => {
+    setBag(order.items)
   }, [bagTotal, bagSubtotal, bag, ifood, paidIfood, discount])
 
   if (loading) {
@@ -386,4 +410,4 @@ function Cashier() {
   )
 }
 
-export default Cashier
+export default EditOrder

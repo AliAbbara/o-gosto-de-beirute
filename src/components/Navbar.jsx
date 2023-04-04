@@ -27,6 +27,7 @@ function Navbar() {
         setLoggedIn(false)
       }
     })
+    // eslint-disable-next-line
   }, [auth])
 
   return (

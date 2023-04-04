@@ -31,6 +31,7 @@ function Profile() {
       }
       setLoading(false)
     })
+    // eslint-disable-next-line
   }, [auth])
 
   if (loading) {

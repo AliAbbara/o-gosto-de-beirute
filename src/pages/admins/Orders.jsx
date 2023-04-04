@@ -1,31 +1,29 @@
-// eslint-disable-next-line
 import { getDocs, collection, query, orderBy } from 'firebase/firestore'
-// eslint-disable-next-line
 import { db } from '../../firebase.config'
 import { useState, useEffect } from 'react'
 import Spinner from '../../components/Spinner'
 import OrderCard from '../../components/cards/OrderCard'
-import { fakeOrders } from './../../assets/fakeOrders'
+// import { fakeOrders } from './../../assets/fakeOrders'
 
 function Orders() {
-  // const [orders, setOrders] = useState([])
-  const orders = fakeOrders
-  // eslint-disable-next-line
+  const [orders, setOrders] = useState([])
+  // const orders = fakeOrders
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    // const fetchOrders = async () => {
-    //   const ordersRef = collection(db, 'orders')
-    //   const q = query(ordersRef, orderBy('time', 'asc'))
-    //   const ordersSnap = await getDocs(q)
-    //   let orders = []
-    //   ordersSnap.forEach((doc) => {
-    //     return orders.push(doc.data())
-    //   })
-    //   setOrders(orders)
-    //   setLoading(false)
-    // }
-    // fetchOrders()
+    setLoading(true)
+    const fetchOrders = async () => {
+      const ordersRef = collection(db, 'orders')
+      const q = query(ordersRef, orderBy('createdAt', 'asc'))
+      const ordersSnap = await getDocs(q)
+      let orders = []
+      ordersSnap.forEach((doc) => {
+        return orders.push(doc.data())
+      })
+      setOrders(orders)
+      setLoading(false)
+    }
+    fetchOrders()
   }, [])
 
   if (loading) {
