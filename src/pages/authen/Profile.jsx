@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../../firebase.config'
+import { checkAdmin } from '../../assets/hooks/checkAdmin'
 import Spinner from '../../components/Spinner'
 // import RedInput from '../components/inputs/RedInput'
 import RedLink from '../../components/links/RedLink'
@@ -9,12 +11,21 @@ import ContainerCard from '../../components/cards/ContainerCard'
 function Profile() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loading, setLoading] = useState(true)
-  const auth = getAuth()
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  const fetchAdminStatus = async (id) => {
+    if (await checkAdmin(id)) {
+      setIsAdmin(true)
+    } else {
+      setIsAdmin(false)
+    }
+  }
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setLoggedIn(true)
+        fetchAdminStatus(user.uid)
       } else {
         setLoggedIn(false)
       }
@@ -32,6 +43,11 @@ function Profile() {
         <>
           <p>{auth.currentUser?.displayName}</p>
           <p>{auth.currentUser?.email}</p>
+          {isAdmin ? (
+            <RedLink to='/admins/cashier'>Go To Admin Page</RedLink>
+          ) : (
+            ''
+          )}
           <RedButton className='mt-6' onClick={() => auth.signOut()}>
             Sign Out
           </RedButton>

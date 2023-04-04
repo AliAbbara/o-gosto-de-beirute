@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { toast } from 'react-toastify'
 import { FaEye } from 'react-icons/fa'
-import { FcGoogle } from 'react-icons/fc'
 import RedInput from '../../components/inputs/RedInput'
 import RedLink from '../../components/links/RedLink'
 import RedButton from '../../components/buttons/RedButton'
@@ -98,7 +97,6 @@ function SignIn() {
 
       <div className='mt-6 flex flex-col items-center'>
         <p>Or sign in with Google instead</p>
-        {/* <FcGoogle className='p-1 bg-white rounded-lg w-8 h-8 hover:cursor-pointer hover:bg-slate-200 duration-100' /> */}
         <OAuth />
       </div>
     </ContainerCard>

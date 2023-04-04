@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TfiLayoutListPost } from 'react-icons/tfi'
-import logo from '../assets/fullLogo.png'
 import { CgProfile } from 'react-icons/cg'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../firebase.config'
+import logo from '../assets/fullLogo.png'
 import ContainerCard from './cards/ContainerCard'
 import RedLink from './links/RedLink'
 import RedButton from './buttons/RedButton'
@@ -11,11 +12,9 @@ import RedButton from './buttons/RedButton'
 function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
-  const auth = getAuth()
   const menuItems = [
     { id: '2h8v6b5', title: 'HOME', path: '' },
     { id: '098asd7a0', title: 'MENU', path: 'menu/sandwiches' },
-    { id: '44334llk', title: 'ADMINS', path: 'admins/cashier' },
     { id: '00gjkbnf5', title: 'CONTACT', path: 'contact' },
     { id: '65yuer23t', title: 'ABOUT US', path: 'about-us' },
   ]
@@ -36,12 +35,12 @@ function Navbar() {
       <Link
         to='/'
         onClick={() => setNavbarOpen(false)}
-        className='flex items-center font-semibold text-2xl'>
+        className='flex items-center font-semibold text-2xl w-full lg:w-1/3'>
         <img src={logo} alt='full logo' className='w-10 mr-2' />
         <p>O GOSTO DE BEIRUTE</p>
       </Link>
       {/* Navbar items list */}
-      <ul className='hidden lg:flex list-none w-1/2 text-center'>
+      <ul className='hidden lg:flex text-center min-w-fit'>
         {menuItems.map((item) => (
           <li
             key={item.id}
@@ -51,7 +50,7 @@ function Navbar() {
         ))}
       </ul>
       {/* Sign in and menu button div */}
-      <div className='flex items-center'>
+      <div className='flex justify-end items-center w-1/3'>
         <RedLink to={loggedIn ? '/profile' : '/sign-in'}>
           {loggedIn ? <CgProfile size={20} /> : <p>Sign In</p>}
         </RedLink>

@@ -29,13 +29,6 @@ function Footer() {
             <SiIfood />
           </RedLink>
         </div>
-        {/* Menu */}
-        <div className='flex flex-col'>
-          <p className='text-3xl mb-2'>Paginas</p>
-          <RedLink to='/menu/sandwiches'>Menu</RedLink>
-          <RedLink to='/contact'>Contact</RedLink>
-          <RedLink to='/about-us'>About Us</RedLink>
-        </div>
         {/* Links */}
         <div className='flex flex-col'>
           <p className='text-3xl mb-2'>Cardapio</p>
@@ -43,9 +36,15 @@ function Footer() {
           <RedLink to='/menu/porcoes'>Salgados & Porcoes</RedLink>
           <RedLink to='/menu/drinks'>Bebidas</RedLink>
         </div>
+        {/* Menu */}
+        <div className='flex flex-col justify-evenly'>
+          <p className='text-3xl mb-2'>Paginas</p>
+          <RedLink to='/contact'>Contact</RedLink>
+          <RedLink to='/about-us'>About Us</RedLink>
+        </div>
       </div>
       {/* -----------Rights div------------- */}
-      <div className='flex justify-evenly mt-2'>
+      <div className='flex flex-col mt-2'>
         <p>O Gosto de Beirute &reg; - All Right Reserved 2023</p>
         <p>Designed and developed by Ali Abbara &copy; </p>
       </div>

@@ -9,7 +9,6 @@ import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import { toast } from 'react-toastify'
 import { FaEye } from 'react-icons/fa'
-import { FcGoogle } from 'react-icons/fc'
 import RedInput from '../../components/inputs/RedInput'
 import RedLink from '../../components/links/RedLink'
 import RedButton from '../../components/buttons/RedButton'
@@ -48,7 +47,7 @@ function SignUp() {
         )
         const user = userCredential.user
 
-        updateProfile(auth.currentUser, { displayName: name })
+        updateProfile(auth.currentUser, { displayName: name }, { admin: true })
 
         const formDataCopy = { ...formData }
         delete formDataCopy.password
@@ -122,7 +121,6 @@ function SignUp() {
 
       <div className='mt-6 flex flex-col items-center'>
         <p>Or sign up with Google instead</p>
-        {/* <FcGoogle className='p-1 bg-white rounded-lg w-8 h-8 hover:cursor-pointer hover:bg-slate-200 duration-100' /> */}
         <OAuth />
       </div>
     </ContainerCard>
