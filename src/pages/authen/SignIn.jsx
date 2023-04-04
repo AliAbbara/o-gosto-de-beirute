@@ -8,6 +8,7 @@ import RedInput from '../../components/inputs/RedInput'
 import RedLink from '../../components/links/RedLink'
 import RedButton from '../../components/buttons/RedButton'
 import ContainerCard from '../../components/cards/ContainerCard'
+import OAuth from '../../components/OAuth'
 
 function SignIn() {
   const [passwordVisible, setPasswordVisible] = useState(false)
@@ -40,6 +41,7 @@ function SignIn() {
         )
         if (userCredential.user) {
           navigate('/')
+          toast.success('Signed in successfully!')
         }
       } catch (error) {
         toast.error('Wrong email or password!')
@@ -96,7 +98,8 @@ function SignIn() {
 
       <div className='mt-6 flex flex-col items-center'>
         <p>Or sign in with Google instead</p>
-        <FcGoogle className='p-1 bg-white rounded-lg w-8 h-8 hover:cursor-pointer hover:bg-slate-200 duration-100' />
+        {/* <FcGoogle className='p-1 bg-white rounded-lg w-8 h-8 hover:cursor-pointer hover:bg-slate-200 duration-100' /> */}
+        <OAuth />
       </div>
     </ContainerCard>
   )

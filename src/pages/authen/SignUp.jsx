@@ -14,6 +14,7 @@ import RedInput from '../../components/inputs/RedInput'
 import RedLink from '../../components/links/RedLink'
 import RedButton from '../../components/buttons/RedButton'
 import ContainerCard from '../../components/cards/ContainerCard'
+import OAuth from '../../components/OAuth'
 
 function SignUp() {
   const [passwordVisible, setPasswordVisible] = useState(false)
@@ -56,6 +57,7 @@ function SignUp() {
         await setDoc(doc(db, 'users', user.uid), formDataCopy)
 
         navigate('/')
+        toast.success('Signed in successfully!')
       } catch (error) {
         toast.error(
           'Something went wrong! Please check for a correct email or for an already existing account.'
@@ -120,7 +122,8 @@ function SignUp() {
 
       <div className='mt-6 flex flex-col items-center'>
         <p>Or sign up with Google instead</p>
-        <FcGoogle className='p-1 bg-white rounded-lg w-8 h-8 hover:cursor-pointer hover:bg-slate-200 duration-100' />
+        {/* <FcGoogle className='p-1 bg-white rounded-lg w-8 h-8 hover:cursor-pointer hover:bg-slate-200 duration-100' /> */}
+        <OAuth />
       </div>
     </ContainerCard>
   )
