@@ -40,18 +40,18 @@ function Profile() {
     <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
       <h1 className='text-3xl text-center'>Profile</h1>
       {loggedIn ? (
-        <>
+        <div className='flex flex-col'>
           <p>{auth.currentUser?.displayName}</p>
           <p>{auth.currentUser?.email}</p>
-          {isAdmin ? (
-            <RedLink to='/admins/cashier'>Go To Admin Page</RedLink>
-          ) : (
-            ''
+          {isAdmin && (
+            <RedLink to='/admins/cashier' className='text-center'>
+              Go To Admin Page
+            </RedLink>
           )}
           <RedButton className='mt-6' onClick={() => auth.signOut()}>
             Sign Out
           </RedButton>
-        </>
+        </div>
       ) : (
         <>
           <p>Make sure you are signed in!</p>
