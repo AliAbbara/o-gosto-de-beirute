@@ -2,24 +2,15 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { menu } from '../../assets/menuItems'
 import { v4 as uuidv4 } from 'uuid'
-import {
-  doc,
-  updateDoc,
-  getDocs,
-  getDoc,
-  addDoc,
-  collection,
-  serverTimestamp,
-  query,
-  where,
-} from 'firebase/firestore'
-import { db, auth } from '../../firebase.config'
+import { doc, updateDoc, getDoc, serverTimestamp } from 'firebase/firestore'
+import { db } from '../../firebase.config'
 import { toast } from 'react-toastify'
 import Spinner from './../../components/Spinner'
 import ContainerCard from '../../components/cards/ContainerCard'
 import ItemButton from '../../components/buttons/ItemButton'
 import RedButton from '../../components/buttons/RedButton'
 import SwitchButton from '../../components/buttons/SwitchButton'
+import RedLink from './../../components/links/RedLink'
 
 function EditOrder() {
   //-------------------------Menu Categories--------------------------
@@ -58,6 +49,7 @@ function EditOrder() {
     paidIfood: true,
     discount: false,
     discountPer: 0,
+    table: 10,
     total: 0,
     subtotal: 0,
     preparing: true,
@@ -72,6 +64,7 @@ function EditOrder() {
     paidIfood,
     discount,
     discountPer,
+    table,
     total,
     subtotal,
     orderType,
@@ -216,7 +209,11 @@ function EditOrder() {
     return <Spinner />
   }
   return (
-    <div className='flex flex-col h-auto justify-between'>
+    <ContainerCard className='flex flex-col justify-between'>
+      <h1 className='text-3xl text-center'>Edit Order</h1>
+      <RedLink className='mb-2 w-fit' to='/admins/orders'>
+        Back to Orders
+      </RedLink>
       <form onSubmit={(e) => onOrderSubmit(e)}>
         {/* Order Type div */}
         <div>
@@ -271,10 +268,21 @@ function EditOrder() {
         <div>
           <label>Customer name: </label>
           <input
-            className='rounded-lg ml-1 text-red-700 px-1'
+            className='rounded-lg ml-1 mb-1 text-red-700 px-1'
             type='text'
             id='customer'
             value={customer}
+            onChange={onMutate}
+          />
+        </div>
+        {/* Table number div */}
+        <div>
+          <label>Table number: </label>
+          <input
+            className='rounded-lg ml-1 text-red-700 px-1 w-14'
+            type='number'
+            id='table'
+            value={table}
             onChange={onMutate}
           />
         </div>
@@ -284,7 +292,7 @@ function EditOrder() {
           <p>Subtotal: {subtotal}</p>
         </div>
         {/* Discount select div */}
-        <div className='flex'>
+        <div className='flex mb-1'>
           <div>
             <label>Discount: </label>
             <SwitchButton
@@ -316,7 +324,7 @@ function EditOrder() {
           </div>
         </div>
         {/* Ifood select div */}
-        <div className='flex flex-wrap'>
+        <div className='flex flex-wrap mb-1'>
           <div>
             <label>iFood: </label>
             <SwitchButton
@@ -408,7 +416,7 @@ function EditOrder() {
           Update Order
         </RedButton>
       </form>
-    </div>
+    </ContainerCard>
   )
 }
 

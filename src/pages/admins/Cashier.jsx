@@ -50,6 +50,7 @@ function Cashier() {
     paidIfood: true,
     discount: false,
     discountPer: 0,
+    table: 10,
     total: 0,
     subtotal: 0,
     preparing: true,
@@ -64,6 +65,7 @@ function Cashier() {
     paidIfood,
     discount,
     discountPer,
+    table,
     total,
     subtotal,
     orderType,
@@ -245,10 +247,21 @@ function Cashier() {
         <div>
           <label>Customer name: </label>
           <input
-            className='rounded-lg ml-1 text-red-700 px-1'
+            className='rounded-lg ml-1 mb-1 text-red-700 px-1'
             type='text'
             id='customer'
             value={customer}
+            onChange={onMutate}
+          />
+        </div>
+        {/* Table number div */}
+        <div>
+          <label>Table number: </label>
+          <input
+            className='rounded-lg ml-1 text-red-700 px-1 w-14'
+            type='number'
+            id='table'
+            value={table}
             onChange={onMutate}
           />
         </div>
@@ -258,7 +271,7 @@ function Cashier() {
           <p>Subtotal: {subtotal}</p>
         </div>
         {/* Discount select div */}
-        <div className='flex'>
+        <div className='flex mb-1'>
           <div>
             <label>Discount: </label>
             <SwitchButton
@@ -290,7 +303,7 @@ function Cashier() {
           </div>
         </div>
         {/* Ifood select div */}
-        <div className='flex flex-wrap'>
+        <div className='flex flex-wrap mb-1'>
           <div>
             <label>iFood: </label>
             <SwitchButton
