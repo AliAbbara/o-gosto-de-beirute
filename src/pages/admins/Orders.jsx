@@ -43,13 +43,13 @@ function Orders() {
 
   return (
     <div className='flex flex-col'>
-      <div className='flex flex-wrap border-b-2 border-yellow-400'>
+      <div className='flex flex-wrap border-b border-yellow-400'>
         <p className='text-2xl'>Preparing: </p>
         {preparing?.map((order, index) => (
           <OrderCard key={index} order={order} />
         ))}
       </div>
-      <div className='flex flex-wrap border-b-2 border-yellow-400'>
+      <div className='flex flex-wrap'>
         <p className='text-2xl'>Done: </p>
         {done?.map((order, index) => (
           <OrderCard key={index} order={order} />

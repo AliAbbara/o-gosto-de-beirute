@@ -45,7 +45,7 @@ function Profile() {
           <p>{auth.currentUser?.displayName}</p>
           <p>{auth.currentUser?.email}</p>
           {isAdmin && (
-            <RedLink to='/admins/cashier' className='text-center'>
+            <RedLink to='/admins/add-order' className='text-center'>
               Go To Admin Page
             </RedLink>
           )}

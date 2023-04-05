@@ -54,7 +54,6 @@ function AddOrder() {
     table: 10,
     total: 0,
     subtotal: 0,
-    preparing: true,
     done: false,
     orderType: 'Takeaway',
   })
