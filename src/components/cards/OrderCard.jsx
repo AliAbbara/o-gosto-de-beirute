@@ -2,11 +2,11 @@ import RedLink from '../links/RedLink'
 import RedButton from './../buttons/RedButton'
 import { SiIfood } from 'react-icons/si'
 
-function OrderCard({ order }) {
+function OrderCard({ order, onDispatch }) {
   const {
     items,
     createdAt,
-    editedAt,
+    id,
     ifood,
     ifoodNum,
     orderType,
@@ -20,7 +20,11 @@ function OrderCard({ order }) {
       <div className='flex flex-col w-64 justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
         {/* Time & ifoodNum & table div */}
         <div className='flex justify-between text-semibold border-b border-yellow-400'>
-          <p>{createdAt.toDate().toLocaleTimeString()}</p>
+          <p>
+            {createdAt
+              .toDate()
+              .toLocaleTimeString([], { timeStyle: 'short', hour12: false })}
+          </p>
           <p className='border-x-2 border-yellow-400'>
             {ifood ? ifoodNum : orderType}
           </p>
@@ -45,7 +49,9 @@ function OrderCard({ order }) {
         {/* button for done div */}
         <div className='flex justify-between items-center'>
           {!done ? (
-            <RedButton className=''>Dispatch</RedButton>
+            <RedButton onClick={() => onDispatch(id)} className=''>
+              Dispatch
+            </RedButton>
           ) : (
             <RedButton>Close Order</RedButton>
           )}

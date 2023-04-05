@@ -8,7 +8,7 @@ import ContainerCard from '../../components/cards/ContainerCard'
 import RedLink from '../../components/links/RedLink'
 import AddOrder from './AddOrder'
 import Orders from './Orders'
-import Summary from './Summary'
+import Kitchen from './Kitchen'
 
 function Admins() {
   const location = useLocation()
@@ -82,7 +82,7 @@ function Admins() {
         ) : params.section === 'orders' ? (
           <Orders />
         ) : params.section === 'summary' ? (
-          <Summary />
+          <Kitchen />
         ) : (
           navigate('/not-found')
         )}

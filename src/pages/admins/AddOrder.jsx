@@ -2,13 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { menu } from '../../assets/menuItems'
 import { v4 as uuidv4 } from 'uuid'
-import {
-  addDoc,
-  doc,
-  setDoc,
-  collection,
-  serverTimestamp,
-} from 'firebase/firestore'
+import { doc, setDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import Spinner from '../../components/Spinner'
 import ItemButton from '../../components/buttons/ItemButton'
@@ -44,14 +38,16 @@ function AddOrder() {
     editedAt: {},
     doneAt: {},
     closedAt: {},
+    comment: '',
     customer: '',
     id: '',
+    orderNumber: 1,
     ifood: false,
     ifoodNum: 0,
     paidIfood: true,
     discount: false,
     discountPer: 0,
-    table: 10,
+    table: 0,
     total: 0,
     subtotal: 0,
     done: false,

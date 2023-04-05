@@ -44,13 +44,16 @@ function EditOrder() {
     editedAt: {},
     doneAt: {},
     closedAt: {},
+    comment: '',
     customer: '',
+    id: '',
+    orderNumber: 1,
     ifood: false,
     ifoodNum: 0,
     paidIfood: true,
     discount: false,
     discountPer: 0,
-    table: 10,
+    table: 0,
     total: 0,
     subtotal: 0,
     done: false,
@@ -194,6 +197,7 @@ function EditOrder() {
 
   useEffect(() => {
     setBag(order.items)
+    // eslint-disable-next-line
   }, [loading])
 
   useEffect(() => {
@@ -203,6 +207,7 @@ function EditOrder() {
       items: bag,
       editedAt: serverTimestamp(),
     }))
+    // eslint-disable-next-line
   }, [bagTotal, bagSubtotal, ifood, paidIfood, discount, discountPer, bag])
 
   if (loading) {

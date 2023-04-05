@@ -34,6 +34,10 @@ function Orders() {
     fetchOrders()
   }, [])
 
+  const onDispatch = async (id) => {
+    console.log(id)
+  }
+
   if (loading) {
     return <Spinner />
   }
@@ -46,13 +50,13 @@ function Orders() {
       <div className='flex flex-wrap border-b border-yellow-400'>
         <p className='text-2xl'>Preparing: </p>
         {preparing?.map((order, index) => (
-          <OrderCard key={index} order={order} />
+          <OrderCard key={index} order={order} onDispatch={onDispatch} />
         ))}
       </div>
       <div className='flex flex-wrap'>
         <p className='text-2xl'>Done: </p>
         {done?.map((order, index) => (
-          <OrderCard key={index} order={order} />
+          <OrderCard key={index} order={order} onDispatch={onDispatch} />
         ))}
       </div>
     </div>
