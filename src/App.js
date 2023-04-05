@@ -56,12 +56,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/menu/sandwiches' element={<Menu />} />
-          <Route path='/menu/porcoes' element={<Menu />} />
-          <Route path='/menu/drinks' element={<Menu />} />
-          <Route path='/admins/cashier' element={<Admins />} />
-          <Route path='/admins/orders' element={<Admins />} />
-          <Route path='/admins/summary' element={<Admins />} />
+          <Route path='/menu/:category' element={<Menu />} />
+          <Route path='/admins/:section' element={<Admins />} />
           <Route path='/admins/edit-order/:orderId' element={<EditOrder />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/contact' element={<Contact />} />

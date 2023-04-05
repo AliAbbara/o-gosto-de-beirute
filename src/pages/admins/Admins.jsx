@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../../firebase.config'
 import { checkAdmin } from './../../assets/hooks/checkAdmin'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Spinner from '../../components/Spinner'
 import ContainerCard from '../../components/cards/ContainerCard'
 import RedLink from '../../components/links/RedLink'
@@ -12,6 +12,7 @@ import Summary from './Summary'
 
 function Admins() {
   const location = useLocation()
+  const params = useParams()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const [isAdmin, setIsAdmin] = useState(false)
@@ -80,11 +81,11 @@ function Admins() {
           Summary
         </RedLink>
       </div>
-      {location.pathname === '/admins/cashier' ? (
+      {params.section === 'cashier' ? (
         <Cashier />
-      ) : location.pathname === '/admins/orders' ? (
+      ) : params.section === 'orders' ? (
         <Orders />
-      ) : location.pathname === '/admins/summary' ? (
+      ) : params.section === 'summary' ? (
         <Summary />
       ) : (
         navigate('/not-found')

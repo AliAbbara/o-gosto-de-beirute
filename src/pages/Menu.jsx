@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import Spinner from '../components/Spinner'
 import ItemCard from './../components/cards/ItemCard'
 import ContainerCard from '../components/cards/ContainerCard'
@@ -13,6 +13,7 @@ function Menu() {
   const portions = porcoes
   const drinks = bebidas
   const location = useLocation()
+  const params = useParams()
   const [loading, setLoading] = useState(false)
 
   const matchRoute = (route) => {
@@ -61,11 +62,11 @@ function Menu() {
         </RedLink>
       </div>
       <div>
-        {location.pathname === '/menu/sandwiches'
+        {params.category === 'sandwiches'
           ? items.map((item) => <ItemCard key={item.id} item={item} />)
-          : location.pathname === '/menu/porcoes'
+          : params.category === 'porcoes'
           ? portions.map((item) => <ItemCard key={item.id} item={item} />)
-          : location.pathname === '/menu/drinks'
+          : params.category === 'drinks'
           ? drinks.map((item) => <ItemCard key={item.id} item={item} />)
           : ''}
       </div>
