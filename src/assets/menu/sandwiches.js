@@ -6,7 +6,7 @@ export const sandwiches = [
     name: 'Shawarma Carne',
     ingredients:
       'Pao Libanes - Carne Temperada - Tomate - Cebola - Salsa - Molho de Tahine',
-    type: 'Sandwitch',
+    type: 'Sandwich',
     prepTime: '8-12',
     price: 22,
     spicey: false,
@@ -19,7 +19,7 @@ export const sandwiches = [
     name: 'Shawarma Frango',
     ingredients:
       'Pao Libanes - Frango Temperada - Alface - Bata Palha - Creme de Alho',
-    type: 'Sandwitch',
+    type: 'Sandwich',
     prepTime: '8-12',
     price: 18,
     spicey: false,
@@ -32,7 +32,7 @@ export const sandwiches = [
     name: 'Fajita Carne',
     ingredients:
       'Pao Libanes - Carne Temperada - Mucarela - Pimentao Verde - Cebola - Milho Verde - Molho Especial',
-    type: 'Sandwitch',
+    type: 'Sandwich',
     prepTime: '8-12',
     price: 26,
     spicey: false,
@@ -45,7 +45,7 @@ export const sandwiches = [
     name: 'Fajita Frango',
     ingredients:
       'Pao Libanes - Frango Temperada - Mucarela - Pimentao Verde - Cebola - Milho Verde - Creme de Alho',
-    type: 'Sandwitch',
+    type: 'Sandwich',
     prepTime: '8-12',
     price: 22,
     spicey: false,
@@ -58,7 +58,7 @@ export const sandwiches = [
     name: 'Carne Picante',
     ingredients:
       'Pao Libanes - Carne Temperada - Mucarela - Alface - Tomate - Milho Verde - Molho de Pimenta - Molho Especial',
-    type: 'Sandwitch',
+    type: 'Sandwich',
     prepTime: '8-12',
     price: 28,
     spicey: true,
@@ -71,7 +71,7 @@ export const sandwiches = [
     name: 'Falafel',
     ingredients:
       'Pao Libanes - Falafel - Alface - Tomate - Salsa - Molho de Tahine',
-    type: 'Sandwitch',
+    type: 'Sandwich',
     prepTime: '8-12',
     price: 20,
     spicey: false,

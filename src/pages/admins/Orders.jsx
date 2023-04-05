@@ -12,6 +12,8 @@ import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import Spinner from '../../components/Spinner'
 import OrderCard from '../../components/cards/OrderCard'
+import OrdersTable from '../../components/OrdersTable'
+import OrderRow from '../../components/OrderRow'
 
 function Orders() {
   const [orders, setOrders] = useState([])
@@ -86,9 +88,11 @@ function Orders() {
       </div>
       <div className='flex flex-wrap'>
         <p className='text-2xl'>Done: </p>
-        {done?.map((order) => (
-          <OrderCard key={order.id} order={order} onClose={onClose} />
-        ))}
+        <OrdersTable>
+          {done?.map((order) => (
+            <OrderRow key={order.id} order={order} />
+          ))}
+        </OrdersTable>
       </div>
     </div>
   )

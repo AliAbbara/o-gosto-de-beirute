@@ -101,7 +101,7 @@ export const menu = [
   {
     id: '12MolhoEspecial',
     name: 'Molho Especial',
-    type: 'Porcao',
+    type: 'Molho',
     quantity: 1,
     comment: '',
     price: 1.5,
@@ -110,7 +110,7 @@ export const menu = [
   {
     id: '13CremeDeAlho',
     name: 'Creme de Alho',
-    type: 'Porcao',
+    type: 'Molho',
     quantity: 1,
     comment: '',
     price: 1.5,
@@ -119,7 +119,7 @@ export const menu = [
   {
     id: '14MolhoDeTahine',
     name: 'Molho de Tahine',
-    type: 'Porcao',
+    type: 'Molho',
     quantity: 1,
     comment: '',
     price: 1.5,

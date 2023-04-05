@@ -9,6 +9,7 @@ function OrderCard({ order, onDispatch, onClose }) {
     ifood,
     ifoodNum,
     orderType,
+    orderNumber,
     done,
     total,
     subtotal,
@@ -19,15 +20,17 @@ function OrderCard({ order, onDispatch, onClose }) {
       <div className='flex flex-col w-64 justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
         {/* Time & ifoodNum & table div */}
         <div className='flex justify-between text-semibold border-b border-yellow-400'>
+          <p>Order Number: {orderNumber}</p>
           <p>
             {createdAt
               .toDate()
               .toLocaleTimeString([], { timeStyle: 'short', hour12: false })}
           </p>
-          <p className='border-x-2 border-yellow-400'>
-            {ifood ? ifoodNum : orderType}
-          </p>
-          <p>Num: {table}</p>
+        </div>
+        {/* --------------------------------*/}
+        <div className='flex justify-between text-semibold border-b border-yellow-400'>
+          <p>{ifood ? ifoodNum : orderType}</p>
+          <p>Table: {table}</p>
         </div>
         {/* order items div */}
         <div className='flex flex-col border-b border-yellow-400'>
