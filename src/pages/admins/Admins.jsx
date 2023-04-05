@@ -68,9 +68,9 @@ function Admins() {
             All Orders
           </RedLink>
           <RedLink
-            to='/admins/summary'
+            to='/admins/kitchen'
             className={
-              matchRoute('/admins/summary')
+              matchRoute('/admins/kitchen')
                 ? 'bg-red-600 text-yellow-400 w-24'
                 : 'text-white w-24'
             }>
@@ -81,7 +81,7 @@ function Admins() {
           <AddOrder />
         ) : params.section === 'orders' ? (
           <Orders />
-        ) : params.section === 'summary' ? (
+        ) : params.section === 'kitchen' ? (
           <Kitchen />
         ) : (
           navigate('/not-found')

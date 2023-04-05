@@ -2,22 +2,12 @@ import RedLink from '../links/RedLink'
 import RedButton from './../buttons/RedButton'
 import { SiIfood } from 'react-icons/si'
 
-function OrderCard({ order, onDispatch }) {
-  const {
-    items,
-    createdAt,
-    id,
-    ifood,
-    ifoodNum,
-    orderType,
-    done,
-    total,
-    subtotal,
-    table,
-  } = order
+function KitchenCard({ order, onDispatch }) {
+  const { items, createdAt, id, ifood, ifoodNum, orderType, done, table } =
+    order
   return (
     <>
-      <div className='flex flex-col w-64 justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
+      <div className='flex flex-col justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
         {/* Time & ifoodNum & table div */}
         <div className='flex justify-between text-semibold border-b border-yellow-400'>
           <p>
@@ -41,26 +31,18 @@ function OrderCard({ order, onDispatch }) {
             </div>
           ))}
         </div>
-        {/* Time & ifoodNum & table div */}
-        <div className='flex justify-between border-b border-yellow-400'>
-          <p>Total: {total}</p>
-          <p>Subtotal: {subtotal}</p>
-        </div>
         {/* button for done div */}
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-evenly items-center'>
+          {ifood && <SiIfood />}
           {!done ? (
-            <RedButton onClick={() => onDispatch(id)} className=''>
-              Dispatch
-            </RedButton>
+            <RedButton onClick={() => onDispatch(id)}>Dispatch</RedButton>
           ) : (
             <RedButton>Close Order</RedButton>
           )}
-          {ifood && <SiIfood />}
-          <RedLink to={`/admins/edit-order/${order.id}`}>Edit Order</RedLink>
         </div>
       </div>
     </>
   )
 }
 
-export default OrderCard
+export default KitchenCard
