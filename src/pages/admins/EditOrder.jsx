@@ -42,6 +42,7 @@ function EditOrder() {
     ],
     createdAt: {},
     editedAt: {},
+    doneAt: {},
     closedAt: {},
     customer: '',
     ifood: false,
@@ -165,7 +166,7 @@ function EditOrder() {
     setOrder((prevState) => ({
       ...prevState,
       items: bag,
-      createdAt: serverTimestamp(),
+      editedAt: serverTimestamp(),
     }))
     const docRef = doc(db, 'orders', params.orderId)
     await updateDoc(docRef, order)
@@ -201,7 +202,7 @@ function EditOrder() {
     setOrder((prevState) => ({
       ...prevState,
       items: bag,
-      createdAt: serverTimestamp(),
+      editedAt: serverTimestamp(),
     }))
   }, [bagTotal, bagSubtotal, ifood, paidIfood, discount, discountPer, bag])
 

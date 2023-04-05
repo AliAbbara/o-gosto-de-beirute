@@ -6,7 +6,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Spinner from '../../components/Spinner'
 import ContainerCard from '../../components/cards/ContainerCard'
 import RedLink from '../../components/links/RedLink'
-import Cashier from './Cashier'
+import AddOrder from './AddOrder'
 import Orders from './Orders'
 import Summary from './Summary'
 
@@ -54,13 +54,13 @@ function Admins() {
       )}
       <div className='flex justify-between text-center my-2'>
         <RedLink
-          to='/admins/cashier'
+          to='/admins/add-order'
           className={
-            matchRoute('/admins/cashier')
+            matchRoute('/admins/add-order')
               ? 'bg-red-600 text-yellow-400 w-24'
               : 'text-white w-24'
           }>
-          Cashier
+          Add Order
         </RedLink>
         <RedLink
           to='/admins/orders'
@@ -69,7 +69,7 @@ function Admins() {
               ? 'bg-red-600 text-yellow-400 w-24'
               : 'text-white w-24'
           }>
-          Orders
+          All Orders
         </RedLink>
         <RedLink
           to='/admins/summary'
@@ -78,11 +78,11 @@ function Admins() {
               ? 'bg-red-600 text-yellow-400 w-24'
               : 'text-white w-24'
           }>
-          Summary
+          Kitchen Section
         </RedLink>
       </div>
-      {params.section === 'cashier' ? (
-        <Cashier />
+      {params.section === 'add-order' ? (
+        <AddOrder />
       ) : params.section === 'orders' ? (
         <Orders />
       ) : params.section === 'summary' ? (

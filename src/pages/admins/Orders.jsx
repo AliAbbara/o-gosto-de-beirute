@@ -39,11 +39,13 @@ function Orders() {
   }
 
   return (
-    <>
+    <div className='flex flex-col'>
+      <div>Preparing: </div>
+      <div>Done: </div>
       {orders?.map((order, index) => (
         <OrderCard key={index} order={order} />
       ))}
-    </>
+    </div>
   )
 }
 
