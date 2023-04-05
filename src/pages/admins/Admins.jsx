@@ -44,54 +44,60 @@ function Admins() {
   if (loading) {
     return <Spinner />
   }
-  return (
-    <ContainerCard className='flex flex-col justify-center m-auto'>
-      <h1 className='text-3xl text-center'>Admins</h1>
-      {isAdmin ? (
-        <p>kherye</p>
-      ) : (
-        'You are not allowed to view the content of this page.'
-      )}
-      <div className='flex justify-between text-center my-2'>
-        <RedLink
-          to='/admins/add-order'
-          className={
-            matchRoute('/admins/add-order')
-              ? 'bg-red-600 text-yellow-400 w-24'
-              : 'text-white w-24'
-          }>
-          Add Order
-        </RedLink>
-        <RedLink
-          to='/admins/orders'
-          className={
-            matchRoute('/admins/orders')
-              ? 'bg-red-600 text-yellow-400 w-24'
-              : 'text-white w-24'
-          }>
-          All Orders
-        </RedLink>
-        <RedLink
-          to='/admins/summary'
-          className={
-            matchRoute('/admins/summary')
-              ? 'bg-red-600 text-yellow-400 w-24'
-              : 'text-white w-24'
-          }>
-          Kitchen Section
-        </RedLink>
-      </div>
-      {params.section === 'add-order' ? (
-        <AddOrder />
-      ) : params.section === 'orders' ? (
-        <Orders />
-      ) : params.section === 'summary' ? (
-        <Summary />
-      ) : (
-        navigate('/not-found')
-      )}
-    </ContainerCard>
-  )
+  if (isAdmin) {
+    return (
+      <ContainerCard className='flex flex-col justify-center m-auto'>
+        <h1 className='text-3xl text-center'>Admins</h1>
+        <div className='flex justify-between text-center my-2'>
+          <RedLink
+            to='/admins/add-order'
+            className={
+              matchRoute('/admins/add-order')
+                ? 'bg-red-600 text-yellow-400 w-24'
+                : 'text-white w-24'
+            }>
+            Add Order
+          </RedLink>
+          <RedLink
+            to='/admins/orders'
+            className={
+              matchRoute('/admins/orders')
+                ? 'bg-red-600 text-yellow-400 w-24'
+                : 'text-white w-24'
+            }>
+            All Orders
+          </RedLink>
+          <RedLink
+            to='/admins/summary'
+            className={
+              matchRoute('/admins/summary')
+                ? 'bg-red-600 text-yellow-400 w-24'
+                : 'text-white w-24'
+            }>
+            Kitchen Section
+          </RedLink>
+        </div>
+        {params.section === 'add-order' ? (
+          <AddOrder />
+        ) : params.section === 'orders' ? (
+          <Orders />
+        ) : params.section === 'summary' ? (
+          <Summary />
+        ) : (
+          navigate('/not-found')
+        )}
+      </ContainerCard>
+    )
+  } else {
+    return (
+      <ContainerCard className='text-center'>
+        <h1 className='text-3xl'>
+          Ooops, you are not allowed to view this content!
+        </h1>
+        <RedLink to='/'>Back to the home page</RedLink>
+      </ContainerCard>
+    )
+  }
 }
 
 export default Admins
