@@ -1,4 +1,12 @@
-import { getDocs, collection, query, orderBy } from 'firebase/firestore'
+import {
+  getDocs,
+  collection,
+  query,
+  orderBy,
+  getDoc,
+  updateDoc,
+  doc,
+} from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
@@ -8,6 +16,21 @@ import KitchenCard from '../../components/cards/KitchenCard'
 function Kitchen() {
   const [orders, setOrders] = useState([])
   const [loading, setLoading] = useState(false)
+  const [change, setChange] = useState(false)
+
+  // Dispatching Order
+  const onDispatch = async (id) => {
+    try {
+      const orderRef = doc(db, 'orders', id)
+      const docSnap = await getDoc(orderRef)
+      let order = docSnap.data()
+      order.done = true
+      await updateDoc(orderRef, order)
+    } catch (error) {
+      toast.error('Something went wrong updating this order!')
+    }
+    setChange(!change)
+  }
 
   useEffect(() => {
     setLoading(true)
@@ -30,11 +53,7 @@ function Kitchen() {
       setLoading(false)
     }
     fetchOrders()
-  }, [])
-
-  const onDispatch = async (id) => {
-    console.log(id)
-  }
+  }, [change])
 
   if (loading) {
     return <Spinner />

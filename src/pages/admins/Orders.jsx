@@ -32,7 +32,7 @@ function Orders() {
     setChange(!change)
   }
 
-  // Dispatching Order
+  // Closing Order
   const onClose = async (id) => {
     try {
       const orderRef = doc(db, 'orders', id)

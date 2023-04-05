@@ -33,11 +33,7 @@ function KitchenCard({ order, onDispatch }) {
         {/* button for done div */}
         <div className='flex justify-evenly items-center'>
           {ifood && <SiIfood />}
-          {!done ? (
-            <RedButton onClick={() => onDispatch(order.id)}>Dispatch</RedButton>
-          ) : (
-            <RedButton>Close Order</RedButton>
-          )}
+          <RedButton onClick={() => onDispatch(order.id)}>Dispatch</RedButton>
         </div>
       </div>
     </>
