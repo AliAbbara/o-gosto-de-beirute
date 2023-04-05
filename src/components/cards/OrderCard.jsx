@@ -2,18 +2,20 @@ import RedLink from '../links/RedLink'
 // import RedButton from './../buttons/RedButton'
 
 function OrderCard({ order }) {
+  const { items, createdAt, editedAt, ifood, ifoodNum, orderType, preparing } =
+    order.data
   return (
     <>
       <div className='max-w-full h-auto flex flex-col justify-between bg-red-700 rounded-lg shadow border border-yellow-400 mb-2'>
         {/* order time div */}
         <div className='flex flex-row justify-between px-1 text-xl border-solid border-b border-white'>
-          <p>{order?.createdAt.toDate().toLocaleTimeString('en-US')}</p>
-          <p>{order.ifood ? order.ifoodNum : 'Not ifood'}</p>
+          <p>{createdAt.toDate().toLocaleTimeString('en-US')}</p>
+          <p>{ifood ? ifoodNum : 'Not ifood'}</p>
           <p>ba3d shagle</p>
         </div>
         {/* order items div */}
         <div className='p-1 flex flex-col border-solid border-b border-white'>
-          {order?.items?.map((item, index) => (
+          {items?.map((item, index) => (
             <div key={index}>
               <p>
                 -{item.quantity}-{item.name}
@@ -27,7 +29,7 @@ function OrderCard({ order }) {
           <button className='p-1 bg-yellow-400 border rounded-lg'>
             Close Order
           </button>
-          <RedLink to={`/admins/edit-order/${order?.id}`}>Edir Order</RedLink>
+          <RedLink to={`/admins/edit-order/${order.id}`}>Edit Order</RedLink>
         </div>
       </div>
     </>

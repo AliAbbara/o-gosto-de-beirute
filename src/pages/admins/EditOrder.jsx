@@ -6,6 +6,7 @@ import {
   doc,
   updateDoc,
   getDocs,
+  getDoc,
   addDoc,
   collection,
   serverTimestamp,
@@ -173,8 +174,10 @@ function EditOrder() {
       items: bag,
       createdAt: serverTimestamp(),
     }))
-    await addDoc(collection(db, 'orders'), order)
-    setBag([])
+    const docRef = doc(db, 'orders', params.orderId)
+    await updateDoc(docRef, order)
+    toast.success('Order edited!')
+    navigate('/admins/orders')
     setLoading(false)
   }
   // --------------------------------------------------------
@@ -183,32 +186,31 @@ function EditOrder() {
   useEffect(() => {
     setLoading(true)
     const fetchOrder = async () => {
-      const ordersRef = collection(db, 'orders')
-      const q = query(ordersRef, where('id', '==', params.orderId))
-      const docsSnap = await getDocs(q)
+      const orderRef = doc(db, 'orders', params.orderId)
+      const docSnap = await getDoc(orderRef)
       try {
-        docsSnap.forEach((doc) => {
-          setOrder(doc.data())
-        })
+        setOrder(docSnap.data())
       } catch (error) {
-        console.log(error)
+        toast.error('Something went wrong getting this order!')
       }
       setLoading(false)
     }
     fetchOrder()
-    console.log(order)
-    // getTotals()
-    // setOrder((prevState) => ({
-    //   ...prevState,
-    //   items: bag,
-    //   createdAt: serverTimestamp(),
-    // }))
     // eslint-disable-next-line
-  }, [params.orderId])
+  }, [params.orderId, navigate])
 
   useEffect(() => {
     setBag(order.items)
-  }, [bagTotal, bagSubtotal, bag, ifood, paidIfood, discount])
+  }, [loading])
+
+  useEffect(() => {
+    getTotals()
+    setOrder((prevState) => ({
+      ...prevState,
+      items: bag,
+      createdAt: serverTimestamp(),
+    }))
+  }, [bagTotal, bagSubtotal, ifood, paidIfood, discount, discountPer, bag])
 
   if (loading) {
     return <Spinner />
@@ -403,7 +405,7 @@ function EditOrder() {
             ))}
         </div>
         <RedButton className='w-full' type='submit'>
-          Submit Order
+          Update Order
         </RedButton>
       </form>
     </div>

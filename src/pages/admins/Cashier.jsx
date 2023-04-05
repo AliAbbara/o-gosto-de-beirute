@@ -184,7 +184,7 @@ function Cashier() {
       createdAt: serverTimestamp(),
     }))
     // eslint-disable-next-line
-  }, [bagTotal, bagSubtotal, bag, ifood, paidIfood, discount])
+  }, [bagTotal, bagSubtotal, bag, ifood, paidIfood, discount, discountPer])
 
   if (loading) {
     return <Spinner />
