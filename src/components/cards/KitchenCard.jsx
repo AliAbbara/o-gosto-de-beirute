@@ -1,10 +1,9 @@
-import RedLink from '../links/RedLink'
 import RedButton from './../buttons/RedButton'
 import { SiIfood } from 'react-icons/si'
 
 function KitchenCard({ order, onDispatch }) {
-  const { items, createdAt, id, ifood, ifoodNum, orderType, done, table } =
-    order
+  const { items, createdAt, ifood, ifoodNum, orderType, done, table } =
+    order.data
   return (
     <>
       <div className='flex flex-col justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
@@ -22,8 +21,8 @@ function KitchenCard({ order, onDispatch }) {
         </div>
         {/* order items div */}
         <div className='flex flex-col border-b border-yellow-400'>
-          {items?.map((item, index) => (
-            <div key={index}>
+          {items?.map((item) => (
+            <div key={item.uuid}>
               <p>
                 -{item.quantity}-{item.name}
               </p>
@@ -35,7 +34,7 @@ function KitchenCard({ order, onDispatch }) {
         <div className='flex justify-evenly items-center'>
           {ifood && <SiIfood />}
           {!done ? (
-            <RedButton onClick={() => onDispatch(id)}>Dispatch</RedButton>
+            <RedButton onClick={() => onDispatch(order.id)}>Dispatch</RedButton>
           ) : (
             <RedButton>Close Order</RedButton>
           )}

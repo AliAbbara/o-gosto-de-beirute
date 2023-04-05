@@ -2,11 +2,10 @@ import RedLink from '../links/RedLink'
 import RedButton from './../buttons/RedButton'
 import { SiIfood } from 'react-icons/si'
 
-function OrderCard({ order, onDispatch }) {
+function OrderCard({ order, onDispatch, onClose }) {
   const {
     items,
     createdAt,
-    id,
     ifood,
     ifoodNum,
     orderType,
@@ -14,7 +13,7 @@ function OrderCard({ order, onDispatch }) {
     total,
     subtotal,
     table,
-  } = order
+  } = order.data
   return (
     <>
       <div className='flex flex-col w-64 justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
@@ -32,8 +31,8 @@ function OrderCard({ order, onDispatch }) {
         </div>
         {/* order items div */}
         <div className='flex flex-col border-b border-yellow-400'>
-          {items?.map((item, index) => (
-            <div key={index}>
+          {items?.map((item) => (
+            <div key={item.uuid}>
               <p>
                 -{item.quantity}-{item.name}
               </p>
@@ -49,11 +48,9 @@ function OrderCard({ order, onDispatch }) {
         {/* button for done div */}
         <div className='flex justify-between items-center'>
           {!done ? (
-            <RedButton onClick={() => onDispatch(id)} className=''>
-              Dispatch
-            </RedButton>
+            <RedButton onClick={() => onDispatch(order.id)}>Dispatch</RedButton>
           ) : (
-            <RedButton>Close Order</RedButton>
+            <RedButton onClick={() => onClose(order.id)}>Close Order</RedButton>
           )}
           {ifood && <SiIfood />}
           <RedLink to={`/admins/edit-order/${order.id}`}>Edit Order</RedLink>

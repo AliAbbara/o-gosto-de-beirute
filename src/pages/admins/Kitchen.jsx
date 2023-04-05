@@ -7,7 +7,6 @@ import KitchenCard from '../../components/cards/KitchenCard'
 
 function Kitchen() {
   const [orders, setOrders] = useState([])
-  // const orders = fakeOrders
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -46,11 +45,7 @@ function Kitchen() {
   return (
     <div className='flex flex-col'>
       {preparing?.map((order) => (
-        <KitchenCard
-          key={order.id}
-          order={order.data}
-          onDispatch={onDispatch}
-        />
+        <KitchenCard key={order.id} order={order} onDispatch={onDispatch} />
       ))}
     </div>
   )

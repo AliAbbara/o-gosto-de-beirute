@@ -1,15 +1,50 @@
-import { getDocs, collection, query, orderBy } from 'firebase/firestore'
+import {
+  getDocs,
+  collection,
+  query,
+  orderBy,
+  getDoc,
+  updateDoc,
+  doc,
+} from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import Spinner from '../../components/Spinner'
 import OrderCard from '../../components/cards/OrderCard'
-// import { fakeOrders } from './../../assets/fakeOrders'
 
 function Orders() {
   const [orders, setOrders] = useState([])
-  // const orders = fakeOrders
   const [loading, setLoading] = useState(false)
+  const [change, setChange] = useState(false)
+
+  // Dispatching Order
+  const onDispatch = async (id) => {
+    try {
+      const orderRef = doc(db, 'orders', id)
+      const docSnap = await getDoc(orderRef)
+      let order = docSnap.data()
+      order.done = true
+      await updateDoc(orderRef, order)
+    } catch (error) {
+      toast.error('Something went wrong updating this order!')
+    }
+    setChange(!change)
+  }
+
+  // Dispatching Order
+  const onClose = async (id) => {
+    try {
+      const orderRef = doc(db, 'orders', id)
+      const docSnap = await getDoc(orderRef)
+      let order = docSnap.data()
+      order.done = false
+      await updateDoc(orderRef, order)
+    } catch (error) {
+      toast.error('Something went wrong updating this order!')
+    }
+    setChange(!change)
+  }
 
   useEffect(() => {
     setLoading(true)
@@ -32,11 +67,7 @@ function Orders() {
       setLoading(false)
     }
     fetchOrders()
-  }, [])
-
-  const onDispatch = async (id) => {
-    console.log(id)
-  }
+  }, [change])
 
   if (loading) {
     return <Spinner />
@@ -50,21 +81,13 @@ function Orders() {
       <div className='flex flex-wrap border-b border-yellow-400'>
         <p className='text-2xl'>Preparing: </p>
         {preparing?.map((order) => (
-          <OrderCard
-            key={order.id}
-            order={order.data}
-            onDispatch={onDispatch}
-          />
+          <OrderCard key={order.id} order={order} onDispatch={onDispatch} />
         ))}
       </div>
       <div className='flex flex-wrap'>
         <p className='text-2xl'>Done: </p>
         {done?.map((order) => (
-          <OrderCard
-            key={order.id}
-            order={order.data}
-            onDispatch={onDispatch}
-          />
+          <OrderCard key={order.id} order={order} onClose={onClose} />
         ))}
       </div>
     </div>
