@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { menu } from '../../assets/menuItems'
+import { menu } from '../../assets//menu/menuItems'
 import { v4 as uuidv4 } from 'uuid'
 import { doc, setDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../firebase.config'

@@ -4,9 +4,9 @@ import Spinner from '../components/Spinner'
 import ItemCard from './../components/cards/ItemCard'
 import ContainerCard from '../components/cards/ContainerCard'
 import RedLink from './../components/links/RedLink'
-import { sandwiches } from '../assets/sandwiches'
-import { porcoes } from '../assets/porcoes'
-import { bebidas } from '../assets/bebidas'
+import { sandwiches } from '../assets/menu/sandwiches'
+import { porcoes } from '../assets/menu/porcoes'
+import { bebidas } from '../assets/menu/bebidas'
 
 function Menu() {
   const items = sandwiches
