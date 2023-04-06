@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function RedLink({ children, className, to, target }) {
+function RedLink({ children, className, target, to }) {
   return (
     <Link
       to={to}

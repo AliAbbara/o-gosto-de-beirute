@@ -41,6 +41,7 @@ function AddOrder() {
         uuid: '',
       },
     ],
+    closed: false,
     createdAt: {},
     editedAt: {},
     doneAt: {},
@@ -58,6 +59,7 @@ function AddOrder() {
     total: 0,
     subtotal: 0,
     done: false,
+    paymentMethod: '',
     orderType: 'Takeaway',
   })
 

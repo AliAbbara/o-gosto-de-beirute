@@ -1,4 +1,4 @@
-function SwitchButton({ className, type, id, value, onClick, children }) {
+function SwitchButton({ children, className, id, onClick, type, value }) {
   return (
     <button
       className={

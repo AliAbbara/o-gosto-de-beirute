@@ -1,13 +1,13 @@
-import SwiperCore, { Pagination, EffectCoverflow } from 'swiper'
+import SwiperCore, { EffectCoverflow, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import 'swiper/swiper.css'
 // import { useNavigate } from 'react-router-dom'
 import circleLogo from '../../assets//imgs/circleLogo.png'
 
-SwiperCore.use([Pagination, EffectCoverflow])
+SwiperCore.use([EffectCoverflow, Pagination])
 
-function DefCard({ items, slidesPer, images }) {
+function DefCard({ images, items, slidesPer }) {
   // const navigate = useNavigate()
   return (
     <div className='relative mt-24 h-72 flex items-center bg-red-700 rounded-lg shadow-2xl shadow-black border-2 border-yellow-400 mb-2 ml-20'>

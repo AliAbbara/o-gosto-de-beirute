@@ -1,8 +1,8 @@
-import RedButton from './../buttons/RedButton'
 import { SiIfood } from 'react-icons/si'
+import RedButton from './../buttons/RedButton'
 
-function KitchenCard({ order, onDispatch }) {
-  const { items, createdAt, ifood, ifoodNum, orderType, orderNumber, table } =
+function KitchenCard({ onDispatch, order }) {
+  const { createdAt, ifood, ifoodNum, items, orderNumber, orderType, table } =
     order.data
   return (
     <>

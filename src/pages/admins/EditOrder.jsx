@@ -40,6 +40,7 @@ function EditOrder() {
         uuid: '',
       },
     ],
+    closed: false,
     createdAt: {},
     editedAt: {},
     doneAt: {},
@@ -56,6 +57,7 @@ function EditOrder() {
     total: 0,
     subtotal: 0,
     done: false,
+    paymentMethod: '',
     orderType: 'Takeaway',
   })
 

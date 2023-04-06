@@ -4,16 +4,16 @@ import { SiIfood } from 'react-icons/si'
 
 function OrderCard({ order, onDispatch, onClose }) {
   const {
-    items,
     createdAt,
+    done,
     ifood,
     ifoodNum,
-    orderType,
+    items,
     orderNumber,
-    done,
-    total,
+    orderType,
     subtotal,
     table,
+    total,
   } = order.data
   return (
     <>

@@ -1,4 +1,4 @@
-function RedInput({ type, placeholder, id, value, onChange, className }) {
+function RedInput({ className, onChange, id, placeholder, type, value }) {
   return (
     <input
       type={type}
