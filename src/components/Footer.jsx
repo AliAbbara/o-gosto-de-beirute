@@ -1,5 +1,5 @@
 import ContainerCard from './cards/ContainerCard'
-import logo from '../assets/fullLogo.png'
+import logo from '../assets//imgs/fullLogo.png'
 import RedLink from './links/RedLink'
 import { BsInstagram } from 'react-icons/bs'
 import { BsWhatsapp } from 'react-icons/bs'

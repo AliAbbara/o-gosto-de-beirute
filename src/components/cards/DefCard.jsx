@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import 'swiper/swiper.css'
 // import { useNavigate } from 'react-router-dom'
-import circleLogo from '../../assets/circleLogo.png'
+import circleLogo from '../../assets//imgs/circleLogo.png'
 
 SwiperCore.use([Pagination, EffectCoverflow])
 
