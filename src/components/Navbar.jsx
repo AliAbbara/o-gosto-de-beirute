@@ -14,9 +14,9 @@ function Navbar() {
   const [loggedIn, setLoggedIn] = useState(false)
   const menuItems = [
     { id: '2h8v6b5', title: 'HOME', path: '' },
-    { id: '098asd7a0', title: 'MENU', path: 'menu/sandwiches' },
-    { id: '00gjkbnf5', title: 'CONTACT', path: 'contact' },
-    { id: '65yuer23t', title: 'ABOUT US', path: 'about-us' },
+    { id: '098asd7a0', title: 'CARDAPIO', path: 'menu/sandwiches' },
+    { id: '00gjkbnf5', title: 'CONTATO', path: 'contact' },
+    { id: '65yuer23t', title: 'SOBRE', path: 'about-us' },
   ]
 
   useEffect(() => {
@@ -45,8 +45,10 @@ function Navbar() {
         {menuItems.map((item) => (
           <li
             key={item.id}
-            className='py-1 px-4 hover:bg-red-600 hover:cursor-pointer rounded-lg duration-100'>
-            <Link to={'/' + item.path}>{item.title}</Link>
+            className='hover:bg-red-600 rounded-lg duration-100'>
+            <Link className='px-4' to={'/' + item.path}>
+              {item.title}
+            </Link>
           </li>
         ))}
       </ul>

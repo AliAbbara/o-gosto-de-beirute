@@ -4,16 +4,14 @@ import 'swiper/swiper-bundle.css'
 import 'swiper/swiper.css'
 // import { useNavigate } from 'react-router-dom'
 import circleLogo from '../../assets//imgs/circleLogo.png'
+import RingCard from './RingCard'
 
 SwiperCore.use([EffectCoverflow, Pagination])
 
-function DefCard({ images, items, slidesPer }) {
+function DefCard({ images, items, slidesPer, title }) {
   // const navigate = useNavigate()
   return (
-    <div className='relative mt-24 h-72 flex items-center bg-red-700 rounded-lg shadow-2xl shadow-black border-2 border-yellow-400 mb-2 ml-20'>
-      <div className='absolute -top-20 -left-20 w-40'>
-        <img src={circleLogo} alt='logo' />
-      </div>
+    <RingCard title={title}>
       <Swiper
         className='h-auto'
         effect='coverflow'
@@ -46,7 +44,7 @@ function DefCard({ images, items, slidesPer }) {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </RingCard>
   )
 }
 

@@ -3,6 +3,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import Spinner from '../components/Spinner'
 import ItemCard from './../components/cards/ItemCard'
 import ContainerCard from '../components/cards/ContainerCard'
+import RingCard from '../components/cards/RingCard'
 import RedLink from './../components/links/RedLink'
 import { sandwiches } from '../assets/menu/sandwiches'
 import { porcoes } from '../assets/menu/porcoes'
@@ -30,8 +31,7 @@ function Menu() {
     return <Spinner />
   }
   return (
-    <ContainerCard>
-      <h1 className='text-3xl text-center'>Menu</h1>
+    <RingCard title='Menu'>
       <div className='flex flex-row justify-between text-center my-2'>
         <RedLink
           to='/menu/sandwiches'
@@ -70,7 +70,7 @@ function Menu() {
           ? drinks.map((item) => <ItemCard key={item.id} item={item} />)
           : ''}
       </div>
-    </ContainerCard>
+    </RingCard>
   )
 }
 

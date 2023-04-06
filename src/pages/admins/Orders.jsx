@@ -68,18 +68,20 @@ function Orders() {
 
   // Closing Order
   const onClose = async (id) => {
-    try {
-      const orderRef = doc(db, 'orders', id)
-      const docSnap = await getDoc(orderRef)
-      let order = docSnap.data()
-      order.done = false
-      await updateDoc(orderRef, order)
-    } catch (error) {
-      toast.error('Something went wrong updating this order!')
-    }
-    setChange(!change)
+    console.log(id)
+    // try {
+    //   const orderRef = doc(db, 'orders', id)
+    //   const docSnap = await getDoc(orderRef)
+    //   let order = docSnap.data()
+    //   order.done = false
+    //   await updateDoc(orderRef, order)
+    // } catch (error) {
+    //   toast.error('Something went wrong updating this order!')
+    // }
+    // setChange(!change)
   }
 
+  // Showing detailed view of selected order
   const onShow = (order) => {
     if (showOrder && filteredOrder === order) {
       setShowOrder(false)
@@ -105,7 +107,12 @@ function Orders() {
         <p className='text-2xl'>Done: </p>
         <OrdersTable>
           {done?.map((order) => (
-            <OrderRow key={order.id} order={order} onShow={onShow} />
+            <OrderRow
+              key={order.id}
+              order={order}
+              onShow={onShow}
+              onClose={onClose}
+            />
           ))}
         </OrdersTable>
         {showOrder && <OrderCard order={filteredOrder} />}
