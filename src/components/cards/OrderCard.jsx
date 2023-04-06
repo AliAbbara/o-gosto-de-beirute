@@ -29,7 +29,7 @@ function OrderCard({ order, onDispatch, onClose }) {
         </div>
         {/* --------------------------------*/}
         <div className='flex justify-between text-semibold border-b border-yellow-400'>
-          <p>{ifood ? ifoodNum : orderType}</p>
+          <p>{ifood ? 'iFood Num: ' + ifoodNum : orderType}</p>
           <p>Table: {table}</p>
         </div>
         {/* order items div */}

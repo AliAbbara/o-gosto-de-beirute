@@ -1,4 +1,6 @@
-function OrderRow({ order }) {
+import RedButton from './buttons/RedButton'
+
+function OrderRow({ order, onClose }) {
   const { orderNumber, items, subtotal, table, ifood } = order.data
 
   const lanches = items.filter((item) => item.type === 'Sandwich')
@@ -9,11 +11,13 @@ function OrderRow({ order }) {
 
   return (
     <tr>
-      <th className='rounded-lg border-2 border-yellow-400'>{orderNumber}</th>
-      <th className='rounded-lg border-2 border-yellow-400'>{table}</th>
+      <th className='rounded-lg border-2 border-yellow-400'>
+        <RedButton onClick={() => onClose(order.id)}>{orderNumber}</RedButton>
+      </th>
       <th className='rounded-lg border-2 border-yellow-400'>
         {ifood ? 'Yes' : 'No'}
       </th>
+      <th className='rounded-lg border-2 border-yellow-400'>{table}</th>
       <th className='rounded-lg border border-yellow-400'>
         {lanches.length !== 0 ? lanches.length : '-'}
       </th>

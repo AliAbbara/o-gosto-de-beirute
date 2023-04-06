@@ -53,7 +53,7 @@ function Orders() {
     const fetchOrders = async () => {
       try {
         const ordersRef = collection(db, 'orders')
-        const q = query(ordersRef, orderBy('createdAt', 'asc'))
+        const q = query(ordersRef, orderBy('orderNumber', 'asc'))
         const ordersSnap = await getDocs(q)
         let orders = []
         ordersSnap.forEach((doc) => {
@@ -90,7 +90,7 @@ function Orders() {
         <p className='text-2xl'>Done: </p>
         <OrdersTable>
           {done?.map((order) => (
-            <OrderRow key={order.id} order={order} />
+            <OrderRow key={order.id} order={order} onClose={onClose} />
           ))}
         </OrdersTable>
       </div>

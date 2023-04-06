@@ -47,7 +47,6 @@ function EditOrder() {
     comment: '',
     customer: '',
     id: '',
-    orderNumber: 1,
     ifood: false,
     ifoodNum: 0,
     paidIfood: true,

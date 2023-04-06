@@ -2,7 +2,13 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { menu } from '../../assets//menu/menuItems'
 import { v4 as uuidv4 } from 'uuid'
-import { doc, setDoc, collection, serverTimestamp } from 'firebase/firestore'
+import {
+  doc,
+  setDoc,
+  collection,
+  serverTimestamp,
+  getDocs,
+} from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import Spinner from '../../components/Spinner'
 import ItemButton from '../../components/buttons/ItemButton'
@@ -21,6 +27,7 @@ function AddOrder() {
   const [bag, setBag] = useState([])
   const [bagTotal, setBagTotal] = useState(0)
   const [bagSubtotal, setBagSubtotal] = useState(0)
+  const [ordersTotal, setOrdersTotal] = useState(1)
   const [order, setOrder] = useState({
     items: [
       {
@@ -161,16 +168,30 @@ function AddOrder() {
     e.preventDefault()
     setOrder((prevState) => ({
       ...prevState,
-      items: bag,
-      id: uuidv4(),
       createdAt: serverTimestamp(),
+      id: uuidv4(),
+      items: bag,
     }))
     const ordersRef = collection(db, 'orders')
     await setDoc(doc(ordersRef), order)
     setBag([])
+    console.log(order)
     setLoading(false)
     navigate('/admins/orders')
   }
+
+  useEffect(() => {
+    const fetchOrdersTotal = async () => {
+      const ordersRef = collection(db, 'orders')
+      const ordersSnap = await getDocs(ordersRef)
+      setOrdersTotal(ordersSnap.size)
+    }
+    fetchOrdersTotal()
+    setOrder((prevState) => ({
+      ...prevState,
+      orderNumber: ordersTotal + 1,
+    }))
+  }, [ordersTotal])
   // --------------------------------------------------------
 
   useEffect(() => {
