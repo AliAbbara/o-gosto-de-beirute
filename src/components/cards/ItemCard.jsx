@@ -40,15 +40,15 @@ function ItemCard({ item }) {
           <div className='flex flex-col text-base text-slate-100'>
             <p>{item?.ingredients}</p>
             <p>
-              Preparation Time: {item?.prepTime}
+              Tempo de Preparação: {item?.prepTime}
               {item?.prepTime === '1' ? ' minute' : ' minutes'}
             </p>
           </div>
           {/* Buttons div */}
           <div>
-            <RedButton onClick={onMoreInfo}>More Info</RedButton>
+            <RedButton onClick={onMoreInfo}>Mais Informações</RedButton>
             <RedButton className='ml-2' onClick={onAddToOrder}>
-              Add To Order
+              Adicionar ao Pedido
             </RedButton>
           </div>
         </div>
