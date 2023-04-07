@@ -38,7 +38,7 @@ function Navbar() {
         onClick={() => setNavbarOpen(false)}
         className='flex items-center font-semibold text-2xl w-full lg:w-1/3'>
         <img src={logo} alt='full logo' className='w-10 mr-2' />
-        <p>O GOSTO DE BEIRUTE</p>
+        <p className='w-60 sm:w-auto'>O GOSTO DE BEIRUTE</p>
       </Link>
       {/* Navbar items list */}
       <ul className='hidden lg:flex text-center min-w-fit'>
@@ -63,7 +63,7 @@ function Navbar() {
         </RedLink>
         <RedButton
           onClick={() => setNavbarOpen(!navbarOpen)}
-          className='relative block lg:hidden ml-2 text-xl'>
+          className='relative hidden sm:block lg:hidden ml-2 text-xl'>
           <TfiLayoutListPost />
         </RedButton>
       </div>

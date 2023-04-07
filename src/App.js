@@ -14,6 +14,7 @@ import Profile from './pages/authen/Profile'
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import MobileNav from './components/MobileNav'
 //------------------------------------------------------------
 // import { useState, useEffect } from 'react'
 // import { onAuthStateChanged } from 'firebase/auth'
@@ -68,6 +69,7 @@ function App() {
           <Route path='/forgot-password' element={<ForgotPassword />} />
         </Routes>
         <Footer />
+        <MobileNav />
       </Router>
 
       <ToastContainer />
