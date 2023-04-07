@@ -4,6 +4,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
+  sendEmailVerification,
 } from 'firebase/auth'
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../firebase.config'
@@ -46,17 +47,17 @@ function SignUp() {
           password
         )
         const user = userCredential.user
-
-        updateProfile(auth.currentUser, { displayName: name }, { admin: true })
-
+        sendEmailVerification(user)
         const formDataCopy = { ...formData }
         delete formDataCopy.password
         formDataCopy.timestamp = serverTimestamp()
 
         await setDoc(doc(db, 'users', user.uid), formDataCopy)
 
-        navigate('/')
-        toast.success('Signed in successfully!')
+        navigate('/profile')
+        toast.success(
+          'Signed up successfully, make sure to verify your email address!'
+        )
       } catch (error) {
         toast.error(
           'Something went wrong! Please check for a correct email or for an already existing account.'

@@ -2,7 +2,7 @@ import RingCard from '../../components/cards/RingCard'
 
 function AboutUs() {
   return (
-    <RingCard title={'Sobre'}>
+    <RingCard title='Sobre'>
       <div>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
