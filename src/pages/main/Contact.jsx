@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import RingCard from '../components/cards/RingCard'
-import RedInput from '../components/inputs/RedInput'
-import RedTextarea from '../components/inputs/RedTextarea'
-import RedButton from '../components/buttons/RedButton'
+import RingCard from '../../components/cards/RingCard'
+import RedInput from '../../components/inputs/RedInput'
+import RedTextarea from '../../components/inputs/RedTextarea'
+import RedButton from '../../components/buttons/RedButton'
 
 function Contact() {
   const [formData, setFormData] = useState({

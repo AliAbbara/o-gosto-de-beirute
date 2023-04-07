@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
-import Spinner from '../components/Spinner'
-import ItemCard from './../components/cards/ItemCard'
-import ContainerCard from '../components/cards/ContainerCard'
-import RingCard from '../components/cards/RingCard'
-import RedLink from './../components/links/RedLink'
-import { sandwiches } from '../assets/menu/sandwiches'
-import { porcoes } from '../assets/menu/porcoes'
-import { bebidas } from '../assets/menu/bebidas'
+import Spinner from '../../components/Spinner'
+import ItemCard from '../../components/cards/ItemCard'
+import ContainerCard from '../../components/cards/ContainerCard'
+import RingCard from '../../components/cards/RingCard'
+import RedLink from '../../components/links/RedLink'
+import { sandwiches } from '../../assets/menu/sandwiches'
+import { porcoes } from '../../assets/menu/porcoes'
+import { bebidas } from '../../assets/menu/bebidas'
 
 function Menu() {
   const items = sandwiches

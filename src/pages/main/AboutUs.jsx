@@ -1,4 +1,4 @@
-import RingCard from '../components/cards/RingCard'
+import RingCard from '../../components/cards/RingCard'
 
 function AboutUs() {
   return (
