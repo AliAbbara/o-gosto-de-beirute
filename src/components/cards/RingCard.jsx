@@ -4,7 +4,7 @@ function RingCard({ children, title, className }) {
   return (
     <div
       className={
-        'relative mt-20 text-white text-lg items-center bg-red-700 rounded-lg shadow-2xl shadow-black border-2 border-yellow-400 mb-2 p-4 pt-16 ' +
+        'relative mt-20 text-white text-lg items-center bg-red-700 rounded-lg shadow-2xl shadow-black border-2 border-yellow-300 mb-2 p-4 pt-16 ' +
         className
       }>
       <div className='absolute -top-16 -left-1 w-32 flex items-center justify-center'>

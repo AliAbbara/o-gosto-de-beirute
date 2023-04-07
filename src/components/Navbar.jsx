@@ -70,7 +70,7 @@ function Navbar() {
       {/* Dropdown menu container div */}
       <div
         className={
-          'absolute lg:hidden right-4 top-16 mt-2 bg-red-700 w-36 border-2 border-yellow-400 rounded-lg z-10 shadow-2xl shadow-black' +
+          'absolute lg:hidden right-4 top-16 mt-2 bg-red-700 w-36 border-2 border-yellow-300 rounded-lg z-10 shadow-2xl shadow-black' +
           (navbarOpen ? ' flex' : ' hidden')
         }>
         <ul className='flex flex-col list-none w-full text-center'>

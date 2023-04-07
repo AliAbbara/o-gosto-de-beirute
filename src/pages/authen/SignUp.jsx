@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
   sendEmailVerification,
 } from 'firebase/auth'
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
-import { db } from '../../firebase.config'
+import { db, auth } from '../../firebase.config'
 import { toast } from 'react-toastify'
 import { FaEye } from 'react-icons/fa'
 import RedInput from '../../components/inputs/RedInput'
@@ -40,7 +39,6 @@ function SignUp() {
       toast.warning('Please fill all the fields!')
     } else {
       try {
-        const auth = getAuth()
         const userCredential = await createUserWithEmailAndPassword(
           auth,
           email,

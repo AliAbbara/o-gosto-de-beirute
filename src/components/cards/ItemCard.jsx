@@ -19,11 +19,11 @@ function ItemCard({ item }) {
       <ContainerCard className='sm:flex'>
         {/* Image div */}
         <div className='h-52 sm:w-64 sm:mr-2 relative'>
-          <p className='text-2xl bg-yellow-400 w-fit p-1 rounded-lg text-red-700 absolute'>
+          <p className='text-2xl bg-yellow-300 w-fit p-1 rounded-lg text-red-700 absolute'>
             R$ {item?.price}
           </p>
           <img
-            className='h-full w-full rounded-lg border-2 border-yellow-400'
+            className='h-full w-full rounded-lg border-2 border-yellow-300'
             src={item?.image}
             alt={item?.name + ' image'}
           />

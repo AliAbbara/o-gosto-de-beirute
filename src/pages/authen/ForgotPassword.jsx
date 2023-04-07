@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
+import { sendPasswordResetEmail } from 'firebase/auth'
+import { auth } from '../../firebase.config'
 import { toast } from 'react-toastify'
 import ContainerCard from '../../components/cards/ContainerCard'
 import RedButton from '../../components/buttons/RedButton'
@@ -19,7 +20,6 @@ function ForgotPassword() {
   const onSubmit = async (e) => {
     e.preventDefault()
     try {
-      const auth = getAuth()
       await sendPasswordResetEmail(auth, email)
       toast.success('The password reset link was sent!')
       setTimeout(navigate('/'), 1000)

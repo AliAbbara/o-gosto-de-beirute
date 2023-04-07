@@ -2,8 +2,6 @@ import SwiperCore, { EffectCoverflow, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import 'swiper/swiper.css'
-// import { useNavigate } from 'react-router-dom'
-import circleLogo from '../../assets//imgs/circleLogo.png'
 import RingCard from './RingCard'
 
 SwiperCore.use([EffectCoverflow, Pagination])
@@ -28,7 +26,7 @@ function DefCard({ images, items, slidesPer, title }) {
         {items.map((item) => (
           <SwiperSlide key={item.id}>
             {images ? (
-              <div className='text-white w-72 h-52 border-2 border-yellow-400 rounded-lg'>
+              <div className='text-white w-72 h-52 border-2 border-yellow-300 rounded-lg'>
                 <img
                   className='w-full h-full rounded-lg'
                   src={item.image}
@@ -36,7 +34,7 @@ function DefCard({ images, items, slidesPer, title }) {
                 />
               </div>
             ) : (
-              <div className='flex flex-col justify-between items-center text-white p-4 w-72 h-52 border-2 border-yellow-400 rounded-lg'>
+              <div className='flex flex-col justify-between items-center text-white p-4 w-72 h-52 border-2 border-yellow-300 rounded-lg'>
                 <div>{item.name}</div>
                 <div>{item.description}</div>
               </div>

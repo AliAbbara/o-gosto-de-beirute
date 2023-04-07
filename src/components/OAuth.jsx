@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore'
-import { db } from '../firebase.config'
+import { db, auth } from '../firebase.config'
 import { toast } from 'react-toastify'
 import { FcGoogle } from 'react-icons/fc'
 
@@ -10,7 +10,6 @@ function OAuth() {
 
   const onGoogleClick = async () => {
     try {
-      const auth = getAuth()
       const provider = new GoogleAuthProvider()
       const result = await signInWithPopup(auth, provider)
       const user = result.user
