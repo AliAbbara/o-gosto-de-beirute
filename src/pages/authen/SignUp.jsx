@@ -80,9 +80,7 @@ function SignUp() {
           />
         </div>
         <div className='mb-2'>
-          <label htmlFor='email' className='block'>
-            Email
-          </label>
+          <label className='block'>Email</label>
           <RedInput
             type='email'
             placeholder='Email'

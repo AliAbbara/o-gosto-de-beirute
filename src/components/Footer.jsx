@@ -9,7 +9,7 @@ function Footer() {
   return (
     <ContainerCard className='mt-6 flex flex-col text-center'>
       {/* -----------Logo and menu div------------- */}
-      <div className='flex justify-evenly p-2'>
+      <div className='flex flex-wrap justify-evenly p-2'>
         {/* Logo */}
         <img src={logo} alt='full logo' className='w-44 h-auto' />
         {/* Social Media */}

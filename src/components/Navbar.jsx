@@ -55,7 +55,11 @@ function Navbar() {
       {/* Sign in and menu button div */}
       <div className='flex justify-end items-center w-1/3'>
         <RedLink to={loggedIn ? '/profile' : '/sign-in'}>
-          {loggedIn ? <CgProfile size={20} /> : <p>Sign In</p>}
+          {loggedIn ? (
+            <CgProfile size={20} />
+          ) : (
+            <p className='text-sm'>Entrar</p>
+          )}
         </RedLink>
         <RedButton
           onClick={() => setNavbarOpen(!navbarOpen)}
