@@ -7,7 +7,7 @@ import { SiIfood } from 'react-icons/si'
 
 function Footer() {
   return (
-    <ContainerCard className='mt-6 flex flex-col text-center'>
+    <ContainerCard className='mt-6 mb-16 sm:mb-auto flex flex-col text-center'>
       {/* -----------Logo and menu div------------- */}
       <div className='flex flex-wrap justify-evenly p-2'>
         {/* Logo */}
