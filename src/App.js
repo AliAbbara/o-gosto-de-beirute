@@ -15,42 +15,8 @@ import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MobileNav from './components/MobileNav'
-//------------------------------------------------------------
-// import { useState, useEffect } from 'react'
-// import { onAuthStateChanged } from 'firebase/auth'
-// import { auth, db } from './firebase.config'
-// import { getDoc, doc } from 'firebase/firestore'
 
 function App() {
-  // const [loggedIn, setLoggedIn] = useState(false)
-  // const [isAdmin, setIsAdmin] = useState(false)
-  // const [loading, setLoading] = useState(false)
-
-  // const checkAdmin = async (id) => {
-  //   const usersRef = doc(db, 'users', id)
-  //   const userSnap = await getDoc(usersRef)
-  //   const user = userSnap.data()
-  //   if (user.admin) {
-  //     setIsAdmin(true)
-  //     return true
-  //   } else {
-  //     setIsAdmin(false)
-  //     return false
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       setLoggedIn(true)
-  //       checkAdmin(user.uid)
-  //     } else {
-  //       setLoggedIn(false)
-  //     }
-  //     setLoading(false)
-  //   })
-  // }, [auth])
-
   return (
     <>
       <Router>
