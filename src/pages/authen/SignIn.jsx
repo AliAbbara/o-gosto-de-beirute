@@ -8,7 +8,7 @@ import RedInput from '../../components/inputs/RedInput'
 import RedLink from '../../components/links/RedLink'
 import RedButton from '../../components/buttons/RedButton'
 import ContainerCard from '../../components/cards/ContainerCard'
-import OAuth from '../../components/OAuth'
+import OAuth from '../../components/other/OAuth'
 
 function SignIn() {
   const [passwordVisible, setPasswordVisible] = useState(false)

@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import ScrollToTop from './components/other/ScrollToTop'
 import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import Navbar from './components/main/Navbar'
+import Footer from './components/main/Footer'
+import MobileNav from './components/main/MobileNav'
+import ScrollToTop from './components/other/ScrollToTop'
 import Home from './pages/main/Home'
 import Menu from './pages/main/Menu'
 import Contact from './pages/main/Contact'
@@ -13,9 +15,7 @@ import SignUp from './pages/authen/SignUp'
 import ForgotPassword from './pages/authen/ForgotPassword'
 import Profile from './pages/authen/Profile'
 import NotFound from './pages/NotFound'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import MobileNav from './components/MobileNav'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (

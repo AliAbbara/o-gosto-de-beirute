@@ -1,5 +1,4 @@
-import ContainerCard from './cards/ContainerCard'
-import RedLink from './links/RedLink'
+import ContainerCard from '../cards/ContainerCard'
 import { Link } from 'react-router-dom'
 
 function MobileNav() {

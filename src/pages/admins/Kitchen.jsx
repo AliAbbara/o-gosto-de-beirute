@@ -10,7 +10,7 @@ import {
 import { db } from '../../firebase.config'
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
-import Spinner from '../../components/Spinner'
+import Spinner from '../../components/other/Spinner'
 import KitchenCard from '../../components/cards/KitchenCard'
 
 function Kitchen() {

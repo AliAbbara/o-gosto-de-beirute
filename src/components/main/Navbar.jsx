@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import { TfiLayoutListPost } from 'react-icons/tfi'
 import { CgProfile } from 'react-icons/cg'
 import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from '../firebase.config'
-import logo from '../assets//imgs/fullLogo.png'
-import ContainerCard from './cards/ContainerCard'
-import RedLink from './links/RedLink'
-import RedButton from './buttons/RedButton'
+import { auth } from '../../firebase.config'
+import logo from '../../assets/imgs/fullLogo.png'
+import ContainerCard from '../cards/ContainerCard'
+import RedLink from '../links/RedLink'
+import RedButton from '../buttons/RedButton'
 
 function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false)

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
-import Spinner from '../../components/Spinner'
+import Spinner from '../../components/other/Spinner'
 import ItemCard from '../../components/cards/ItemCard'
 import ContainerCard from '../../components/cards/ContainerCard'
 import RingCard from '../../components/cards/RingCard'

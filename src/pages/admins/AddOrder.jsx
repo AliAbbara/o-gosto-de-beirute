@@ -10,7 +10,7 @@ import {
   getDocs,
 } from 'firebase/firestore'
 import { db } from '../../firebase.config'
-import Spinner from '../../components/Spinner'
+import Spinner from '../../components/other/Spinner'
 import ItemButton from '../../components/buttons/ItemButton'
 import RedButton from '../../components/buttons/RedButton'
 import SwitchButton from '../../components/buttons/SwitchButton'

@@ -1,13 +1,13 @@
-import ContainerCard from './cards/ContainerCard'
-import logo from '../assets//imgs/fullLogo.png'
-import RedLink from './links/RedLink'
+import ContainerCard from '../cards/ContainerCard'
+import logo from '../../assets/imgs/fullLogo.png'
+import RedLink from '../links/RedLink'
 import { BsInstagram } from 'react-icons/bs'
 import { BsWhatsapp } from 'react-icons/bs'
 import { SiIfood } from 'react-icons/si'
 
 function Footer() {
   return (
-    <ContainerCard className='mt-6 mb-16 sm:mb-auto flex flex-col text-center'>
+    <ContainerCard className='mt-6 mb-20 sm:mb-auto flex flex-col text-center'>
       {/* -----------Logo and menu div------------- */}
       <div className='flex flex-wrap justify-evenly p-2'>
         {/* Logo */}
