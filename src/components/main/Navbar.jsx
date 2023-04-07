@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TfiLayoutListPost } from 'react-icons/tfi'
 import { CgProfile } from 'react-icons/cg'
+import { VscSignIn } from 'react-icons/vsc'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../../firebase.config'
 import logo from '../../assets/imgs/fullLogo.png'
@@ -36,9 +37,9 @@ function Navbar() {
       <Link
         to='/'
         onClick={() => setNavbarOpen(false)}
-        className='flex items-center font-semibold text-2xl w-full lg:w-1/3'>
-        <img src={logo} alt='full logo' className='w-10 mr-2' />
-        <p className='w-60 sm:w-auto'>O GOSTO DE BEIRUTE</p>
+        className='flex items-center font-semibold text-2xl w-full sm:w-1/2'>
+        <img src={logo} alt='Ogosto logo' className='w-10 mr-2' />
+        <p className='w-full sm:w-auto'>O GOSTO DE BEIRUTE</p>
       </Link>
       {/* Navbar items list */}
       <ul className='hidden lg:flex text-center min-w-fit'>
@@ -53,13 +54,9 @@ function Navbar() {
         ))}
       </ul>
       {/* Sign in and menu button div */}
-      <div className='flex justify-end items-center w-1/3'>
+      <div className='flex justify-end items-center sm:w-1/3'>
         <RedLink to={loggedIn ? '/profile' : '/sign-in'}>
-          {loggedIn ? (
-            <CgProfile size={20} />
-          ) : (
-            <p className='text-sm'>Entrar</p>
-          )}
+          {loggedIn ? <CgProfile size={20} /> : <VscSignIn size={20} />}
         </RedLink>
         <RedButton
           onClick={() => setNavbarOpen(!navbarOpen)}
