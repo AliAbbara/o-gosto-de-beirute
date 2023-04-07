@@ -16,9 +16,9 @@ function ItemCard({ item }) {
 
   return (
     <>
-      <ContainerCard className='flex'>
+      <ContainerCard className='sm:flex'>
         {/* Image div */}
-        <div className='h-48 w-60 mr-2'>
+        <div className='h-52 sm:w-64 sm:mr-2'>
           <img
             className='h-full w-full rounded-lg border-2 border-yellow-400'
             src={item?.image}
@@ -31,10 +31,10 @@ function ItemCard({ item }) {
           <div className='flex items-center justify-between text-3xl'>
             <div className='flex'>
               <p>{item?.name}</p>
-              {item?.spicey && <GiChiliPepper className='ml-2' />}
-              {item?.vegan && <SiVectorworks className='ml-2' />}
+              {item?.spicey && <GiChiliPepper className='sm:ml-2' />}
+              {item?.vegan && <SiVectorworks className='sm:ml-2' />}
             </div>
-            <p className='ml-2'>R$ {item?.price}</p>
+            <p className='sm:ml-2'>R$ {item?.price}</p>
           </div>
           {/* Description div */}
           <div className='flex flex-col text-base text-slate-100'>
@@ -45,7 +45,7 @@ function ItemCard({ item }) {
             </p>
           </div>
           {/* Buttons div */}
-          <div>
+          <div className='flex'>
             <RedButton onClick={onMoreInfo}>Mais Informações</RedButton>
             <RedButton className='ml-2' onClick={onAddToOrder}>
               Adicionar ao Pedido

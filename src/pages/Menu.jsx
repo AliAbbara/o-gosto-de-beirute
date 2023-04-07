@@ -32,7 +32,7 @@ function Menu() {
   }
   return (
     <RingCard title='Menu'>
-      <div className='flex flex-row justify-between text-center my-2'>
+      <div className='flex flex-col md:flex-row justify-between items-center text-center my-2'>
         <RedLink
           to='/menu/sandwiches'
           className={
