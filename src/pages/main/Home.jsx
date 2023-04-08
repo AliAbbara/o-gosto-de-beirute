@@ -7,26 +7,26 @@ function Home() {
   const carouselItems1 = [
     {
       id: '435Menu',
-      name: 'Menu',
-      description: 'Click here to go to the menu page!',
+      name: 'Cardápio',
+      description: 'Clique aqui para ir para a página do cardápio!',
     },
     {
       id: '435ContactUs',
-      name: 'Contact Us',
-      description: 'Click here to go to the menu page!',
+      name: 'Contato',
+      description: 'Clique aqui para ir para a página do cardápio!',
     },
     {
       id: '435AboutUs',
-      name: 'About Us',
-      description: 'Click here to go to the menu page!',
+      name: 'Sobre',
+      description: 'Clique aqui para ir para a página do cardápio!',
     },
   ]
 
   const carouselItems2 = [
     {
       id: '435MenuExplanation',
-      name: 'Menu Explanation and History',
-      description: 'Curious? Click here to see more about our menu!',
+      name: 'Explicação e histórico do menu',
+      description: 'Curioso? Clique aqui para ver mais sobre nosso cardápio!',
     },
   ]
 

@@ -92,9 +92,9 @@ function Admins() {
     return (
       <ContainerCard className='text-center'>
         <h1 className='text-3xl'>
-          Ooops, you are not allowed to view this content!
+          Oops, você não tem permissão para visualizar este conteúdo!
         </h1>
-        <RedLink to='/'>Back to the home page</RedLink>
+        <RedLink to='/'>Voltar a Página Inicial</RedLink>
       </ContainerCard>
     )
   }

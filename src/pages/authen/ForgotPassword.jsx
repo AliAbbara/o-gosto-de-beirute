@@ -21,10 +21,10 @@ function ForgotPassword() {
     e.preventDefault()
     try {
       await sendPasswordResetEmail(auth, email)
-      toast.success('The password reset link was sent!')
+      toast.success('O link de redefinição de senha foi enviado!')
       setTimeout(navigate('/'), 1000)
     } catch (error) {
-      toast.error('Something went wrong, please check for a correct email!')
+      toast.error('Algo deu errado, verifique se o e-mail está correto!')
     }
   }
   // -----------------------------------------------

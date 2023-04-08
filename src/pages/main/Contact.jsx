@@ -30,7 +30,7 @@ function Contact() {
           <p>Instagram: @ogostodebeirute</p>
         </div>
         {/* Name Email and About */}
-        <div className=''>
+        <div>
           <div className='mb-2'>
             <label className='block'>Nome</label>
             <RedInput

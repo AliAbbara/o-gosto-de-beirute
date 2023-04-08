@@ -60,7 +60,7 @@ function AddOrder() {
     subtotal: 0,
     done: false,
     paymentMethod: '',
-    orderType: 'Takeaway',
+    orderType: 'Pra Levar',
   })
 
   const {
@@ -222,8 +222,8 @@ function AddOrder() {
             id='orderType'
             value={orderType}
             onChange={onMutate}>
-            <option value='Takeaway'>Pra levar</option>
-            <option value='Dine-in'>No Local</option>
+            <option value='Pra Levar'>Pra levar</option>
+            <option value='No Local'>No Local</option>
           </select>
         </div>
         {/* Items select div */}
@@ -292,7 +292,7 @@ function AddOrder() {
         {/* Discount select div */}
         <div className='flex mb-1'>
           <div>
-            <label>Desconto: </label>
+            <label>Desconto? </label>
             <SwitchButton
               className={discount ? ' bg-red-500' : ''}
               type='button'
@@ -311,7 +311,7 @@ function AddOrder() {
             </SwitchButton>
           </div>
           <div className='ml-4'>
-            <label>Desconto % : </label>
+            <label>% de Desconto : </label>
             <input
               className='rounded-lg text-red-700 w-14'
               type='number'
@@ -324,7 +324,7 @@ function AddOrder() {
         {/* Ifood select div */}
         <div className='flex flex-wrap mb-1'>
           <div>
-            <label>iFood: </label>
+            <label>É iFood? </label>
             <SwitchButton
               className={ifood ? 'bg-red-500' : ''}
               type='button'
@@ -344,7 +344,7 @@ function AddOrder() {
           </div>
 
           <div className='ml-4 '>
-            <label>Pago pelo iFood: </label>
+            <label>Pago pelo iFood? </label>
             <SwitchButton
               className={paidIfood ? ' bg-red-500' : ''}
               type='button'
@@ -377,7 +377,7 @@ function AddOrder() {
 
         {/* Bag div */}
         <div className='flex flex-wrap mb-2 justify-center'>
-          <label className='mr-1'>Pedido: </label>
+          <label className='mr-1'>O Pedido: </label>
           {bag.length !== 0 &&
             bag.map((bagItem, index) => (
               <div

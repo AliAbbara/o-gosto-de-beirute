@@ -35,7 +35,7 @@ function SignUp() {
     e.preventDefault()
 
     if (name === '' || email === '' || password === '') {
-      toast.warning('Please fill all the fields!')
+      toast.warning('Por favor, preencha todos os campos!')
     } else {
       try {
         const userCredential = await createUserWithEmailAndPassword(
@@ -53,11 +53,11 @@ function SignUp() {
 
         navigate('/profile')
         toast.success(
-          'Signed up successfully, make sure to verify your email address!'
+          'Inscrito com sucesso, certifique-se de verificar seu endereço de e-mail!'
         )
       } catch (error) {
         toast.error(
-          'Something went wrong! Please check for a correct email or for an already existing account.'
+          'Algo deu errado! Verifique se o e-mail está correto ou se há uma conta já existente.'
         )
       }
     }

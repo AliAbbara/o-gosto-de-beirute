@@ -18,20 +18,6 @@ function Kitchen() {
   const [loading, setLoading] = useState(false)
   const [change, setChange] = useState(false)
 
-  // Dispatching Order
-  const onDispatch = async (id) => {
-    try {
-      const orderRef = doc(db, 'orders', id)
-      const docSnap = await getDoc(orderRef)
-      let order = docSnap.data()
-      order.done = true
-      await updateDoc(orderRef, order)
-    } catch (error) {
-      toast.error('Something went wrong updating this order!')
-    }
-    setChange(!change)
-  }
-
   useEffect(() => {
     setLoading(true)
     const fetchOrders = async () => {
@@ -54,6 +40,20 @@ function Kitchen() {
     }
     fetchOrders()
   }, [change])
+
+  // Dispatching Order
+  const onDispatch = async (id) => {
+    try {
+      const orderRef = doc(db, 'orders', id)
+      const docSnap = await getDoc(orderRef)
+      let order = docSnap.data()
+      order.done = true
+      await updateDoc(orderRef, order)
+    } catch (error) {
+      toast.error('Algo deu errado ao despachar este pedido!')
+    }
+    setChange(!change)
+  }
 
   if (loading) {
     return <Spinner />

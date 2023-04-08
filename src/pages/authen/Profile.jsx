@@ -56,30 +56,30 @@ function Profile() {
   }
 
   const onName = async () => {
-    if (name.length < 8) {
-      toast.warning('Please enter full name!')
+    if (name.length < 6) {
+      toast.warning('Por favor, digite o nome completo!')
     }
     if (name.length > 36) {
-      toast.warning('Maximum length for name is 36 characters!')
+      toast.warning('O comprimento máximo do nome é de 36 caracteres!')
     }
     try {
       await updateProfile(user, { displayName: name })
-      toast.success('Name Changed!')
+      toast.success('Nome alterado!')
     } catch (error) {
-      toast.error('Somwthing went wrong!')
+      toast.error('Algo deu errado ao atualizar o nome!')
     }
     window.location.reload()
   }
 
   const onEmail = async () => {
     if (email === user.email) {
-      toast.warning('This is the current email!')
+      toast.warning('Este é o e-mail atual!')
     }
     try {
       await updateEmail(user, email)
-      toast.success('Email Changed!')
+      toast.success('Email alterado!')
     } catch (error) {
-      toast.error('Something went wrong, please check for a valid email!')
+      toast.error('Algo deu errado, verifique se há um e-mail válido!')
     }
   }
 
@@ -87,10 +87,10 @@ function Profile() {
     try {
       await sendPasswordResetEmail(auth, resetEmail)
       auth.signOut()
-      toast.success('The password reset link was sent!')
+      toast.success('O link de redefinição de senha foi enviado!')
       setTimeout(navigate('/'), 1000)
     } catch (error) {
-      toast.error('Something went wrong, please check for a correct email!')
+      toast.error('Algo deu errado, verifique se o e-mail está correto!')
     }
   }
 
@@ -125,7 +125,7 @@ function Profile() {
             <div className='mb-2 flex flex-col'>
               <label className='block'>Nome</label>
               <RedInput
-                type='name'
+                type='text'
                 placeholder='Nome'
                 id='name'
                 value={name}

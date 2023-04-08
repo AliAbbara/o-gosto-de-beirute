@@ -30,7 +30,7 @@ function SignIn() {
     e.preventDefault()
 
     if (email === '' || password === '') {
-      toast.warning('Please fill all the fields!')
+      toast.warning('Por favor, preencha todos os campos!')
     } else {
       try {
         const userCredential = await signInWithEmailAndPassword(
@@ -40,10 +40,10 @@ function SignIn() {
         )
         if (userCredential.user) {
           navigate('/')
-          toast.success('Signed in successfully!')
+          toast.success('Conectado com sucesso!')
         }
       } catch (error) {
-        toast.error('Wrong email or password!')
+        toast.error('E-mail ou senha incorretos!')
       }
     }
   }
@@ -58,6 +58,7 @@ function SignIn() {
           </label>
           <RedInput
             type='email'
+            autoComplete='on'
             placeholder='Email'
             id='email'
             value={email}
@@ -74,7 +75,7 @@ function SignIn() {
           </label>
           <RedInput
             type={passwordVisible ? 'name' : 'password'}
-            autoComplete='off'
+            autoComplete='on'
             placeholder='Senha'
             id='password'
             value={password}

@@ -40,7 +40,8 @@ function Orders() {
         })
         setOrders(orders)
       } catch (error) {
-        toast.error(error)
+        console.log(error)
+        toast.error('Algo deu errado ao receber os pedidos!')
       }
       setLoading(false)
     }
@@ -61,7 +62,7 @@ function Orders() {
       order.done = true
       await updateDoc(orderRef, order)
     } catch (error) {
-      toast.error('Something went wrong updating this order!')
+      toast.error('Algo deu errado ao atualizar este pedido!')
     }
     setChange(!change)
   }
