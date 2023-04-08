@@ -50,7 +50,7 @@ function SignIn() {
 
   return (
     <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
-      <h1 className='text-3xl text-center'>Sign In</h1>
+      <h1 className='text-3xl text-center'>Login</h1>
       <form onSubmit={onSubmit} className='mt-6 text-xl'>
         <div className='mb-2'>
           <label htmlFor='email' className='block'>
@@ -66,7 +66,7 @@ function SignIn() {
         </div>
         <div className='mb-2'>
           <label className='flex items-center'>
-            Password
+            Senha
             <FaEye
               onClick={() => setPasswordVisible(!passwordVisible)}
               className='ml-2 hover:cursor-pointer'
@@ -75,28 +75,28 @@ function SignIn() {
           <RedInput
             type={passwordVisible ? 'name' : 'password'}
             autoComplete='off'
-            placeholder='Password'
+            placeholder='Senha'
             id='password'
             value={password}
             onChange={onChange}
           />
         </div>
         <p className='text-center'>
-          <RedLink to='/forgot-password'>Forgot Password ?</RedLink>
+          <RedLink to='/forgot-password'>Esqueceu sua senha ?</RedLink>
         </p>
 
         <RedButton type='submit' className='w-full tracking-wider mt-6'>
-          Sign In
+          Login
         </RedButton>
       </form>
 
       <div className='mt-6 text-center'>
-        <p>Don't have an account ?</p>
-        <RedLink to='/sign-up'>Sign Up</RedLink>
+        <p>Não tem uma conta?</p>
+        <RedLink to='/sign-up'>Inscrever-se</RedLink>
       </div>
 
       <div className='mt-6 flex flex-col items-center'>
-        <p>Or sign in with Google instead</p>
+        <p>Ou faça login com o Google</p>
         <OAuth />
       </div>
     </ContainerCard>

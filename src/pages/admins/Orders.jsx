@@ -98,13 +98,13 @@ function Orders() {
   return (
     <div className='flex flex-col'>
       <div className='flex flex-wrap border-b border-yellow-400'>
-        <p className='text-2xl'>Preparing: </p>
+        <p className='text-2xl'>Preparando: </p>
         {preparing?.map((order) => (
           <OrderCard key={order.id} order={order} onDispatch={onDispatch} />
         ))}
       </div>
       <div className='flex flex-wrap'>
-        <p className='text-2xl'>Done: </p>
+        <p className='text-2xl'>Feito: </p>
         <OrdersTable>
           {done?.map((order) => (
             <OrderRow

@@ -216,28 +216,28 @@ function EditOrder() {
   }
   return (
     <ContainerCard className='flex flex-col justify-between'>
-      <h1 className='text-3xl text-center'>Edit Order</h1>
+      <h1 className='text-3xl text-center'>Editar Pedido</h1>
       <RedLink className='mb-2 w-fit' to='/admins/orders'>
-        Back to Orders
+        Voltar aos Pedidos
       </RedLink>
       <form onSubmit={(e) => onOrderSubmit(e)}>
         {/* Order Type div */}
         <div>
-          <label>Order Type: </label>
+          <label>Tipo de Pedido: </label>
           <select
             className='text-red-700 rounded-lg'
             name='orderType'
             id='orderType'
             value={orderType}
             onChange={onMutate}>
-            <option value='Takeaway'>Takeaway</option>
-            <option value='Dine-in'>Dine In</option>
+            <option value='Takeaway'>Pra Levar</option>
+            <option value='Dine-in'>No Local</option>
           </select>
         </div>
         {/* Items select div */}
         <div className='flex flex-wrap'>
           <div className='flex-1 flex-wrap'>
-            <label>Sandwiches: </label>
+            <label>Lanches: </label>
             {sandwiches.map((menuItem) => (
               <ItemButton
                 key={menuItem.id}
@@ -248,7 +248,7 @@ function EditOrder() {
             ))}
           </div>
           <div className='flex-1 flex-wrap'>
-            <label>Portions: </label>
+            <label>Porções: </label>
             {portions.map((menuItem) => (
               <ItemButton
                 key={menuItem.id}
@@ -260,7 +260,7 @@ function EditOrder() {
           </div>
         </div>
         <div className='w-full flex-wrap'>
-          <label>Drinks: </label>
+          <label>Bebidas: </label>
           {drinks.map((menuItem) => (
             <ItemButton
               key={menuItem.id}
@@ -272,7 +272,7 @@ function EditOrder() {
         </div>
         {/* Customer name div */}
         <div>
-          <label>Customer name: </label>
+          <label>Nome do Cliente: </label>
           <input
             className='rounded-lg ml-1 mb-1 text-red-700 px-1'
             type='text'
@@ -283,7 +283,7 @@ function EditOrder() {
         </div>
         {/* Table number div */}
         <div>
-          <label>Table number: </label>
+          <label>Número da Mesa: </label>
           <input
             className='rounded-lg ml-1 text-red-700 px-1 w-14'
             type='number'
@@ -300,14 +300,14 @@ function EditOrder() {
         {/* Discount select div */}
         <div className='flex mb-1'>
           <div>
-            <label>Discount: </label>
+            <label>Desconto: </label>
             <SwitchButton
               className={discount ? ' bg-red-500' : ''}
               type='button'
               id='discount'
               value={true}
               onClick={onMutate}>
-              Yes
+              Sim
             </SwitchButton>
             <SwitchButton
               className={discount ? '' : ' bg-red-500'}
@@ -315,11 +315,11 @@ function EditOrder() {
               id='discount'
               value={false}
               onClick={onMutate}>
-              No
+              Não
             </SwitchButton>
           </div>
           <div className='ml-4'>
-            <label>Discount % : </label>
+            <label>Desconto % : </label>
             <input
               className='rounded-lg text-red-700 w-14'
               type='number'
@@ -339,7 +339,7 @@ function EditOrder() {
               id='ifood'
               value={true}
               onClick={onMutate}>
-              Yes
+              Sim
             </SwitchButton>
             <SwitchButton
               className={ifood ? '' : 'bg-red-500'}
@@ -347,19 +347,19 @@ function EditOrder() {
               id='ifood'
               value={false}
               onClick={onMutate}>
-              No
+              Não
             </SwitchButton>
           </div>
 
           <div className='ml-4 '>
-            <label>Paid via iFood: </label>
+            <label>Pago pelo iFood: </label>
             <SwitchButton
               className={paidIfood ? ' bg-red-500' : ''}
               type='button'
               id='paidIfood'
               value={true}
               onClick={onMutate}>
-              Yes
+              Sim
             </SwitchButton>
             <SwitchButton
               className={paidIfood ? '' : ' bg-red-500'}
@@ -367,12 +367,12 @@ function EditOrder() {
               id='paidIfood'
               value={false}
               onClick={onMutate}>
-              No
+              Não
             </SwitchButton>
           </div>
 
           <div className='ml-4 '>
-            <label>iFood Number: </label>
+            <label>Número do iFood: </label>
             <input
               className='w-14 rounded-lg ml-1 text-red-700'
               type='number'
@@ -385,7 +385,7 @@ function EditOrder() {
 
         {/* Bag div */}
         <div className='flex flex-wrap mb-2 justify-center'>
-          <label className='mr-1'>Bag: </label>
+          <label className='mr-1'>Pedido: </label>
           {bag.length !== 0 &&
             bag.map((bagItem, index) => (
               <div
@@ -419,7 +419,7 @@ function EditOrder() {
             ))}
         </div>
         <RedButton className='w-full' type='submit'>
-          Update Order
+          Atualizar Pedido
         </RedButton>
       </form>
     </ContainerCard>

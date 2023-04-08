@@ -9,7 +9,7 @@ function KitchenCard({ onDispatch, order }) {
       <div className='flex flex-col justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
         {/* Time & ifoodNum & table div */}
         <div className='flex justify-between text-semibold border-b border-yellow-400'>
-          <p>Order Number: {orderNumber}</p>
+          <p>Número do Pedido: {orderNumber}</p>
           <p>
             {createdAt
               .toDate()
@@ -19,7 +19,7 @@ function KitchenCard({ onDispatch, order }) {
         {/* --------------------------------*/}
         <div className='flex justify-between text-semibold border-b border-yellow-400'>
           <p>{ifood ? ifoodNum : orderType}</p>
-          <p>Table: {table}</p>
+          <p>Mesa: {table}</p>
         </div>
         {/* order items div */}
         <div className='flex flex-col border-b border-yellow-400'>
@@ -35,7 +35,7 @@ function KitchenCard({ onDispatch, order }) {
         {/* button for done div */}
         <div className='flex justify-evenly items-center'>
           {ifood && <SiIfood />}
-          <RedButton onClick={() => onDispatch(order.id)}>Dispatch</RedButton>
+          <RedButton onClick={() => onDispatch(order.id)}>Despachar</RedButton>
         </div>
       </div>
     </>

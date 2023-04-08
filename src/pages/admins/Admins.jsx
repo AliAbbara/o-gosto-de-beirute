@@ -47,7 +47,7 @@ function Admins() {
   if (isAdmin) {
     return (
       <ContainerCard className='flex flex-col justify-center m-auto'>
-        <h1 className='text-3xl text-center'>Admins</h1>
+        <h1 className='text-3xl text-center'>Pedidos</h1>
         <div className='flex justify-between text-center my-2'>
           <RedLink
             to='/admins/add-order'
@@ -56,7 +56,7 @@ function Admins() {
                 ? 'bg-red-600 text-yellow-400 w-24'
                 : 'text-white w-24'
             }>
-            Add Order
+            Adicionar
           </RedLink>
           <RedLink
             to='/admins/orders'
@@ -65,7 +65,7 @@ function Admins() {
                 ? 'bg-red-600 text-yellow-400 w-24'
                 : 'text-white w-24'
             }>
-            All Orders
+            Todos
           </RedLink>
           <RedLink
             to='/admins/kitchen'
@@ -74,7 +74,7 @@ function Admins() {
                 ? 'bg-red-600 text-yellow-400 w-24'
                 : 'text-white w-24'
             }>
-            Kitchen Section
+            Cozinha
           </RedLink>
         </div>
         {params.section === 'add-order' ? (

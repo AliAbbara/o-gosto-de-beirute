@@ -30,7 +30,7 @@ function Menu() {
     return <Spinner />
   }
   return (
-    <RingCard title='Menu'>
+    <RingCard title='Cardapio'>
       <div className='flex flex-col md:flex-row justify-between items-center text-center my-2'>
         <RedLink
           to='/menu/sandwiches'
@@ -39,7 +39,7 @@ function Menu() {
               ? 'bg-red-600 text-yellow-400 w-44'
               : 'text-white w-44'
           }>
-          Sandwiches
+          Lanches
         </RedLink>
         <RedLink
           to='/menu/porcoes'
@@ -48,7 +48,7 @@ function Menu() {
               ? 'bg-red-600 text-yellow-400 w-44'
               : 'text-white w-44'
           }>
-          Salgados & Portions
+          Salgados & Porções
         </RedLink>
         <RedLink
           to='/menu/drinks'
@@ -57,7 +57,7 @@ function Menu() {
               ? 'bg-red-600 text-yellow-400 w-44'
               : 'text-white w-44'
           }>
-          Drinks
+          Bebidas
         </RedLink>
       </div>
       <div>

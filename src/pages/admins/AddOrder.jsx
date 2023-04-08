@@ -215,21 +215,21 @@ function AddOrder() {
       <form onSubmit={(e) => onOrderSubmit(e)}>
         {/* Order Type div */}
         <div>
-          <label>Order Type: </label>
+          <label>Tipo de Pedido: </label>
           <select
             className='text-red-700 rounded-lg'
             name='orderType'
             id='orderType'
             value={orderType}
             onChange={onMutate}>
-            <option value='Takeaway'>Takeaway</option>
-            <option value='Dine-in'>Dine In</option>
+            <option value='Takeaway'>Pra levar</option>
+            <option value='Dine-in'>No Local</option>
           </select>
         </div>
         {/* Items select div */}
         <div className='flex flex-wrap'>
           <div className='flex-1 flex-wrap'>
-            <label>Sandwiches: </label>
+            <label>Lanches: </label>
             {sandwiches.map((menuItem) => (
               <ItemButton
                 key={menuItem.id}
@@ -240,7 +240,7 @@ function AddOrder() {
             ))}
           </div>
           <div className='flex-1 flex-wrap'>
-            <label>Portions: </label>
+            <label>Porções: </label>
             {portions.map((menuItem) => (
               <ItemButton
                 key={menuItem.id}
@@ -252,7 +252,7 @@ function AddOrder() {
           </div>
         </div>
         <div className='w-full flex-wrap'>
-          <label>Drinks: </label>
+          <label>Bebidas: </label>
           {drinks.map((menuItem) => (
             <ItemButton
               key={menuItem.id}
@@ -264,7 +264,7 @@ function AddOrder() {
         </div>
         {/* Customer name div */}
         <div>
-          <label>Customer name: </label>
+          <label>Nome do Cliente: </label>
           <input
             className='rounded-lg ml-1 mb-1 text-red-700 px-1'
             type='text'
@@ -275,7 +275,7 @@ function AddOrder() {
         </div>
         {/* Table number div */}
         <div>
-          <label>Table number: </label>
+          <label>Número da Mesa: </label>
           <input
             className='rounded-lg ml-1 text-red-700 px-1 w-14'
             type='number'
@@ -292,14 +292,14 @@ function AddOrder() {
         {/* Discount select div */}
         <div className='flex mb-1'>
           <div>
-            <label>Discount: </label>
+            <label>Desconto: </label>
             <SwitchButton
               className={discount ? ' bg-red-500' : ''}
               type='button'
               id='discount'
               value={true}
               onClick={onMutate}>
-              Yes
+              Sim
             </SwitchButton>
             <SwitchButton
               className={discount ? '' : ' bg-red-500'}
@@ -307,11 +307,11 @@ function AddOrder() {
               id='discount'
               value={false}
               onClick={onMutate}>
-              No
+              Não
             </SwitchButton>
           </div>
           <div className='ml-4'>
-            <label>Discount % : </label>
+            <label>Desconto % : </label>
             <input
               className='rounded-lg text-red-700 w-14'
               type='number'
@@ -331,7 +331,7 @@ function AddOrder() {
               id='ifood'
               value={true}
               onClick={onMutate}>
-              Yes
+              Sim
             </SwitchButton>
             <SwitchButton
               className={ifood ? '' : 'bg-red-500'}
@@ -339,19 +339,19 @@ function AddOrder() {
               id='ifood'
               value={false}
               onClick={onMutate}>
-              No
+              Não
             </SwitchButton>
           </div>
 
           <div className='ml-4 '>
-            <label>Paid via iFood: </label>
+            <label>Pago pelo iFood: </label>
             <SwitchButton
               className={paidIfood ? ' bg-red-500' : ''}
               type='button'
               id='paidIfood'
               value={true}
               onClick={onMutate}>
-              Yes
+              Sim
             </SwitchButton>
             <SwitchButton
               className={paidIfood ? '' : ' bg-red-500'}
@@ -359,12 +359,12 @@ function AddOrder() {
               id='paidIfood'
               value={false}
               onClick={onMutate}>
-              No
+              Não
             </SwitchButton>
           </div>
 
           <div className='ml-4 '>
-            <label>iFood Number: </label>
+            <label>Número do iFood: </label>
             <input
               className='w-14 rounded-lg ml-1 text-red-700'
               type='number'
@@ -377,7 +377,7 @@ function AddOrder() {
 
         {/* Bag div */}
         <div className='flex flex-wrap mb-2 justify-center'>
-          <label className='mr-1'>Bag: </label>
+          <label className='mr-1'>Pedido: </label>
           {bag.length !== 0 &&
             bag.map((bagItem, index) => (
               <div
@@ -411,7 +411,7 @@ function AddOrder() {
             ))}
         </div>
         <RedButton className='w-full' type='submit'>
-          Submit Order
+          Enviar Pedido
         </RedButton>
       </form>
     </div>

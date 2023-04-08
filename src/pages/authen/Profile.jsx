@@ -112,27 +112,27 @@ function Profile() {
   }
   return (
     <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
-      <h1 className='text-3xl text-center'>Profile</h1>
+      <h1 className='text-3xl text-center'>Perfil</h1>
       {loggedIn ? (
         <div className='flex flex-col'>
           <div className='flex justify-between'>
-            <p>Name: {auth.currentUser?.displayName}</p>
+            <p>Nome: {auth.currentUser?.displayName}</p>
             <RedButton className='flex items-center' onClick={onEditing('n')}>
               <BiPencil />
             </RedButton>
           </div>
           {nameChange && (
             <div className='mb-2 flex flex-col'>
-              <label className='block'>Name</label>
+              <label className='block'>Nome</label>
               <RedInput
                 type='name'
-                placeholder='Name'
+                placeholder='Nome'
                 id='name'
                 value={name}
                 onChange={onChange}
               />
               <RedButton className='mt-1' onClick={onName}>
-                Change
+                Mudar
               </RedButton>
             </div>
           )}
@@ -154,14 +154,14 @@ function Profile() {
                 onChange={onChange}
               />
               <RedButton className='mt-1' onClick={onEmail}>
-                Change
+                Mudar
               </RedButton>
             </div>
           )}
           <RedButton
             className='w-fit place-self-center'
             onClick={onEditing('p')}>
-            Reset Password
+            Redefinir Senha
           </RedButton>
           {passwordChange && (
             <div className='mb-2 flex flex-col'>
@@ -174,26 +174,26 @@ function Profile() {
                 onChange={onChange}
               />
               <RedButton className='mt-1' onClick={onPassword}>
-                Send Password Reset Link
+                Enviar Link de Redefinição de Senha
               </RedButton>
             </div>
           )}
 
           {isAdmin && (
             <RedLink to='/admins/add-order' className='text-center mt-2'>
-              Go To Admin Page
+              Pagina de Admins
             </RedLink>
           )}
 
           <RedButton className='mt-6' onClick={() => auth.signOut()}>
-            Sign Out
+            Sair
           </RedButton>
         </div>
       ) : (
         <>
-          <p>Make sure you are signed in!</p>
+          <p>Verifique se você está conectado!</p>
           <p className='mt-6 text-center'>
-            <RedLink to='/sign-in'>Go to sign in page</RedLink>
+            <RedLink to='/sign-in'>Ir para a Página de Login</RedLink>
           </p>
         </>
       )}

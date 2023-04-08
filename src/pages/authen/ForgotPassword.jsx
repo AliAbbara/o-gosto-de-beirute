@@ -31,7 +31,7 @@ function ForgotPassword() {
 
   return (
     <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
-      <h1 className='text-3xl text-center'>Password Reset</h1>
+      <h1 className='text-3xl text-center'>Redefinição de Senha</h1>
       <form onSubmit={onSubmit} className='mt-6 text-xl'>
         <div>
           <label className='block'>Email</label>
@@ -44,12 +44,12 @@ function ForgotPassword() {
           />
         </div>
         <RedButton type='submit' className='w-full tracking-wider mt-6'>
-          Send Reset Link
+          Mandar Link de Redefinição
         </RedButton>
       </form>
 
       <p className='mt-6 text-center'>
-        <RedLink to='/sign-in'>Back to the sign in page</RedLink>
+        <RedLink to='/sign-in'>Voltar a Pagina de Login</RedLink>
       </p>
     </ContainerCard>
   )

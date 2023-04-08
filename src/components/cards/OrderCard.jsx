@@ -19,7 +19,7 @@ function OrderCard({ order, onDispatch, onClose }) {
     <div className='flex flex-col w-64 justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
       {/* Time & ifoodNum & table div */}
       <div className='flex justify-between text-semibold border-b border-yellow-400'>
-        <p>Order Number: {orderNumber}</p>
+        <p>Número do Pedido: {orderNumber}</p>
         <p>
           {createdAt
             .toDate()
@@ -29,7 +29,7 @@ function OrderCard({ order, onDispatch, onClose }) {
       {/* --------------------------------*/}
       <div className='flex justify-between text-semibold border-b border-yellow-400'>
         <p>{ifood ? 'iFood Num: ' + ifoodNum : orderType}</p>
-        <p>Table: {table}</p>
+        <p>Mesa: {table}</p>
       </div>
       {/* order items div */}
       <div className='flex flex-col border-b border-yellow-400'>
@@ -50,12 +50,12 @@ function OrderCard({ order, onDispatch, onClose }) {
       {/* button for done div */}
       <div className='flex justify-between items-center'>
         {!done ? (
-          <RedButton onClick={() => onDispatch(order.id)}>Dispatch</RedButton>
+          <RedButton onClick={() => onDispatch(order.id)}>Despachar</RedButton>
         ) : (
-          <RedButton onClick={() => onClose(order.id)}>Close Order</RedButton>
+          <RedButton onClick={() => onClose(order.id)}>Fechar Pedido</RedButton>
         )}
         {ifood && <SiIfood />}
-        <RedLink to={`/admins/edit-order/${order.id}`}>Edit Order</RedLink>
+        <RedLink to={`/admins/edit-order/${order.id}`}>Editar Pedido</RedLink>
       </div>
     </div>
   )

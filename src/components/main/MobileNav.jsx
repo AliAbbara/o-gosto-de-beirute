@@ -15,7 +15,7 @@ function MobileNav() {
           <li
             key={item.id}
             className='hover:bg-red-600 rounded-lg duration-100'>
-            <Link className='px-4' to={'/' + item.path}>
+            <Link className='px-3' to={'/' + item.path}>
               {item.title}
             </Link>
           </li>

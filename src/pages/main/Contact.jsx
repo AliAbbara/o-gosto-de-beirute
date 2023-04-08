@@ -35,7 +35,7 @@ function Contact() {
             <label className='block'>Nome</label>
             <RedInput
               type='name'
-              placeholder='Name'
+              placeholder='Nome'
               id='name'
               value={name}
               onChange={onChange}
