@@ -15,6 +15,7 @@ import KitchenCard from '../../components/cards/KitchenCard'
 
 function Kitchen() {
   const [orders, setOrders] = useState([])
+  const [preparing, setPreparing] = useState([])
   const [loading, setLoading] = useState(false)
   const [change, setChange] = useState(false)
 
@@ -42,6 +43,10 @@ function Kitchen() {
     fetchOrders()
   }, [change])
 
+  useEffect(() => {
+    setPreparing(orders.filter((order) => !order.data.done))
+  }, [orders])
+
   // Dispatching Order
   const onDispatch = async (id) => {
     try {
@@ -60,8 +65,6 @@ function Kitchen() {
   if (loading) {
     return <Spinner />
   }
-
-  const preparing = orders.filter((order) => !order.data.done)
 
   return (
     <div className='flex flex-col'>
