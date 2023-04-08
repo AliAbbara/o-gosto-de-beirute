@@ -48,7 +48,7 @@ function ItemCard({ item }) {
           </div>
           {/* Buttons div */}
           <div className='flex'>
-            <RedButton className='ml-2' onClick={onAddToOrder}>
+            <RedButton className='m-auto sm:m-0' onClick={onAddToOrder}>
               Adicionar ao Pedido
             </RedButton>
           </div>
