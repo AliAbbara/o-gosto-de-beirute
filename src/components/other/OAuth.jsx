@@ -25,9 +25,12 @@ function OAuth() {
         })
       }
       navigate('/')
-      toast.success('Signed in successfully!')
+      toast.success('Conectado com sucesso!')
     } catch (error) {
-      toast.error('Something went wrong, please check for a correct email!')
+      console.log(error)
+      toast.error(
+        'Algo deu errado, por favor verifique se o e-mail está correto!'
+      )
     }
   }
   return (

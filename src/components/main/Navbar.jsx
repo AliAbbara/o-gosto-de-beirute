@@ -14,8 +14,8 @@ function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
   const menuItems = [
-    { id: '2h8v6b5', title: 'HOME', path: '' },
-    { id: '098asd7a0', title: 'CARDAPIO', path: 'menu/sandwiches' },
+    { id: '2h8v6b5', title: 'INÍCIO', path: '' },
+    { id: '098asd7a0', title: 'CARDÁPIO', path: 'menu/sandwiches' },
     { id: '00gjkbnf5', title: 'CONTATO', path: 'contact' },
     { id: '65yuer23t', title: 'SOBRE', path: 'about-us' },
   ]

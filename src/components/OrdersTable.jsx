@@ -6,12 +6,12 @@ function OrdersTable({ children }) {
           <tr>
             <th className='rounded-lg border-2 border-yellow-400 w-9'>Num</th>
             <th className='rounded-lg border-2 border-yellow-400 w-9'>iFood</th>
-            <th className='rounded-lg border-2 border-yellow-400 w-9'>Table</th>
+            <th className='rounded-lg border-2 border-yellow-400 w-9'>Mesa</th>
             <th className='rounded-lg border-2 border-yellow-400 w-9'>
               Lanche
             </th>
             <th className='rounded-lg border-2 border-yellow-400 w-9'>
-              Porcao
+              Porção
             </th>
             <th className='rounded-lg border-2 border-yellow-400 w-9'>
               Salgado

@@ -55,7 +55,7 @@ function Footer() {
       </div>
       {/* -----------Rights div------------- */}
       <div className='flex flex-col mt-2'>
-        <p>O Gosto de Beirute &reg; - All Right Reserved 2023</p>
+        <p>O Gosto de Beirute &reg; - Todos os Direitos Reservados 2023</p>
         <p>Designed and developed by Ali Abbara &copy; </p>
       </div>
     </ContainerCard>

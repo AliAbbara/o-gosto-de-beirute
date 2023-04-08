@@ -1,4 +1,12 @@
-function RedInput({ className, onChange, id, placeholder, type, value }) {
+function RedInput({
+  className,
+  onChange,
+  id,
+  placeholder,
+  type,
+  value,
+  autoComplete,
+}) {
   return (
     <input
       type={type}
@@ -10,7 +18,7 @@ function RedInput({ className, onChange, id, placeholder, type, value }) {
         'w-full py-1 px-2 rounded-lg text-red-700 focus:ring-4 focus:outline-none focus:ring-yellow-500 duration-100 ' +
         className
       }
-      autoComplete='off'
+      autoComplete={autoComplete}
       required
     />
   )
