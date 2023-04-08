@@ -311,16 +311,18 @@ function AddOrder() {
               Não
             </SwitchButton>
           </div>
-          <div className='ml-4'>
-            <label>% de Desconto : </label>
-            <input
-              className='rounded-lg text-red-700 w-14'
-              type='number'
-              id='discountPer'
-              value={discountPer}
-              onChange={onMutate}
-            />
-          </div>
+          {discount && (
+            <div className='ml-4'>
+              <label>% de Desconto : </label>
+              <input
+                className='rounded-lg text-red-700 w-14'
+                type='number'
+                id='discountPer'
+                value={discountPer}
+                onChange={onMutate}
+              />
+            </div>
+          )}
         </div>
         {/* Ifood select div */}
         <div className='flex flex-wrap mb-1'>
@@ -344,36 +346,39 @@ function AddOrder() {
             </SwitchButton>
           </div>
 
-          <div className='ml-4 '>
-            <label>Pago pelo iFood? </label>
-            <SwitchButton
-              className={paidIfood ? ' bg-red-500' : ''}
-              type='button'
-              id='paidIfood'
-              value={true}
-              onClick={onMutate}>
-              Sim
-            </SwitchButton>
-            <SwitchButton
-              className={paidIfood ? '' : ' bg-red-500'}
-              type='button'
-              id='paidIfood'
-              value={false}
-              onClick={onMutate}>
-              Não
-            </SwitchButton>
-          </div>
-
-          <div className='ml-4 '>
-            <label>Número do iFood: </label>
-            <input
-              className='w-14 rounded-lg ml-1 text-red-700'
-              type='number'
-              id='ifoodNum'
-              value={ifoodNum}
-              onChange={onMutate}
-            />
-          </div>
+          {ifood && (
+            <>
+              <div className='ml-4 '>
+                <label>Pago pelo iFood? </label>
+                <SwitchButton
+                  className={paidIfood ? ' bg-red-500' : ''}
+                  type='button'
+                  id='paidIfood'
+                  value={true}
+                  onClick={onMutate}>
+                  Sim
+                </SwitchButton>
+                <SwitchButton
+                  className={paidIfood ? '' : ' bg-red-500'}
+                  type='button'
+                  id='paidIfood'
+                  value={false}
+                  onClick={onMutate}>
+                  Não
+                </SwitchButton>
+              </div>
+              <div className='ml-4 '>
+                <label>Número do iFood: </label>
+                <input
+                  className='w-14 rounded-lg ml-1 text-red-700'
+                  type='number'
+                  id='ifoodNum'
+                  value={ifoodNum}
+                  onChange={onMutate}
+                />
+              </div>
+            </>
+          )}
         </div>
 
         {/* Order comment div */}
