@@ -26,7 +26,10 @@ function Footer() {
               to='https://www.instagram.com/ogostodebeirute/'>
               <BsInstagram />
             </RedLink>
-            <RedLink className='mb-1' target='_blank' to='/contact'>
+            <RedLink
+              className='mb-1'
+              target='_blank'
+              to='https://wa.me/5517996620999'>
               <BsWhatsapp />
             </RedLink>
             <RedLink
