@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { GiChiliPepper } from 'react-icons/gi'
 import { SiVectorworks } from 'react-icons/si'
 import ContainerCard from './ContainerCard'
-import RedButton from './../buttons/RedButton'
+import RedButton from '../buttons/RedButton'
 
 function ItemCard({ item }) {
   const navigate = useNavigate()

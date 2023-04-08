@@ -12,9 +12,9 @@ import { db } from '../../firebase.config'
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import Spinner from '../../components/other/Spinner'
-import OrderCard from '../../components/cards/OrderCard'
-import OrdersTable from '../../components/OrdersTable'
-import OrderRow from '../../components/OrderRow'
+import OrderCard from '../../components/admins/OrderCard'
+import OrdersTable from '../../components/admins/OrdersTable'
+import OrderRow from '../../components//admins/OrderRow'
 import CloseOrder from '../../components/admins/CloseOrder'
 
 function Orders() {

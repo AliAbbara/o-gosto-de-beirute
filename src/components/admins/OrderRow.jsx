@@ -1,4 +1,4 @@
-import RedButton from './buttons/RedButton'
+import RedButton from '../buttons/RedButton'
 
 function OrderRow({ onShow, order }) {
   const { ifood, items, orderNumber, subtotal, table } = order.data

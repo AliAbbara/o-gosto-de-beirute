@@ -1,5 +1,5 @@
 import { SiIfood } from 'react-icons/si'
-import ItemButton from './../buttons/ItemButton'
+import ItemButton from '../buttons/ItemButton'
 
 function KitchenCard({ onDispatch, order }) {
   const { createdAt, ifood, ifoodNum, items, orderNumber, orderType, table } =
