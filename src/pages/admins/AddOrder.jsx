@@ -10,6 +10,7 @@ import {
   getDocs,
 } from 'firebase/firestore'
 import { db } from '../../firebase.config'
+import { toast } from 'react-toastify'
 import Spinner from '../../components/other/Spinner'
 import ItemButton from '../../components/buttons/ItemButton'
 import RedButton from '../../components/buttons/RedButton'
@@ -167,33 +168,43 @@ function AddOrder() {
 
   // ------------------------onOrderSubmit-------------------
   const onOrderSubmit = async (e) => {
-    setLoading(true)
     e.preventDefault()
+    setLoading(true)
     setOrder((prevState) => ({
       ...prevState,
       createdAt: serverTimestamp(),
       id: uuidv4(),
       items: bag,
     }))
-    const ordersRef = collection(db, 'orders')
-    await setDoc(doc(ordersRef), order)
-    setBag([])
-    console.log(order)
+    try {
+      const ordersRef = collection(db, 'orders')
+      await setDoc(doc(ordersRef), order)
+      setBag([])
+      navigate('/admins/orders')
+      toast.success('Pedido adicionado com sucesso!')
+    } catch (error) {
+      console.log(error)
+      toast.error('Algo deu errado ao adicionar o pedido!')
+    }
     setLoading(false)
-    navigate('/admins/orders')
   }
 
   useEffect(() => {
     const fetchOrdersTotal = async () => {
-      const ordersRef = collection(db, 'orders')
-      const ordersSnap = await getDocs(ordersRef)
-      setOrdersTotal(ordersSnap.size)
+      try {
+        const ordersRef = collection(db, 'orders')
+        const ordersSnap = await getDocs(ordersRef)
+        setOrdersTotal(ordersSnap.size)
+        setOrder((prevState) => ({
+          ...prevState,
+          orderNumber: ordersTotal + 1,
+        }))
+      } catch (error) {
+        console.log(error)
+        toast.error('Algo deu errado ao buscar o número do pedido!')
+      }
     }
     fetchOrdersTotal()
-    setOrder((prevState) => ({
-      ...prevState,
-      orderNumber: ordersTotal + 1,
-    }))
   }, [ordersTotal])
   // --------------------------------------------------------
 

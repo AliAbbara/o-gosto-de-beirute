@@ -164,17 +164,22 @@ function EditOrder() {
 
   // ------------------------onOrderSubmit-------------------
   const onOrderSubmit = async (e) => {
-    setLoading(true)
     e.preventDefault()
+    setLoading(true)
     setOrder((prevState) => ({
       ...prevState,
       items: bag,
       editedAt: serverTimestamp(),
     }))
-    const docRef = doc(db, 'orders', params.orderId)
-    await updateDoc(docRef, order)
-    toast.success('O pedido foi editado com sucesso!')
-    navigate('/admins/orders')
+    try {
+      const docRef = doc(db, 'orders', params.orderId)
+      await updateDoc(docRef, order)
+      toast.success('O pedido foi editado com sucesso!')
+      navigate('/admins/orders')
+    } catch (error) {
+      console.log(error)
+      toast.error('Algo deu errado ao editar o pedido!')
+    }
     setLoading(false)
   }
   // --------------------------------------------------------

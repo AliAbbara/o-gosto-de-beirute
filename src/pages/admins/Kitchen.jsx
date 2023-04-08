@@ -34,6 +34,7 @@ function Kitchen() {
         })
         setOrders(orders)
       } catch (error) {
+        console.log(error)
         toast.error(error)
       }
       setLoading(false)
@@ -50,6 +51,7 @@ function Kitchen() {
       order.done = true
       await updateDoc(orderRef, order)
     } catch (error) {
+      console.log(error)
       toast.error('Algo deu errado ao despachar este pedido!')
     }
     setChange(!change)

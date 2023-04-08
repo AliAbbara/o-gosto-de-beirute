@@ -33,7 +33,6 @@ function SignUp() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-
     if (name === '' || email === '' || password === '') {
       toast.warning('Por favor, preencha todos os campos!')
     } else {

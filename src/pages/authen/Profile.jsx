@@ -31,6 +31,7 @@ function Profile() {
   const { name, email, resetEmail } = formData
   const user = auth.currentUser
   const navigate = useNavigate()
+
   const fetchAdminStatus = async (id) => {
     if (await checkAdmin(id)) {
       setIsAdmin(true)

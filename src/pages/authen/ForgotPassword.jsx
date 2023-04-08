@@ -24,6 +24,7 @@ function ForgotPassword() {
       toast.success('O link de redefinição de senha foi enviado!')
       setTimeout(navigate('/'), 1000)
     } catch (error) {
+      console.log(error)
       toast.error('Algo deu errado, verifique se o e-mail está correto!')
     }
   }
