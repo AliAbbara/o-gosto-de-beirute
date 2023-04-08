@@ -64,6 +64,7 @@ function AddOrder() {
   })
 
   const {
+    comment,
     customer,
     ifood,
     ifoodNum,
@@ -373,6 +374,18 @@ function AddOrder() {
               onChange={onMutate}
             />
           </div>
+        </div>
+
+        {/* Order comment div */}
+        <div>
+          <label>Comentário de Pedido: </label>
+          <input
+            className='rounded-lg ml-1 text-red-700 px-1'
+            type='text'
+            id='comment'
+            value={comment}
+            onChange={onMutate}
+          />
         </div>
 
         {/* Bag div */}

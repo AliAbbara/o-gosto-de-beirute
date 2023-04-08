@@ -47,7 +47,6 @@ function EditOrder() {
     closedAt: {},
     comment: '',
     customer: '',
-    id: '',
     ifood: false,
     ifoodNum: 0,
     paidIfood: true,
@@ -62,6 +61,7 @@ function EditOrder() {
   })
 
   const {
+    comment,
     customer,
     ifood,
     ifoodNum,
@@ -381,6 +381,18 @@ function EditOrder() {
               onChange={onMutate}
             />
           </div>
+        </div>
+
+        {/* Order comment div */}
+        <div>
+          <label>Comentário de Pedido: </label>
+          <input
+            className='rounded-lg ml-1 text-red-700 px-1'
+            type='text'
+            id='comment'
+            value={comment}
+            onChange={onMutate}
+          />
         </div>
 
         {/* Bag div */}
