@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
-    <>
+    <div className='mb-14 sm:mb-2'>
       <Router>
         <ScrollToTop />
         <Navbar />
@@ -41,7 +41,7 @@ function App() {
       </Router>
 
       <ToastContainer />
-    </>
+    </div>
   )
 }
 
