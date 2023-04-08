@@ -20,8 +20,9 @@ function SignUp() {
     name: '',
     email: '',
     password: '',
+    confirmPassword: '',
   })
-  const { name, email, password } = formData
+  const { name, email, password, confirmPassword } = formData
   const navigate = useNavigate()
 
   const onChange = (e) => {
@@ -33,8 +34,15 @@ function SignUp() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    if (name === '' || email === '' || password === '') {
+    if (
+      name === '' ||
+      email === '' ||
+      password === '' ||
+      confirmPassword === ''
+    ) {
       toast.warning('Por favor, preencha todos os campos!')
+    } else if (password !== confirmPassword) {
+      toast.warning('As senhas não coincidem!')
     } else {
       try {
         const userCredential = await createUserWithEmailAndPassword(
@@ -100,6 +108,23 @@ function SignUp() {
             placeholder='Senha'
             id='password'
             value={password}
+            onChange={onChange}
+          />
+        </div>
+        <div className='mb-2'>
+          <label className='flex items-center'>
+            Confirmar Senha
+            <FaEye
+              onClick={() => setPasswordVisible(!passwordVisible)}
+              className='ml-2 hover:cursor-pointer'
+            />
+          </label>
+          <RedInput
+            type={passwordVisible ? 'name' : 'password'}
+            autoComplete='off'
+            placeholder='Confirmar Senha'
+            id='confirmPassword'
+            value={confirmPassword}
             onChange={onChange}
           />
         </div>
