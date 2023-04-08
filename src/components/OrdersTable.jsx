@@ -14,10 +14,6 @@ function OrdersTable({ children }) {
               Porção
             </th>
             <th className='rounded-lg border-2 border-yellow-400 w-9'>
-              Salgado
-            </th>
-            <th className='rounded-lg border-2 border-yellow-400 w-9'>Molho</th>
-            <th className='rounded-lg border-2 border-yellow-400 w-9'>
               Bebida
             </th>
             <th className='rounded-lg border-2 border-yellow-400 w-9'>Total</th>

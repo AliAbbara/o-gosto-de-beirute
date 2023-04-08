@@ -1,12 +1,13 @@
 import RedButton from './buttons/RedButton'
 
-function OrderRow({ onShow, onClose, order }) {
+function OrderRow({ onShow, order }) {
   const { ifood, items, orderNumber, subtotal, table } = order.data
 
   const lanches = items.filter((item) => item.type === 'Sandwich')
-  const porcaos = items.filter((item) => item.type === 'Porcao')
-  const salgados = items.filter((item) => item.type === 'Salgado')
-  const molhos = items.filter((item) => item.type === 'Molho')
+  const porcaos = items.filter(
+    (item) =>
+      item.type === 'Porcao' || item.type === 'Salgado' || item.type === 'Molho'
+  )
   const bebidas = items.filter((item) => item.type === 'Drink')
 
   return (
@@ -25,17 +26,9 @@ function OrderRow({ onShow, onClose, order }) {
         {porcaos.length !== 0 ? porcaos.length : '-'}
       </th>
       <th className='rounded-lg border border-yellow-400'>
-        {salgados.length !== 0 ? salgados.length : '-'}
-      </th>
-      <th className='rounded-lg border border-yellow-400'>
-        {molhos.length !== 0 ? molhos.length : '-'}
-      </th>
-      <th className='rounded-lg border border-yellow-400'>
         {bebidas.length !== 0 ? bebidas.length : '-'}
       </th>
-      <th className='rounded-lg border border-yellow-400'>
-        <RedButton onClick={() => onClose(order)}>{subtotal}</RedButton>
-      </th>
+      <th className='rounded-lg border border-yellow-400'>{subtotal}</th>
     </tr>
   )
 }

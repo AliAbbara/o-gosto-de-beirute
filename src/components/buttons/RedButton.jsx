@@ -4,7 +4,7 @@ function RedButton({ children, className, onClick, type }) {
       type={type}
       onClick={onClick}
       className={
-        'hover:bg-red-600 rounded-lg duration-100 sm:py-1 p-1 sm:px-4 border-2 border-yellow-300 focus:ring-4 dark:focus:ring-yellow-400 ' +
+        'hover:bg-red-600 rounded-lg duration-100 py-1 px-2 sm:px-4 border-2 border-yellow-300 focus:ring-4 dark:focus:ring-yellow-400 ' +
         className
       }>
       {children}

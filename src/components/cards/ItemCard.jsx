@@ -7,9 +7,6 @@ import RedButton from './../buttons/RedButton'
 function ItemCard({ item }) {
   const navigate = useNavigate()
 
-  const onMoreInfo = () => {
-    navigate('/sign-in')
-  }
   const onAddToOrder = () => {
     navigate('/sign-in')
   }

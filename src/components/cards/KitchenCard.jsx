@@ -1,5 +1,5 @@
 import { SiIfood } from 'react-icons/si'
-import RedButton from './../buttons/RedButton'
+import ItemButton from './../buttons/ItemButton'
 
 function KitchenCard({ onDispatch, order }) {
   const { createdAt, ifood, ifoodNum, items, orderNumber, orderType, table } =
@@ -18,7 +18,7 @@ function KitchenCard({ onDispatch, order }) {
         </div>
         {/* --------------------------------*/}
         <div className='flex justify-between text-semibold border-b border-yellow-400'>
-          <p>{ifood ? ifoodNum : orderType}</p>
+          <p>{ifood ? 'iFood Num: ' + ifoodNum : orderType}</p>
           <p>Mesa: {table}</p>
         </div>
         {/* order items div */}
@@ -35,7 +35,9 @@ function KitchenCard({ onDispatch, order }) {
         {/* button for done div */}
         <div className='flex justify-evenly items-center'>
           {ifood && <SiIfood />}
-          <RedButton onClick={() => onDispatch(order.id)}>Despachar</RedButton>
+          <ItemButton onClick={() => onDispatch(order.id)}>
+            Despachar
+          </ItemButton>
         </div>
       </div>
     </>
