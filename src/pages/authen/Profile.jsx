@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { BiPencil } from 'react-icons/bi'
+import { toast } from 'react-toastify'
 import {
   onAuthStateChanged,
   updateProfile,
@@ -8,8 +10,6 @@ import {
 } from 'firebase/auth'
 import { auth } from '../../firebase.config'
 import { checkAdmin } from '../../assets/hooks/checkAdmin'
-import { BiPencil } from 'react-icons/bi'
-import { toast } from 'react-toastify'
 import Spinner from '../../components/other/Spinner'
 import RedLink from '../../components/links/RedLink'
 import RedButton from '../../components/buttons/RedButton'

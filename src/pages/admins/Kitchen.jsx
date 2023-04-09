@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
 import {
   getDocs,
   collection,
@@ -8,8 +10,6 @@ import {
   doc,
 } from 'firebase/firestore'
 import { db } from '../../firebase.config'
-import { useState, useEffect } from 'react'
-import { toast } from 'react-toastify'
 import Spinner from '../../components/other/Spinner'
 import KitchenCard from '../../components/admins/KitchenCard'
 

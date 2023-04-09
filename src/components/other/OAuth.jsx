@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { FcGoogle } from 'react-icons/fc'
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore'
 import { db, auth } from '../../firebase.config'
-import { toast } from 'react-toastify'
-import { FcGoogle } from 'react-icons/fc'
 
 function OAuth() {
   const navigate = useNavigate()

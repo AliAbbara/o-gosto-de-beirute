@@ -1,6 +1,6 @@
+import { FaHome } from 'react-icons/fa'
 import ContainerCard from '../components/cards/ContainerCard'
 import RedLink from '../components/links/RedLink'
-import { FaHome } from 'react-icons/fa'
 
 function NotFound() {
   return (

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import ItemButton from '../buttons/ItemButton'
 import { SiIfood } from 'react-icons/si'
+import ItemButton from '../buttons/ItemButton'
 
 function OrderCard({ order, onDispatch, onShowClose }) {
   const {

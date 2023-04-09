@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { FaEye } from 'react-icons/fa'
+import { toast } from 'react-toastify'
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from 'firebase/auth'
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db, auth } from '../../firebase.config'
-import { toast } from 'react-toastify'
-import { FaEye } from 'react-icons/fa'
 import RedInput from '../../components/inputs/RedInput'
 import RedLink from '../../components/links/RedLink'
 import RedButton from '../../components/buttons/RedButton'

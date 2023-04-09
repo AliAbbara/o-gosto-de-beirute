@@ -1,5 +1,5 @@
-import DefCard from '../../components/cards/SwiperCard'
 import { sandwiches } from '../../assets/menu/sandwiches'
+import DefCard from '../../components/cards/SwiperCard'
 
 function Home() {
   const images = sandwiches

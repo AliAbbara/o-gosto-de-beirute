@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../../firebase.config'
 import { checkAdmin } from './../../assets/hooks/checkAdmin'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import Spinner from '../../components/other/Spinner'
-import ContainerCard from '../../components/cards/ContainerCard'
-import RedLink from '../../components/links/RedLink'
 import AddOrder from './AddOrder'
 import Orders from './Orders'
 import Kitchen from './Kitchen'
+import Spinner from '../../components/other/Spinner'
+import ContainerCard from '../../components/cards/ContainerCard'
+import RedLink from '../../components/links/RedLink'
 
 function Admins() {
   const location = useLocation()

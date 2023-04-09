@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { menu } from '../../assets//menu/menuItems'
-import { v4 as uuidv4 } from 'uuid'
+import { toast } from 'react-toastify'
 import {
   doc,
   setDoc,
@@ -10,7 +9,8 @@ import {
   getDocs,
 } from 'firebase/firestore'
 import { db } from '../../firebase.config'
-import { toast } from 'react-toastify'
+import { menu } from '../../assets//menu/menuItems'
+import { v4 as uuidv4 } from 'uuid'
 import Spinner from '../../components/other/Spinner'
 import ItemButton from '../../components/buttons/ItemButton'
 import RedButton from '../../components/buttons/RedButton'

@@ -1,9 +1,9 @@
-import ContainerCard from '../cards/ContainerCard'
-import logo from '../../assets/imgs/fullLogo.png'
-import RedLink from '../links/RedLink'
 import { BsInstagram } from 'react-icons/bs'
 import { BsWhatsapp } from 'react-icons/bs'
 import { SiIfood } from 'react-icons/si'
+import logo from '../../assets/imgs/fullLogo.png'
+import ContainerCard from '../cards/ContainerCard'
+import RedLink from '../links/RedLink'
 
 function Footer() {
   return (
