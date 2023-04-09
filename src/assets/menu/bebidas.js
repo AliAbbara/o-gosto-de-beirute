@@ -159,7 +159,7 @@ export const bebidas = [
     id: '28AguaCrystalSemGas500',
     image:
       'https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/imagesGeneral%2FaguacrystalSemGas500.png?alt=media&token=fd5436f6-92b0-4381-b21b-d4df518d8da3',
-    name: 'Agua Mineral Crystal Sem Gas 500ml',
+    name: 'Agua Crystal Sem Gas 500ml',
     ingredients: '500ml',
     type: 'Drink',
     prepTime: '1',
@@ -171,7 +171,7 @@ export const bebidas = [
     id: '29AguaCrystalComGas500',
     image:
       'https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/imagesGeneral%2FaguaCrystalcomGas500.png?alt=media&token=abeb80ca-5b9c-4005-b669-74e44dc8a3b7',
-    name: 'Agua Mineral Crystal Com Gas 500ml',
+    name: 'Agua Crystal Com Gas 500ml',
     ingredients: '500ml',
     type: 'Drink',
     prepTime: '1',

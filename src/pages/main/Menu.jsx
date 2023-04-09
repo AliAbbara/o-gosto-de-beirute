@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
+import { sandwiches } from '../../assets/menu/sandwiches'
+import { porcoes } from '../../assets/menu/porcoes'
+import { bebidas } from '../../assets/menu/bebidas'
 import Spinner from '../../components/other/Spinner'
 import ItemCard from '../../components/cards/ItemCard'
 import RingCard from '../../components/cards/RingCard'
 import RedLink from '../../components/links/RedLink'
-import { sandwiches } from '../../assets/menu/sandwiches'
-import { porcoes } from '../../assets/menu/porcoes'
-import { bebidas } from '../../assets/menu/bebidas'
 
 function Menu() {
   const items = sandwiches
@@ -14,7 +14,7 @@ function Menu() {
   const drinks = bebidas
   const location = useLocation()
   const params = useParams()
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const matchRoute = (route) => {
     if (route === location.pathname) {
@@ -23,20 +23,20 @@ function Menu() {
   }
 
   useEffect(() => {
-    setLoading(true)
-    setLoading(false)
+    setTimeout(setLoading(false), 1500)
   }, [location.pathname])
+
   if (loading) {
     return <Spinner />
   }
   return (
     <RingCard title='Cardapio'>
-      <div className='flex justify-between items-center text-center my-2'>
+      <div className='flex justify-between my-2'>
         <RedLink
           to='/menu/sandwiches'
           className={
             matchRoute('/menu/sandwiches')
-              ? 'bg-red-600 text-yellow-400'
+              ? 'bg-red-600 text-yellow-300'
               : 'text-white'
           }>
           Lanches
@@ -45,7 +45,7 @@ function Menu() {
           to='/menu/porcoes'
           className={
             matchRoute('/menu/porcoes')
-              ? 'bg-red-600 text-yellow-400'
+              ? 'bg-red-600 text-yellow-300'
               : 'text-white'
           }>
           Salgados & Porções
@@ -54,7 +54,7 @@ function Menu() {
           to='/menu/drinks'
           className={
             matchRoute('/menu/drinks')
-              ? 'bg-red-600 text-yellow-400'
+              ? 'bg-red-600 text-yellow-300'
               : 'text-white'
           }>
           Bebidas

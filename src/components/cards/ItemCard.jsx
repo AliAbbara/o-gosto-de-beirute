@@ -8,50 +8,53 @@ function ItemCard({ item }) {
   const navigate = useNavigate()
 
   const onAddToOrder = () => {
-    navigate('/sign-in')
+    navigate('/menu/sandwiches')
   }
 
   return (
-    <>
-      <ContainerCard className='sm:flex'>
-        {/* Image div */}
-        <div className='h-52 sm:w-64 sm:mr-2 relative'>
-          <p className='text-2xl bg-yellow-300 w-fit p-1 rounded-lg text-red-700 absolute'>
-            R$ {item?.price}
+    <ContainerCard className='sm:flex'>
+      {/* Image div */}
+      <div
+        className={
+          (item.type === 'Drink' ? 'h-28 w-28' : 'h-52 w-52') +
+          ' relative m-auto sm:w-72 sm:mr-2'
+        }>
+        <p className='absolute text-2xl bg-yellow-300 w-fit p-1 rounded-lg text-red-700'>
+          R$ {item?.price}
+        </p>
+        <img
+          className={
+            (item.type === 'Drink' ? 'h-28 w-32' : 'h-full w-full') +
+            ' rounded-lg border-2 border-yellow-300'
+          }
+          src={item?.image}
+          alt={item?.name + ' image'}
+        />
+      </div>
+      {/* Right to image div */}
+      <div className='flex flex-col justify-between w-full text-center sm:text-left'>
+        {/* Name and icons div */}
+        <div className='flex text-3xl justify-center sm:justify-start'>
+          <p>{item?.name}</p>
+          {item?.spicey && <GiChiliPepper className='ml-2' />}
+          {item?.vegan && <SiVectorworks className='ml-2' />}
+        </div>
+        {/* Description div */}
+        <div className='flex flex-col text-base text-slate-100'>
+          <p>{item?.ingredients}</p>
+          <p>
+            Tempo de Preparação: {item?.prepTime}
+            {item?.prepTime === '1' ? ' minuto' : ' minutos'}
           </p>
-          <img
-            className='h-full w-full rounded-lg border-2 border-yellow-300'
-            src={item?.image}
-            alt={item?.name + ' image'}
-          />
         </div>
-        {/* Right to image div */}
-        <div className='flex flex-col justify-between w-full'>
-          {/* h5 and icons div */}
-          <div className='flex items-center text-3xl'>
-            <div className='flex items-center'>
-              <p>{item?.name}</p>
-              {item?.spicey && <GiChiliPepper className='ml-2' />}
-              {item?.vegan && <SiVectorworks className='ml-2' />}
-            </div>
-          </div>
-          {/* Description div */}
-          <div className='flex flex-col text-base text-slate-100'>
-            <p>{item?.ingredients}</p>
-            <p>
-              Tempo de Preparação: {item?.prepTime}
-              {item?.prepTime === '1' ? ' minute' : ' minutes'}
-            </p>
-          </div>
-          {/* Buttons div */}
-          <div className='flex'>
-            <RedButton className='m-auto sm:m-0' onClick={onAddToOrder}>
-              Adicionar ao Pedido
-            </RedButton>
-          </div>
+        {/* Buttons div */}
+        <div>
+          <RedButton className='m-auto sm:m-0' onClick={onAddToOrder}>
+            Adicionar ao Pedido
+          </RedButton>
         </div>
-      </ContainerCard>
-    </>
+      </div>
+    </ContainerCard>
   )
 }
 
