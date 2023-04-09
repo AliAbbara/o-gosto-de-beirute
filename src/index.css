@@ -9,12 +9,12 @@
 
 * {
   font-family: 'Cuprum';
-  z-index: 0;
 }
 
 body {
-  background-image: url('/src/assets/imgs/MENU.png');
+  background-image: url('/src/assets/imgs/background.png');
   padding: 0 1rem 1rem 1rem;
+  z-index: 0;
 }
 
 /* Spinner */
