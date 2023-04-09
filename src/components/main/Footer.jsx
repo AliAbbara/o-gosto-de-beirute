@@ -7,33 +7,33 @@ import RedLink from '../links/RedLink'
 
 function Footer() {
   return (
-    <ContainerCard className='mt-6 flex flex-col text-center'>
+    <ContainerCard className='mt-8 flex flex-col text-center'>
       {/* -----------Logo and menu div------------- */}
       <div className='flex flex-col sm:flex-row flex-wrap justify-evenly items-center p-2'>
         {/* Logo */}
         <img
           src={logo}
           alt='full logo'
-          className='w-32 h-32 sm:w-44 sm:h-auto'
+          className='w-34 h-32 sm:w-44 sm:h-auto'
         />
         {/* Social Media */}
         <div className='flex flex-col items-center'>
           <p className='text-3xl mb-2'>Redes</p>
           <div className=' flex sm:flex-col'>
             <RedLink
-              className='mb-1'
+              className='mx-1'
               target='_blank'
               to='https://www.instagram.com/ogostodebeirute/'>
               <BsInstagram />
             </RedLink>
             <RedLink
-              className='mb-1'
+              className='mx-1 sm:my-1'
               target='_blank'
               to='https://wa.me/5517996620999'>
               <BsWhatsapp />
             </RedLink>
             <RedLink
-              className='mb-1'
+              className='mx-1'
               target='_blank'
               to='https://www.ifood.com.br/delivery/barretos-sp/o-gosto-centro/71057262-5b24-4e15-8e0c-0a7f54dc008d?UTM_Medium=share'>
               <SiIfood />
@@ -41,16 +41,16 @@ function Footer() {
           </div>
         </div>
         {/* Menu */}
-        <div className='flex flex-col'>
+        <div className='flex flex-col mt-2'>
           <p className='text-3xl mb-2'>Paginas</p>
           <div className=' flex sm:flex-col'>
-            <RedLink className='sm:mb-1 py-0' to='/menu/sandwiches'>
+            <RedLink className='mx-1 sm:mb-1' to='/menu/sandwiches'>
               Cardapio
             </RedLink>
-            <RedLink className='sm:mb-1 py-0' to='/contact'>
+            <RedLink className='mx-1 sm:mb-1' to='/contact'>
               Contato
             </RedLink>
-            <RedLink className='py-0' to='/about-us'>
+            <RedLink className='mx-1' to='/about-us'>
               Sobre
             </RedLink>
           </div>
