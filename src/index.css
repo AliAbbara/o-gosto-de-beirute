@@ -13,6 +13,7 @@
 
 body {
   background-image: url('/src/assets/imgs/background.png');
+  padding-bottom: auto;
   z-index: 0;
 }
 
