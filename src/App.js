@@ -28,7 +28,7 @@ function App() {
   }, [location])
 
   return (
-    <div className='mb-14 sm:mb-2 px-1 sm:px-2'>
+    <div className='mb-14 sm:mb-2'>
       {loading && <Spinner />}
       <ScrollToTop />
       <Navbar />
