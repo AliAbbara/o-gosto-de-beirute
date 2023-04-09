@@ -1,4 +1,4 @@
-import DefCard from '../../components/cards/DefCard'
+import DefCard from '../../components/cards/SwiperCard'
 import { sandwiches } from '../../assets/menu/sandwiches'
 
 function Home() {
@@ -32,19 +32,9 @@ function Home() {
 
   return (
     <>
-      <DefCard items={images} slidesPer={2.5} images={true} title='Lanches' />
-      <DefCard
-        items={carouselItems1}
-        slidesPer={2.5}
-        images={false}
-        title='Paginas'
-      />
-      <DefCard
-        items={carouselItems2}
-        slidesPer={1}
-        images={false}
-        title='Explicaçao'
-      />
+      <DefCard items={images} images={true} title='Lanches' />
+      <DefCard items={carouselItems1} images={false} title='Paginas' />
+      <DefCard items={carouselItems2} images={false} title='Explicaçao' />
     </>
   )
 }

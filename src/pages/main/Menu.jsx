@@ -31,13 +31,13 @@ function Menu() {
   }
   return (
     <RingCard title='Cardapio'>
-      <div className='flex flex-col md:flex-row justify-between items-center text-center my-2'>
+      <div className='flex justify-between items-center text-center my-2'>
         <RedLink
           to='/menu/sandwiches'
           className={
             matchRoute('/menu/sandwiches')
-              ? 'bg-red-600 text-yellow-400 w-44'
-              : 'text-white w-44'
+              ? 'bg-red-600 text-yellow-400'
+              : 'text-white'
           }>
           Lanches
         </RedLink>
@@ -45,8 +45,8 @@ function Menu() {
           to='/menu/porcoes'
           className={
             matchRoute('/menu/porcoes')
-              ? 'bg-red-600 text-yellow-400 w-44'
-              : 'text-white w-44'
+              ? 'bg-red-600 text-yellow-400'
+              : 'text-white'
           }>
           Salgados & Porções
         </RedLink>
@@ -54,8 +54,8 @@ function Menu() {
           to='/menu/drinks'
           className={
             matchRoute('/menu/drinks')
-              ? 'bg-red-600 text-yellow-400 w-44'
-              : 'text-white w-44'
+              ? 'bg-red-600 text-yellow-400'
+              : 'text-white'
           }>
           Bebidas
         </RedLink>
