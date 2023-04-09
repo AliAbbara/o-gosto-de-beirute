@@ -1,16 +1,11 @@
-import { useNavigate } from 'react-router-dom'
 import { GiChiliPepper } from 'react-icons/gi'
 import { SiVectorworks } from 'react-icons/si'
+import { BsWhatsapp } from 'react-icons/bs'
+import { SiIfood } from 'react-icons/si'
 import ContainerCard from './ContainerCard'
-import RedButton from '../buttons/RedButton'
+import RedLink from '../links/RedLink'
 
 function ItemCard({ item }) {
-  const navigate = useNavigate()
-
-  const onAddToOrder = () => {
-    navigate('/menu/sandwiches')
-  }
-
   return (
     <ContainerCard className='sm:flex'>
       {/* Image div */}
@@ -45,13 +40,21 @@ function ItemCard({ item }) {
           </p>
         </div>
         {/* Buttons div */}
-        <div>
-          <RedButton className='m-auto sm:m-0' onClick={onAddToOrder}>
+        <div className='flex flex-col sm:flex-row items-center'>
+          <RedLink
+            target='_blank'
+            to='https://www.ifood.com.br/delivery/barretos-sp/o-gosto-centro/71057262-5b24-4e15-8e0c-0a7f54dc008d?UTM_Medium=share'
+            className='flex items-center w-fit mr-2 mb-1 sm:mb-0'>
             Pedir pelo iFood
-          </RedButton>
-          <RedButton className='m-auto sm:m-0' onClick={onAddToOrder}>
+            <SiIfood className='ml-1' />
+          </RedLink>
+          <RedLink
+            target='_blank'
+            to='https://wa.me/5517996620999'
+            className='flex items-center w-fit'>
             Fale Conosco
-          </RedButton>
+            <BsWhatsapp className='ml-1' />
+          </RedLink>
         </div>
       </div>
     </ContainerCard>
