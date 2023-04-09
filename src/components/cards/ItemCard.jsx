@@ -16,8 +16,8 @@ function ItemCard({ item }) {
       {/* Image div */}
       <div
         className={
-          (item.type === 'Drink' ? 'h-28 w-28' : 'h-52 w-52') +
-          ' relative m-auto sm:w-72 sm:mr-2'
+          (item.type === 'Drink' ? 'h-28 w-32 sm:w-36' : 'h-52 w-52 sm:w-72') +
+          ' relative m-auto sm:mr-2'
         }>
         <p className='absolute text-2xl bg-yellow-300 w-fit p-1 rounded-lg text-red-700'>
           R$ {item?.price}
