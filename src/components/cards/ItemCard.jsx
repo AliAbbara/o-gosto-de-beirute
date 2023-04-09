@@ -16,17 +16,14 @@ function ItemCard({ item }) {
       {/* Image div */}
       <div
         className={
-          (item.type === 'Drink' ? 'h-28 w-32 sm:w-36' : 'h-52 w-52 sm:w-72') +
+          (item.type === 'Drink' ? 'h-32 w-32 sm:w-36' : 'h-52 w-52 sm:w-64') +
           ' relative m-auto sm:mr-2'
         }>
         <p className='absolute text-2xl bg-yellow-300 w-fit p-1 rounded-lg text-red-700'>
           R$ {item?.price}
         </p>
         <img
-          className={
-            (item.type === 'Drink' ? 'h-28 w-32' : 'h-full w-full') +
-            ' rounded-lg border-2 border-yellow-300'
-          }
+          className='w-full h-full rounded-lg border-2 border-yellow-300'
           src={item?.image}
           alt={item?.name + ' image'}
         />
