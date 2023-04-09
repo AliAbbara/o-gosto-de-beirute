@@ -23,7 +23,7 @@ function EditOrder() {
   const navigate = useNavigate()
   const params = useParams()
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [bag, setBag] = useState([])
   const [bagTotal, setBagTotal] = useState(0)
   const [bagSubtotal, setBagSubtotal] = useState(0)
@@ -165,7 +165,6 @@ function EditOrder() {
   // ------------------------onOrderSubmit-------------------
   const onOrderSubmit = async (e) => {
     e.preventDefault()
-    setLoading(true)
     setOrder((prevState) => ({
       ...prevState,
       items: bag,
@@ -186,7 +185,6 @@ function EditOrder() {
 
   // Fetching order to fill the forms
   useEffect(() => {
-    setLoading(true)
     const fetchOrder = async () => {
       const orderRef = doc(db, 'orders', params.orderId)
       const docSnap = await getDoc(orderRef)
@@ -216,11 +214,9 @@ function EditOrder() {
     // eslint-disable-next-line
   }, [bagTotal, bagSubtotal, ifood, paidIfood, discount, discountPer, bag])
 
-  if (loading) {
-    return <Spinner />
-  }
   return (
     <ContainerCard className='flex flex-col justify-between'>
+      {loading && <Spinner />}
       <h1 className='text-3xl text-center'>Editar Pedido</h1>
       <RedLink className='mb-2 w-fit' to='/admins/orders'>
         Voltar aos Pedidos

@@ -16,11 +16,10 @@ import KitchenCard from '../../components/admins/KitchenCard'
 function Kitchen() {
   const [orders, setOrders] = useState([])
   const [preparing, setPreparing] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [change, setChange] = useState(false)
 
   useEffect(() => {
-    setLoading(true)
     const fetchOrders = async () => {
       try {
         const ordersRef = collection(db, 'orders')
@@ -49,6 +48,7 @@ function Kitchen() {
 
   // Dispatching Order
   const onDispatch = async (id) => {
+    setLoading(true)
     try {
       const orderRef = doc(db, 'orders', id)
       const docSnap = await getDoc(orderRef)
@@ -60,14 +60,12 @@ function Kitchen() {
       toast.error('Algo deu errado ao despachar este pedido!')
     }
     setChange(!change)
-  }
-
-  if (loading) {
-    return <Spinner />
+    setLoading(false)
   }
 
   return (
     <div className='flex flex-col'>
+      {loading && <Spinner />}
       {preparing?.map((order) => (
         <KitchenCard key={order.id} order={order} onDispatch={onDispatch} />
       ))}

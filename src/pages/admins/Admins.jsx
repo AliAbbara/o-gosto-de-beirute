@@ -41,12 +41,10 @@ function Admins() {
     // eslint-disable-next-line
   }, [auth])
 
-  if (loading) {
-    return <Spinner />
-  }
   if (isAdmin) {
     return (
       <ContainerCard className='flex flex-col justify-center m-auto'>
+        {loading && <Spinner />}
         <h1 className='text-3xl text-center'>Pedidos</h1>
         <div className='flex justify-between text-center my-2'>
           <RedLink

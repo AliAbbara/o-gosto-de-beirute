@@ -103,16 +103,14 @@ function Profile() {
       } else {
         setLoggedIn(false)
       }
-      setLoading(false)
     })
+    setLoading(false)
     // eslint-disable-next-line
   }, [auth, user])
 
-  if (loading) {
-    return <Spinner />
-  }
   return (
     <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
+      {loading && <Spinner />}
       <h1 className='text-3xl text-center'>Perfil</h1>
       {loggedIn ? (
         <div className='flex flex-col'>

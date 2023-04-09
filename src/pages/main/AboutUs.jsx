@@ -1,6 +1,13 @@
+import { useEffect } from 'react'
 import RingCard from '../../components/cards/RingCard'
 
-function AboutUs() {
+function AboutUs({ setLoading }) {
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 800)
+    //eslint-disable-next-line
+  }, [])
+
   return (
     <RingCard title='Sobre'>
       <div>

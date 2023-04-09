@@ -1,20 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import { sandwiches } from '../../assets/menu/sandwiches'
 import { porcoes } from '../../assets/menu/porcoes'
 import { bebidas } from '../../assets/menu/bebidas'
-import Spinner from '../../components/other/Spinner'
 import ItemCard from '../../components/cards/ItemCard'
 import RingCard from '../../components/cards/RingCard'
 import RedLink from '../../components/links/RedLink'
 
-function Menu() {
+function Menu({ setLoading }) {
   const items = sandwiches
   const portions = porcoes
   const drinks = bebidas
   const location = useLocation()
   const params = useParams()
-  const [loading, setLoading] = useState(true)
 
   const matchRoute = (route) => {
     if (route === location.pathname) {
@@ -23,12 +21,11 @@ function Menu() {
   }
 
   useEffect(() => {
-    setTimeout(setLoading(false), 1500)
+    setLoading(true)
+    setTimeout(() => setLoading(false), 1000)
+    //eslint-disable-next-line
   }, [location.pathname])
 
-  if (loading) {
-    return <Spinner />
-  }
   return (
     <RingCard title='Cardapio'>
       <div className='flex justify-between my-2'>

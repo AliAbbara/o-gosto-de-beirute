@@ -22,13 +22,12 @@ function Orders() {
   const [preparing, setPreparing] = useState([])
   const [done, setDone] = useState([])
   const [closing, setClosing] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [change, setChange] = useState(false)
   const [showOrder, setShowOrder] = useState(false)
   const [filteredOrder, setFilteredOrder] = useState({})
 
   useEffect(() => {
-    setLoading(true)
     const fetchOrders = async () => {
       try {
         const ordersRef = collection(db, 'orders')
@@ -83,6 +82,7 @@ function Orders() {
 
   // Closing Order
   const onClose = async (id) => {
+    setLoading(true)
     let order = filteredOrder.data
     order.closed = true
     order.closedAt = serverTimestamp()
@@ -96,6 +96,7 @@ function Orders() {
     }
     setClosing(false)
     setShowOrder(false)
+    setLoading(false)
     setChange(!change)
   }
 
@@ -109,12 +110,9 @@ function Orders() {
     }
   }
 
-  if (loading) {
-    return <Spinner />
-  }
-
   return (
     <div className='flex flex-col'>
+      {loading && <Spinner />}
       <div className='flex flex-wrap border-b border-yellow-400'>
         <p className='text-2xl'>Preparando: </p>
         {preparing?.map((order) => (

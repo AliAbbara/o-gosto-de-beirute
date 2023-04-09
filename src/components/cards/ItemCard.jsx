@@ -47,7 +47,10 @@ function ItemCard({ item }) {
         {/* Buttons div */}
         <div>
           <RedButton className='m-auto sm:m-0' onClick={onAddToOrder}>
-            Adicionar ao Pedido
+            Pedir pelo iFood
+          </RedButton>
+          <RedButton className='m-auto sm:m-0' onClick={onAddToOrder}>
+            Fale Conosco
           </RedButton>
         </div>
       </div>

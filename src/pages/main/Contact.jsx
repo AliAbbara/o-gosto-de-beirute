@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import RingCard from '../../components/cards/RingCard'
 import RedInput from '../../components/inputs/RedInput'
 import RedTextarea from '../../components/inputs/RedTextarea'
 import RedButton from '../../components/buttons/RedButton'
 
-function Contact() {
+function Contact({ setLoading }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,6 +19,12 @@ function Contact() {
       [e.target.id]: e.target.value,
     }))
   }
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 800)
+    //eslint-disable-next-line
+  }, [])
 
   return (
     <RingCard title={'Contato'} className='w-fit m-auto'>

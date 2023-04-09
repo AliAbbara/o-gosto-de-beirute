@@ -24,7 +24,7 @@ function AddOrder() {
   const drinks = menu.filter((item) => item.type === 'Drink')
 
   const navigate = useNavigate()
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [bag, setBag] = useState([])
   const [bagTotal, setBagTotal] = useState(0)
   const [bagSubtotal, setBagSubtotal] = useState(0)
@@ -169,7 +169,6 @@ function AddOrder() {
   // ------------------------onOrderSubmit-------------------
   const onOrderSubmit = async (e) => {
     e.preventDefault()
-    setLoading(true)
     setOrder((prevState) => ({
       ...prevState,
       createdAt: serverTimestamp(),
@@ -203,6 +202,7 @@ function AddOrder() {
         console.log(error)
         toast.error('Algo deu errado ao buscar o número do pedido!')
       }
+      setLoading(false)
     }
     fetchOrdersTotal()
   }, [ordersTotal])
@@ -219,11 +219,9 @@ function AddOrder() {
     // eslint-disable-next-line
   }, [bagTotal, bagSubtotal, bag, ifood, paidIfood, discount, discountPer])
 
-  if (loading) {
-    return <Spinner />
-  }
   return (
     <div className='flex flex-col h-auto justify-between'>
+      {loading && <Spinner />}
       <form onSubmit={(e) => onOrderSubmit(e)}>
         {/* Order Type div */}
         <div>

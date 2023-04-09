@@ -1,9 +1,9 @@
+import { useEffect } from 'react'
 import { sandwiches } from '../../assets/menu/sandwiches'
 import DefCard from '../../components/cards/SwiperCard'
 
-function Home() {
+function Home({ setLoading }) {
   const images = sandwiches
-
   const carouselItems1 = [
     {
       id: '435Menu',
@@ -21,7 +21,6 @@ function Home() {
       description: 'Clique aqui para ir para a página do cardápio!',
     },
   ]
-
   const carouselItems2 = [
     {
       id: '435MenuExplanation',
@@ -29,6 +28,12 @@ function Home() {
       description: 'Curioso? Clique aqui para ver mais sobre nosso cardápio!',
     },
   ]
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 1000)
+    //eslint-disable-next-line
+  }, [])
 
   return (
     <>
