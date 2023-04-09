@@ -54,7 +54,8 @@ function SignUp() {
         sendEmailVerification(user)
         const formDataCopy = { ...formData }
         delete formDataCopy.password
-        delete formDataCopy.confirmPassword        formDataCopy.timestamp = serverTimestamp()
+
+        formDataCopy.timestamp = serverTimestamp()
 
         await setDoc(doc(db, 'users', user.uid), formDataCopy)
 
