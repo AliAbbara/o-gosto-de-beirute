@@ -9,7 +9,7 @@ function MobileNav() {
     { id: '65yuer23t', title: 'SOBRE', path: 'about-us' },
   ]
   return (
-    <ContainerCard className='fixed -bottom-5 -left-2 -right-2 flex sm:hidden justify-evenly items-center'>
+    <ContainerCard className='fixed -bottom-5 -left-2 -right-2 flex sm:hidden justify-evenly items-center z-10'>
       <ul className='flex'>
         {menuItems.map((item) => (
           <li
