@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import {
   getDocs,
@@ -18,6 +19,7 @@ import OrderRow from '../../components//admins/OrderRow'
 import CloseOrder from '../../components/admins/CloseOrder'
 
 function Orders() {
+  const navigate = useNavigate()
   const [orders, setOrders] = useState([])
   const [preparing, setPreparing] = useState([])
   const [done, setDone] = useState([])
@@ -28,6 +30,7 @@ function Orders() {
   const [filteredOrder, setFilteredOrder] = useState({})
 
   useEffect(() => {
+    setLoading(true)
     const fetchOrders = async () => {
       try {
         const ordersRef = collection(db, 'orders')
@@ -83,6 +86,8 @@ function Orders() {
   // Closing Order
   const onClose = async (id) => {
     setLoading(true)
+    setClosing(false)
+    setShowOrder(false)
     let order = filteredOrder.data
     order.closed = true
     order.closedAt = serverTimestamp()
@@ -94,10 +99,9 @@ function Orders() {
     } catch (error) {
       toast.error('Algo deu errado ao fechar este pedido!')
     }
-    setClosing(false)
-    setShowOrder(false)
     setLoading(false)
     setChange(!change)
+    navigate('/admins/orders')
   }
 
   // Showing detailed view of selected order

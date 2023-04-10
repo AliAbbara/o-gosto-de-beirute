@@ -23,7 +23,7 @@ function OrderCard({ order, onDispatch, onShowClose }) {
           <p>Número do Pedido: {orderNumber}</p>
           <p>
             {createdAt
-              .toDate()
+              ?.toDate()
               .toLocaleTimeString([], { timeStyle: 'short', hour12: false })}
           </p>
         </div>

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import ItemButton from '../buttons/ItemButton'
 
 function CloseOrder({ onClose, onMutate, order }) {
-  const { total } = order.data
+  const { subtotal } = order.data
   const [troco, setTroco] = useState(0)
   const onChange = (e) => {
     setTroco(e.target.value)
@@ -29,7 +29,7 @@ function CloseOrder({ onClose, onMutate, order }) {
           value={troco}
           onChange={onChange}
         />
-        <p>= {troco - total}</p>
+        <p>= {troco - subtotal}</p>
       </div>
       <ItemButton onClick={() => onClose(order.id)}>Fechar Pedido</ItemButton>
     </div>
