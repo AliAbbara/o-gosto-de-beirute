@@ -9,7 +9,7 @@ SwiperCore.use([EffectCoverflow, Pagination])
 function DefCard({ images, items, title }) {
   const slidesPerViewDesktop = 2.5
   const slidesPerViewTablet = 2
-  const slidesPerViewPhone = 1.5
+  const slidesPerViewPhone = 1.2
 
   const breakpoints = {
     1024: {
