@@ -50,6 +50,7 @@ function EditOrder() {
     ifood: false,
     ifoodNum: 0,
     paidIfood: true,
+    ifoodDelivery: 0,
     discount: false,
     discountPer: 0,
     table: 0,
@@ -66,6 +67,7 @@ function EditOrder() {
     ifood,
     ifoodNum,
     paidIfood,
+    ifoodDelivery,
     discount,
     discountPer,
     table,
@@ -111,6 +113,8 @@ function EditOrder() {
     let subtotal = 0
     let percentage = 0
     let valuesArray = []
+    total = +ifoodDelivery
+    subtotal = +ifoodDelivery
     bag.map((item) => {
       if (ifood) {
         return valuesArray.push(item.priceIfood * item.quantity)
@@ -212,7 +216,16 @@ function EditOrder() {
       editedAt: serverTimestamp(),
     }))
     // eslint-disable-next-line
-  }, [bagTotal, bagSubtotal, ifood, paidIfood, discount, discountPer, bag])
+  }, [
+    bagTotal,
+    bagSubtotal,
+    ifood,
+    paidIfood,
+    ifoodDelivery,
+    discount,
+    discountPer,
+    bag,
+  ])
 
   return (
     <ContainerCard className='flex flex-col justify-between'>
@@ -288,6 +301,7 @@ function EditOrder() {
           <input
             className='rounded-lg ml-1 text-red-700 px-1 w-14'
             type='number'
+            min={0}
             id='table'
             value={table}
             onChange={onMutate}
@@ -325,6 +339,7 @@ function EditOrder() {
               <input
                 className='rounded-lg text-red-700 w-14'
                 type='number'
+                min={0}
                 id='discountPer'
                 value={discountPer}
                 onChange={onMutate}
@@ -380,8 +395,20 @@ function EditOrder() {
                 <input
                   className='w-14 rounded-lg ml-1 text-red-700'
                   type='number'
+                  min={0}
                   id='ifoodNum'
                   value={ifoodNum}
+                  onChange={onMutate}
+                />
+              </div>
+              <div className='ml-4 '>
+                <label>Taxa de Entrega: </label>
+                <input
+                  className='w-14 rounded-lg ml-1 text-red-700'
+                  type='number'
+                  min={0}
+                  id='ifoodDelivery'
+                  value={ifoodDelivery}
                   onChange={onMutate}
                 />
               </div>
@@ -421,6 +448,7 @@ function EditOrder() {
                   <input
                     className='w-8 px-1 rounded-lg text-red-700'
                     type='number'
+                    min={1}
                     id='quantity'
                     value={bagItem.quantity}
                     onChange={onBagMutate(index)}
