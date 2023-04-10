@@ -116,32 +116,47 @@ function AddOrder() {
     let total = 0
     let subtotal = 0
     let percentage = 0
-    let valuesArray = []
+    let normalArray = []
+    let discountedArray = []
     total = +ifoodDelivery
     subtotal = +ifoodDelivery
-    bag.map((item) => {
-      if (ifood) {
-        return valuesArray.push(item.priceIfood * item.quantity)
-      } else {
-        return valuesArray.push(item.price * item.quantity)
-      }
-    })
-    valuesArray.map((item) => {
-      return (total = total + item)
-    })
     if (ifood) {
+      bag.map((item) => {
+        return normalArray.push(item.priceIfood * item.quantity)
+      })
+      normalArray.map((item) => {
+        return (total = total + item)
+      })
       if (paidIfood) {
         subtotal = total * 0.74
       } else {
         subtotal = total * 0.77
       }
+    } else if (discount) {
+      bag.map((item) => {
+        if (item.type === 'Sandwich') {
+          return discountedArray.push(item.price * item.quantity)
+        } else {
+          return normalArray.push(item.price * item.quantity)
+        }
+      })
+      discountedArray.map((item) => {
+        return (total = total + item)
+      })
+      percentage = (100 - discountPer) / 100
+      subtotal = total * percentage
+      normalArray.map((item) => {
+        total = total + item
+        subtotal = subtotal + item
+      })
     } else {
-      if (discount) {
-        percentage = (100 - discountPer) / 100
-        subtotal = total * percentage
-      } else {
-        subtotal = total
-      }
+      bag.map((item) => {
+        return normalArray.push(item.price * item.quantity)
+      })
+      normalArray.map((item) => {
+        return (total = total + item)
+      })
+      subtotal = total
     }
     setBagTotal(parseFloat(total.toFixed(2)))
     setBagSubtotal(parseFloat(subtotal.toFixed(2)))
@@ -153,7 +168,8 @@ function AddOrder() {
     total = 0
     subtotal = 0
     percentage = 0
-    valuesArray = []
+    normalArray = []
+    discountedArray = []
   }
   // ---------------------------------------------------------
 
