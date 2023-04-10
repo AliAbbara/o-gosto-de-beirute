@@ -153,6 +153,15 @@ export const menu = [
     priceIfood: 7.5,
   },
   {
+    id: '30Coca600Zero',
+    name: 'Coca 600ml Zero',
+    type: 'Drink',
+    quantity: 1,
+    comment: '',
+    price: 6,
+    priceIfood: 7.5,
+  },
+  {
     id: '18Coca1L',
     name: 'Coca 1L',
     type: 'Drink',
@@ -243,6 +252,15 @@ export const menu = [
     priceIfood: 6,
   },
   {
+    id: '31HeinekenLata',
+    name: 'Heineken Lata',
+    type: 'Drink',
+    quantity: 1,
+    comment: '',
+    price: 7,
+    priceIfood: 8.5,
+  },
+  {
     id: '28AguaCrystalSemGas500',
     name: 'Agua Sem Gas 500ml',
     type: 'Drink',
@@ -261,3 +279,4 @@ export const menu = [
     priceIfood: 4,
   },
 ]
+// 31 items
