@@ -37,7 +37,7 @@ function OAuth() {
     <div>
       <FcGoogle
         onClick={onGoogleClick}
-        className='p-1 bg-white rounded-lg w-8 h-8 hover:cursor-pointer hover:bg-slate-200 duration-100'
+        className='p-1 w-8 h-8 rounded-lg bg-white hover:cursor-pointer hover:bg-slate-200 duration-100'
       />
     </div>
   )

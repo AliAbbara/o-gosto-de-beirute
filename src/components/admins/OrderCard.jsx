@@ -16,10 +16,10 @@ function OrderCard({ order, onDispatch, onShowClose }) {
     total,
   } = order.data
   return (
-    <div className='flex flex-col w-64 justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
+    <div className='m-1 p-1 w-64 flex flex-col justify-between rounded-lg border-2 border-yellow-400'>
       <div>
         {/* Order number & Time */}
-        <div className='flex h-8 justify-between border-b border-yellow-400'>
+        <div className='h-8 flex justify-between border-b border-yellow-400'>
           <p>Número do Pedido: {orderNumber}</p>
           <p>
             {createdAt
@@ -28,7 +28,7 @@ function OrderCard({ order, onDispatch, onShowClose }) {
           </p>
         </div>
         {/* --------------------------------*/}
-        <div className='flex h-8 justify-between border-b border-yellow-400'>
+        <div className='h-8 flex justify-between border-b border-yellow-400'>
           <p>{ifood ? 'iFood Num: ' + ifoodNum : orderType}</p>
           <p>Mesa: {table}</p>
         </div>
@@ -45,12 +45,12 @@ function OrderCard({ order, onDispatch, onShowClose }) {
       </div>
       <div>
         {/* Total & Subtotal */}
-        <div className='flex h-8 justify-between border-y border-yellow-400'>
+        <div className='h-8 flex justify-between border-y border-yellow-400'>
           <p>Total: {total}</p>
           <p>Subtotal: {subtotal}</p>
         </div>
         {/* button for done div */}
-        <div className='flex h-9 justify-between items-center'>
+        <div className='h-9 flex justify-between items-center'>
           {!done ? (
             <ItemButton onClick={() => onDispatch(order.id)}>
               Despachar
@@ -60,7 +60,7 @@ function OrderCard({ order, onDispatch, onShowClose }) {
           )}
           {ifood && <SiIfood />}
           <Link
-            className='px-1 ml-1 border-2 border-yellow-400 rounded-lg duration-100 hover:bg-red-600'
+            className='px-1 ml-1 border-2 border-yellow-400 rounded-lg hover:bg-red-600 duration-100'
             to={`/admins/edit-order/${order.id}`}>
             Editar Pedido
           </Link>

@@ -6,7 +6,7 @@ function KitchenCard({ onDispatch, order }) {
     order.data
   return (
     <>
-      <div className='flex flex-col justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
+      <div className='m-1 p-1 flex flex-col justify-between rounded-lg border-2 border-yellow-400'>
         {/* Time & ifoodNum & table div */}
         <div className='flex justify-between text-semibold border-b border-yellow-400'>
           <p>Número do Pedido: {orderNumber}</p>

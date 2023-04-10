@@ -34,18 +34,18 @@ function Navbar() {
   return (
     <ContainerCard className='flex justify-between items-center'>
       {/* Logo icon and name piece */}
-      <div className='flex items-center font-semibold text-2xl w-full lg:w-1/3'>
-        <img src={logo} alt='Ogosto logo' className='w-10 mr-2' />
+      <div className='w-full lg:w-1/3 flex items-center text-2xl font-semibold'>
+        <img src={logo} alt='Ogosto logo' className='mr-2 w-10' />
         <Link to='/' onClick={() => setNavbarOpen(false)}>
           O GOSTO DE BEIRUTE
         </Link>
       </div>
       {/* Navbar items list */}
-      <ul className='hidden lg:flex text-center min-w-fit'>
+      <ul className='min-w-fit hidden lg:flex text-center'>
         {menuItems.map((item) => (
           <li
             key={item.id}
-            className='hover:bg-red-600 rounded-lg duration-100'>
+            className='rounded-lg hover:bg-red-600 duration-100'>
             <Link className='px-4' to={'/' + item.path}>
               {item.title}
             </Link>
@@ -53,27 +53,27 @@ function Navbar() {
         ))}
       </ul>
       {/* Sign in and menu button div */}
-      <div className='flex justify-end items-center sm:w-1/3'>
+      <div className='sm:w-1/3 flex justify-end items-center'>
         <RedLink to={loggedIn ? '/profile' : '/sign-in'}>
           {loggedIn ? <CgProfile size={20} /> : <VscSignIn size={20} />}
         </RedLink>
         <RedButton
           onClick={() => setNavbarOpen(!navbarOpen)}
-          className='relative hidden sm:block lg:hidden ml-2 text-xl'>
+          className='ml-2 relative hidden sm:block lg:hidden text-xl'>
           <TfiLayoutListPost />
         </RedButton>
       </div>
       {/* Dropdown menu container div */}
       <div
         className={
-          'absolute lg:hidden right-4 top-16 mt-2 bg-red-700 w-36 border-2 border-yellow-300 rounded-lg z-10 shadow-2xl shadow-black' +
+          'mt-2 w-36 absolute lg:hidden z-10 right-4 top-16 rounded-lg bg-red-700 border-2 border-yellow-300 shadow-2xl shadow-black' +
           (navbarOpen ? ' flex' : ' hidden')
         }>
-        <ul className='flex flex-col list-none w-full text-center'>
+        <ul className='w-full flex flex-col text-center list-none'>
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className='py-1 hover:bg-red-600 hover:cursor-pointer rounded-lg duration-100'>
+              className='py-1 rounded-lg hover:bg-red-600 hover:cursor-pointer duration-100'>
               <Link
                 to={'/' + item.path}
                 onClick={() => setNavbarOpen(!navbarOpen)}>

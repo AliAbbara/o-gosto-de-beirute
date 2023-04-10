@@ -41,7 +41,7 @@ function DefCard({ images, items, title }) {
         {items.map((item) => (
           <SwiperSlide key={item.id}>
             {images ? (
-              <div className='text-white w-52 sm:w-72 h-40 sm:h-52 border-2 border-yellow-300 rounded-lg'>
+              <div className='w-52 sm:w-72 h-40 sm:h-52 text-white rounded-lg border-2 border-yellow-300'>
                 <img
                   className='w-full h-full rounded-md'
                   src={item.image}
@@ -50,7 +50,7 @@ function DefCard({ images, items, title }) {
                 <p className='text-center'>{item.name}</p>
               </div>
             ) : (
-              <div className='flex flex-col justify-between items-center text-white p-4 w-52 sm:w-72 h-40 sm:h-52 border-2 border-yellow-300 rounded-lg'>
+              <div className='p-4 w-52 sm:w-72 h-40 sm:h-52 flex flex-col justify-between items-center text-white rounded-lg border-2 border-yellow-300'>
                 <div>{item.name}</div>
                 <div>{item.description}</div>
               </div>

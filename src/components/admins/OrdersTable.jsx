@@ -4,19 +4,19 @@ function OrdersTable({ children }) {
       <table className='border-separate border-spacing'>
         <thead>
           <tr>
-            <th className='rounded-lg border-2 border-yellow-400 w-9'>Num</th>
-            <th className='rounded-lg border-2 border-yellow-400 w-9'>iFood</th>
-            <th className='rounded-lg border-2 border-yellow-400 w-9'>Mesa</th>
-            <th className='rounded-lg border-2 border-yellow-400 w-9'>
+            <th className='w-9 rounded-lg border-2 border-yellow-400'>Num</th>
+            <th className='w-9 rounded-lg border-2 border-yellow-400'>iFood</th>
+            <th className='w-9 rounded-lg border-2 border-yellow-400'>Mesa</th>
+            <th className='w-9 rounded-lg border-2 border-yellow-400'>
               Lanche
             </th>
-            <th className='rounded-lg border-2 border-yellow-400 w-9'>
+            <th className='w-9 rounded-lg border-2 border-yellow-400'>
               Porção
             </th>
-            <th className='rounded-lg border-2 border-yellow-400 w-9'>
+            <th className='w-9 rounded-lg border-2 border-yellow-400'>
               Bebida
             </th>
-            <th className='rounded-lg border-2 border-yellow-400 w-9'>Total</th>
+            <th className='w-9 rounded-lg border-2 border-yellow-400'>Total</th>
           </tr>
         </thead>
         <tbody>{children}</tbody>

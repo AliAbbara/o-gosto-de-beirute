@@ -24,7 +24,7 @@ body {
 }
 
 /* Spinner */
-.loadingSpinnerContainer {
+.spinnerContainer {
   position: fixed;
   top: 0;
   right: 0;
@@ -36,7 +36,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-.loadingSpinner {
+.spinner {
   width: 64px;
   height: 64px;
   border: 7px solid;

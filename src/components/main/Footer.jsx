@@ -7,9 +7,9 @@ import RedLink from '../links/RedLink'
 
 function Footer() {
   return (
-    <ContainerCard className='mt-4 flex flex-col text-center relative'>
+    <ContainerCard className='mt-4 relative flex flex-col text-center'>
       {/* -----------Logo and menu div------------- */}
-      <div className='flex flex-col sm:flex-row flex-wrap justify-evenly items-center p-2'>
+      <div className='p-2 flex flex-col sm:flex-row flex-wrap justify-evenly items-center'>
         {/* Logo */}
         <img
           src={logo}
@@ -18,8 +18,8 @@ function Footer() {
         />
         {/* Social Media */}
         <div className='flex flex-col items-center'>
-          <p className='text-3xl mb-2'>Redes</p>
-          <div className=' flex sm:flex-col'>
+          <p className='mb-2 text-3xl'>Redes</p>
+          <div className='flex sm:flex-col'>
             <RedLink
               className='mx-1'
               target='_blank'
@@ -41,9 +41,9 @@ function Footer() {
           </div>
         </div>
         {/* Menu */}
-        <div className='flex flex-col mt-2'>
-          <p className='text-3xl mb-2'>Paginas</p>
-          <div className=' flex sm:flex-col'>
+        <div className='mt-2 flex flex-col'>
+          <p className='mb-2 text-3xl'>Paginas</p>
+          <div className='flex sm:flex-col'>
             <RedLink className='mx-1 sm:mb-1' to='/menu/sandwiches'>
               Cardapio
             </RedLink>
@@ -57,7 +57,7 @@ function Footer() {
         </div>
       </div>
       {/* -----------Rights div------------- */}
-      <div className='flex flex-col mt-2'>
+      <div className='mt-2 flex flex-col'>
         <p>O Gosto de Beirute &reg; - Todos os Direitos Reservados 2023</p>
         <p>Designed and developed by Ali Abbara &copy; </p>
       </div>

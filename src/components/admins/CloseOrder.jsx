@@ -9,7 +9,7 @@ function CloseOrder({ onClose, onMutate, order }) {
   }
 
   return (
-    <div className='flex flex-col w-64 h-40 justify-between rounded-lg border-2 border-yellow-400 m-1 p-1'>
+    <div className='m-1 p-1 w-64 h-40 flex flex-col justify-between rounded-lg border-2 border-yellow-400'>
       <label>Forme de Pagamento: </label>
       <select
         className='text-red-700 rounded-lg'
@@ -24,7 +24,7 @@ function CloseOrder({ onClose, onMutate, order }) {
       <div className='flex mt-1'>
         <p>Troco pra: </p>
         <input
-          className='ml-1 mr-2 text-red-700 rounded-lg w-12'
+          className='ml-1 mr-2 w-12 text-red-700 rounded-lg'
           type='number'
           value={troco}
           onChange={onChange}

@@ -4,7 +4,7 @@ function YellowButton({ children, className, onClick, type }) {
       type={type}
       onClick={onClick}
       className={
-        'bg-yellow-300 hover:bg-yellow-400 rounded-lg duration-100 py-1 px-4 focus:ring-4 focus:ring-yellow-500 text-red-700 ' +
+        'py-1 px-4 text-red-700 rounded-lg bg-yellow-300 hover:bg-yellow-400 duration-100 focus:ring-4 focus:ring-yellow-500 ' +
         className
       }>
       {children}

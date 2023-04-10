@@ -4,7 +4,7 @@ function ItemButton({ children, className, onClick, type }) {
       type={type}
       onClick={onClick}
       className={
-        'hover:bg-red-600 text-slate-100 rounded-lg duration-100 px-1 mx-1 my-0.5 border-2 border-yellow-400 ' +
+        'px-1 mx-1 my-0.5 text-slate-100 rounded-lg border-2 border-yellow-400 hover:bg-red-600 duration-100 ' +
         className
       }>
       {children}
