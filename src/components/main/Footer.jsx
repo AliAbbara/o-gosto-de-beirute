@@ -7,7 +7,7 @@ import RedLink from '../links/RedLink'
 
 function Footer() {
   return (
-    <ContainerCard className='mt-4 flex flex-col text-center sticky'>
+    <ContainerCard className='mt-4 flex flex-col text-center relative'>
       {/* -----------Logo and menu div------------- */}
       <div className='flex flex-col sm:flex-row flex-wrap justify-evenly items-center p-2'>
         {/* Logo */}

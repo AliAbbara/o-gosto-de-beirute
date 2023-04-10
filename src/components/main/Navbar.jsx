@@ -34,13 +34,12 @@ function Navbar() {
   return (
     <ContainerCard className='flex justify-between items-center'>
       {/* Logo icon and name piece */}
-      <Link
-        to='/'
-        onClick={() => setNavbarOpen(false)}
-        className='flex items-center font-semibold text-2xl w-full sm:w-1/2'>
+      <div className='flex items-center font-semibold text-2xl w-full lg:w-1/3'>
         <img src={logo} alt='Ogosto logo' className='w-10 mr-2' />
-        <p className='w-full sm:w-auto'>O GOSTO DE BEIRUTE</p>
-      </Link>
+        <Link to='/' onClick={() => setNavbarOpen(false)}>
+          O GOSTO DE BEIRUTE
+        </Link>
+      </div>
       {/* Navbar items list */}
       <ul className='hidden lg:flex text-center min-w-fit'>
         {menuItems.map((item) => (
