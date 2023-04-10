@@ -95,6 +95,12 @@ function Profile() {
     }
   }
 
+  const signOut = () => {
+    setLoading(true)
+    auth.signOut()
+    setLoading(false)
+  }
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -107,6 +113,12 @@ function Profile() {
     setLoading(false)
     // eslint-disable-next-line
   }, [auth, user])
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 500)
+    //eslint-disable-next-line
+  }, [])
 
   return (
     <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
@@ -184,7 +196,7 @@ function Profile() {
             </RedLink>
           )}
 
-          <RedButton className='mt-6' onClick={() => auth.signOut()}>
+          <RedButton className='mt-6' onClick={signOut}>
             Sair
           </RedButton>
         </div>

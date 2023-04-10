@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FaEye } from 'react-icons/fa'
 import { toast } from 'react-toastify'
@@ -10,7 +10,7 @@ import RedButton from '../../components/buttons/RedButton'
 import ContainerCard from '../../components/cards/ContainerCard'
 import OAuth from '../../components/other/OAuth'
 
-function SignIn() {
+function SignIn({ setLoading }) {
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
@@ -28,7 +28,7 @@ function SignIn() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-
+    setLoading(true)
     if (email === '' || password === '') {
       toast.warning('Por favor, preencha todos os campos!')
     } else {
@@ -46,7 +46,14 @@ function SignIn() {
         toast.error('E-mail ou senha incorretos!')
       }
     }
+    setLoading(false)
   }
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 500)
+    //eslint-disable-next-line
+  }, [])
 
   return (
     <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>

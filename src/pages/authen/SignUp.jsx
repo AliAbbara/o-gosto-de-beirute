@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FaEye } from 'react-icons/fa'
 import { toast } from 'react-toastify'
@@ -14,7 +14,7 @@ import RedButton from '../../components/buttons/RedButton'
 import ContainerCard from '../../components/cards/ContainerCard'
 import OAuth from '../../components/other/OAuth'
 
-function SignUp() {
+function SignUp({ setLoading }) {
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
@@ -34,6 +34,7 @@ function SignUp() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     if (
       name === '' ||
       email === '' ||
@@ -54,11 +55,9 @@ function SignUp() {
         sendEmailVerification(user)
         const formDataCopy = { ...formData }
         delete formDataCopy.password
-
+        delete formDataCopy.confirmPassword
         formDataCopy.timestamp = serverTimestamp()
-
         await setDoc(doc(db, 'users', user.uid), formDataCopy)
-
         navigate('/profile')
         toast.success(
           'Inscrito com sucesso, certifique-se de verificar seu endereço de e-mail!'
@@ -69,7 +68,14 @@ function SignUp() {
         )
       }
     }
+    setLoading(false)
   }
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 500)
+    //eslint-disable-next-line
+  }, [])
 
   return (
     <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>

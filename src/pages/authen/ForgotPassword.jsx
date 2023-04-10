@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { sendPasswordResetEmail } from 'firebase/auth'
@@ -8,17 +8,15 @@ import RedButton from '../../components/buttons/RedButton'
 import RedLink from '../../components/links/RedLink'
 import RedInput from '../../components/inputs/RedInput'
 
-function ForgotPassword() {
+function ForgotPassword({ setLoading }) {
   const [email, setEmail] = useState('')
   const navigate = useNavigate()
 
-  // ---------------------onChange------------------
   const onChange = (e) => setEmail(e.target.value)
-  // -----------------------------------------------
 
-  // ---------------------onSubmit------------------
   const onSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     try {
       await sendPasswordResetEmail(auth, email)
       toast.success('O link de redefinição de senha foi enviado!')
@@ -27,8 +25,14 @@ function ForgotPassword() {
       console.log(error)
       toast.error('Algo deu errado, verifique se o e-mail está correto!')
     }
+    setLoading(true)
   }
-  // -----------------------------------------------
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => setLoading(false), 500)
+    //eslint-disable-next-line
+  }, [])
 
   return (
     <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
