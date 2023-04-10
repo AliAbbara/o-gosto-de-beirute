@@ -13,7 +13,7 @@
 
 body {
   background-image: url('/src/assets/imgs/background.png');
-  max-height: 100% 100vh;
+  min-height: 100vh;
   padding: 0 1rem 1rem 1rem;
   z-index: 0;
 }
