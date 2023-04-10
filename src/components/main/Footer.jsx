@@ -8,14 +8,10 @@ import RedLink from '../links/RedLink'
 function Footer() {
   return (
     <ContainerCard className='mt-4 relative flex flex-col text-center'>
-      {/* -----------Logo and menu div------------- */}
-      <div className='p-2 flex flex-col sm:flex-row flex-wrap justify-evenly items-center'>
+      {/* -----------Logo div------------- */}
+      <div className='px-2 flex flex-col sm:flex-row flex-wrap justify-evenly items-center'>
         {/* Logo */}
-        <img
-          src={logo}
-          alt='full logo'
-          className='w-34 h-32 sm:w-44 sm:h-auto'
-        />
+        <img src={logo} alt='full logo' className='h-32 sm:h-44' />
         {/* Social Media */}
         <div className='flex flex-col items-center'>
           <p className='mb-2 text-3xl'>Redes</p>
@@ -40,7 +36,7 @@ function Footer() {
             </RedLink>
           </div>
         </div>
-        {/* Menu */}
+        {/* Pages */}
         <div className='mt-2 flex flex-col'>
           <p className='mb-2 text-3xl'>Paginas</p>
           <div className='flex sm:flex-col'>
