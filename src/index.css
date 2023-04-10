@@ -16,6 +16,11 @@ body {
   padding: 0 1rem 1rem 1rem;
   z-index: 0;
 }
+@media screen and (max-width: 615px) {
+  body {
+    padding: 0 0.5rem 1rem 0.5rem;
+  }
+}
 
 /* Spinner */
 .loadingSpinnerContainer {
