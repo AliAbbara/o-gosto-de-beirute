@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { sandwiches } from '../../assets/menu/sandwiches'
 import { porcoes } from '../../assets/menu/porcoes'
 import { bebidas } from '../../assets/menu/bebidas'
@@ -12,6 +12,7 @@ function Menu({ setLoading }) {
   const portions = porcoes
   const drinks = bebidas
   const location = useLocation()
+  const navigate = useNavigate()
   const params = useParams()
 
   const matchRoute = (route) => {
@@ -64,7 +65,7 @@ function Menu({ setLoading }) {
           ? portions.map((item) => <ItemCard key={item.id} item={item} />)
           : params.category === 'drinks'
           ? drinks.map((item) => <ItemCard key={item.id} item={item} />)
-          : ''}
+          : navigate('/not-found')}
       </div>
     </RingCard>
   )

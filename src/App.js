@@ -16,16 +16,29 @@ import Navbar from './components/main/Navbar'
 import Footer from './components/main/Footer'
 import MobileNav from './components/main/MobileNav'
 import ScrollToTop from './components/other/ScrollToTop'
-import 'react-toastify/dist/ReactToastify.css'
 import Spinner from './components/other/Spinner'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   const [loading, setLoading] = useState(true)
   const location = useLocation()
 
+  const paths = [
+    '/',
+    '/contact',
+    '/about-us',
+    '/sign-in',
+    '/sign-up',
+    '/profile',
+    '/forgot-password',
+    '/not-found',
+  ]
+  const renderFooter =
+    paths.includes(location.pathname) || location.pathname.startsWith('/menu/')
+
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000)
-  }, [location])
+  }, [])
 
   return (
     <div className='mb-14 sm:mb-2'>
@@ -49,11 +62,11 @@ function App() {
         />
         <Route path='/admins/:section' element={<Admins />} />
         <Route path='/admins/edit-order/:orderId' element={<EditOrder />} />
+        <Route path='*' element={[<NotFound />, <Footer />]} />
         <Route path='/not-found' element={<NotFound />} />
       </Routes>
-      <Footer />
       <MobileNav />
-
+      {renderFooter && <Footer />}
       <ToastContainer />
     </div>
   )
