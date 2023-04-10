@@ -43,7 +43,7 @@ function DefCard({ images, items, title }) {
             {images ? (
               <div className='text-white w-52 sm:w-72 h-40 sm:h-52 border-2 border-yellow-300 rounded-lg'>
                 <img
-                  className='w-full h-full rounded-lg'
+                  className='w-full h-full rounded-md'
                   src={item.image}
                   alt={item.name}
                 />
