@@ -201,12 +201,7 @@ function Profile() {
           </RedButton>
         </div>
       ) : (
-        <>
-          <p>Verifique se você está conectado!</p>
-          <p className='mt-6 text-center'>
-            <RedLink to='/sign-in'>Ir para a Página de Login</RedLink>
-          </p>
-        </>
+        navigate('/sign-in')
       )}
     </ContainerCard>
   )

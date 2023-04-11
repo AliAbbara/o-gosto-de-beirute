@@ -36,7 +36,7 @@ function ItemCard({ item }) {
           <p>{item?.ingredients}</p>
           <p>
             Tempo de Preparação: {item?.prepTime}
-            {item?.prepTime === '1' ? ' minuto' : ' minutos'}
+            {item?.prepTime === '1' ? ' Minuto' : ' Minutos'}
           </p>
         </div>
         {/* Buttons div */}

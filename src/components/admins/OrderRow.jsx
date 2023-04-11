@@ -16,7 +16,7 @@ function OrderRow({ onShow, order }) {
         <RedButton onClick={() => onShow(order)}>{orderNumber}</RedButton>
       </th>
       <th className='rounded-lg border border-yellow-400'>
-        {ifood ? 'Yes' : 'No'}
+        {ifood ? 'Sim' : 'Não'}
       </th>
       <th className='rounded-lg border border-yellow-400'>{table}</th>
       <th className='rounded-lg border border-yellow-400'>
