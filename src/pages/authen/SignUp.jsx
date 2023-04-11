@@ -78,8 +78,8 @@ function SignUp({ setLoading }) {
   }, [])
 
   return (
-    <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
-      <h1 className='text-3xl text-center'>Inscrever-se</h1>
+    <ContainerCard className='m-auto max-w-screen-sm flex flex-col justify-center'>
+      <h1 className='text-center text-3xl'>Inscrever-se</h1>
       <form onSubmit={onSubmit} className='mt-6 text-xl'>
         <div className='mb-2'>
           <label className='block'>Nome</label>
@@ -136,7 +136,7 @@ function SignUp({ setLoading }) {
           />
         </div>
 
-        <RedButton type='submit' className='w-full tracking-wider mt-6'>
+        <RedButton type='submit' className='mt-6 w-full tracking-wider'>
           Inscrever-se
         </RedButton>
       </form>

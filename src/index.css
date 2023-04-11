@@ -6,15 +6,15 @@
   font-family: 'Cuprum';
   src: local('Cuprum'), url(./assets/fonts/Cuprum-Regular.ttf);
 }
-
 * {
   font-family: 'Cuprum';
 }
+/*-----------------------------------------------------------------------*/
 
 body {
-  background-image: url('/src/assets/imgs/background.png');
-  min-height: 100vh;
   padding: 0 1rem 1rem 1rem;
+  min-height: 100vh;
+  background-image: url('/src/assets/imgs/background.png');
   z-index: 0;
 }
 @media screen and (max-width: 615px) {
@@ -30,11 +30,11 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(105, 105, 105, 0.5);
-  z-index: 5000;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(105, 105, 105, 0.5);
+  z-index: 5000;
 }
 .spinner {
   width: 64px;

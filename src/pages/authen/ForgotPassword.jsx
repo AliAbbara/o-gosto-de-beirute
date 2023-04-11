@@ -35,8 +35,8 @@ function ForgotPassword({ setLoading }) {
   }, [])
 
   return (
-    <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
-      <h1 className='text-3xl text-center'>Redefinição de Senha</h1>
+    <ContainerCard className='m-auto max-w-screen-sm flex flex-col justify-center'>
+      <h1 className='text-center text-3xl'>Redefinição de Senha</h1>
       <form onSubmit={onSubmit} className='mt-6 text-xl'>
         <div>
           <label className='block'>Email</label>
@@ -48,7 +48,7 @@ function ForgotPassword({ setLoading }) {
             onChange={onChange}
           />
         </div>
-        <RedButton type='submit' className='w-full tracking-wider mt-6'>
+        <RedButton type='submit' className='mt-6 w-full tracking-wider'>
           Mandar Link de Redefinição
         </RedButton>
       </form>

@@ -56,8 +56,8 @@ function SignIn({ setLoading }) {
   }, [])
 
   return (
-    <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
-      <h1 className='text-3xl text-center'>Login</h1>
+    <ContainerCard className='m-auto max-w-screen-sm flex flex-col justify-center'>
+      <h1 className='text-center text-3xl'>Login</h1>
       <form onSubmit={onSubmit} className='mt-6 text-xl'>
         <div className='mb-2'>
           <label htmlFor='email' className='block'>
@@ -93,7 +93,7 @@ function SignIn({ setLoading }) {
           <RedLink to='/forgot-password'>Esqueceu sua senha ?</RedLink>
         </p>
 
-        <RedButton type='submit' className='w-full tracking-wider mt-6'>
+        <RedButton type='submit' className='mt-6 w-full tracking-wider'>
           Login
         </RedButton>
       </form>

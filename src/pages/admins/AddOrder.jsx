@@ -249,7 +249,7 @@ function AddOrder() {
   ])
 
   return (
-    <div className='flex flex-col h-auto justify-between'>
+    <div className='flex flex-col justify-between'>
       {loading && <Spinner />}
       <form onSubmit={(e) => onOrderSubmit(e)}>
         {/* Order Type div */}
@@ -305,7 +305,7 @@ function AddOrder() {
         <div>
           <label>Nome do Cliente: </label>
           <input
-            className='rounded-lg ml-1 mb-1 text-red-700 px-1'
+            className='ml-1 mb-1 px-1 text-red-700 rounded-lg'
             type='text'
             id='customer'
             value={customer}
@@ -316,7 +316,7 @@ function AddOrder() {
         <div>
           <label>Número da Mesa: </label>
           <input
-            className='rounded-lg ml-1 text-red-700 px-1 w-14'
+            className='px-1 ml-1 w-14 text-red-700 rounded-lg'
             type='number'
             min={0}
             id='table'
@@ -330,7 +330,7 @@ function AddOrder() {
           <p>Subtotal: {subtotal}</p>
         </div>
         {/* Discount select div */}
-        <div className='flex mb-1'>
+        <div className='mb-1 flex'>
           <div>
             <label>Desconto? </label>
             <SwitchButton
@@ -354,7 +354,7 @@ function AddOrder() {
             <div className='ml-4'>
               <label>% de Desconto : </label>
               <input
-                className='rounded-lg text-red-700 w-14'
+                className='w-14 text-red-700 rounded-lg'
                 type='number'
                 min={0}
                 id='discountPer'
@@ -365,7 +365,7 @@ function AddOrder() {
           )}
         </div>
         {/* Ifood select div */}
-        <div className='flex flex-wrap mb-1'>
+        <div className='mb-1 flex flex-wrap'>
           <div>
             <label>É iFood? </label>
             <SwitchButton
@@ -388,7 +388,7 @@ function AddOrder() {
 
           {ifood && (
             <>
-              <div className='ml-4 '>
+              <div className='ml-4'>
                 <label>Pago pelo iFood? </label>
                 <SwitchButton
                   className={paidIfood ? ' bg-red-500' : ''}
@@ -407,10 +407,10 @@ function AddOrder() {
                   Não
                 </SwitchButton>
               </div>
-              <div className='ml-4 '>
+              <div className='ml-4'>
                 <label>Número do iFood: </label>
                 <input
-                  className='w-14 rounded-lg ml-1 text-red-700'
+                  className='ml-1 w-14 text-red-700 rounded-lg'
                   type='number'
                   min={0}
                   id='ifoodNum'
@@ -418,10 +418,10 @@ function AddOrder() {
                   onChange={onMutate}
                 />
               </div>
-              <div className='ml-4 '>
+              <div className='ml-4'>
                 <label>Taxa de Entrega: </label>
                 <input
-                  className='w-14 rounded-lg ml-1 text-red-700'
+                  className='ml-1 w-14 text-red-700 rounded-lg'
                   type='number'
                   min={0}
                   id='ifoodDelivery'
@@ -437,7 +437,7 @@ function AddOrder() {
         <div>
           <label>Comentário de Pedido: </label>
           <input
-            className='rounded-lg ml-1 text-red-700 px-1'
+            className='ml-1 px-1 text-red-700 rounded-lg'
             type='text'
             id='comment'
             value={comment}
@@ -446,24 +446,24 @@ function AddOrder() {
         </div>
 
         {/* Bag div */}
-        <div className='flex flex-wrap mb-2 justify-center'>
+        <div className='mb-2 flex flex-wrap justify-center'>
           <label className='mr-1'>O Pedido: </label>
           {bag.length !== 0 &&
             bag.map((bagItem, index) => (
               <div
                 key={index}
-                className='flex flex-col border-2 rounded-lg border-white p-1 m-1'>
-                <div className='flex w-full h-8 justify-between'>
-                  <p className='py-1 rounded-lg w-full'>{bagItem.name}</p>
+                className='p-1 m-1 flex flex-col rounded-lg border-2 border-white'>
+                <div className='w-full h-8 flex justify-between'>
+                  <p className='py-1 w-full rounded-lg'>{bagItem.name}</p>
                   <ItemButton
                     type='button'
                     onClick={() => onBagItemDelete(bagItem)}>
                     X
                   </ItemButton>
                 </div>
-                <div className='flex flex-row justify-center mt-1 h-7'>
+                <div className='mt-1 h-7 flex flex-row justify-center'>
                   <input
-                    className='w-8 px-1 rounded-lg text-red-700'
+                    className='px-1 w-8 text-red-700 rounded-lg'
                     type='number'
                     min={1}
                     id='quantity'
@@ -471,7 +471,7 @@ function AddOrder() {
                     onChange={onBagMutate(index)}
                   />
                   <input
-                    className='w-auto px-1 rounded-lg text-red-700 ml-1'
+                    className='px-1 ml-1 text-red-700 rounded-lg'
                     type='text'
                     id='comment'
                     value={bagItem.comment}

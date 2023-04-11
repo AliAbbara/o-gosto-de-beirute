@@ -27,7 +27,7 @@ function Contact({ setLoading }) {
   }, [])
 
   return (
-    <RingCard title={'Contato'} className='w-fit m-auto'>
+    <RingCard title={'Contato'} className='m-auto w-fit'>
       <div className='flex flex-col'>
         {/* Links and Contact Info */}
         <div className='flex flex-col text-center'>

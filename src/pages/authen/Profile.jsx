@@ -121,9 +121,9 @@ function Profile() {
   }, [])
 
   return (
-    <ContainerCard className='max-w-screen-sm flex flex-col justify-center m-auto'>
+    <ContainerCard className='m-auto max-w-screen-sm flex flex-col justify-center'>
       {loading && <Spinner />}
-      <h1 className='text-3xl text-center'>Perfil</h1>
+      <h1 className='text-center text-3xl'>Perfil</h1>
       {loggedIn ? (
         <div className='flex flex-col'>
           <div className='flex justify-between'>
@@ -148,7 +148,7 @@ function Profile() {
             </div>
           )}
 
-          <div className='flex justify-between mt-2'>
+          <div className='mt-2 flex justify-between'>
             <p>Email: {auth.currentUser?.email}</p>
             <RedButton className='flex items-center' onClick={onEditing('e')}>
               <BiPencil />

@@ -43,16 +43,16 @@ function Admins() {
 
   if (isAdmin) {
     return (
-      <ContainerCard className='flex flex-col justify-center m-auto'>
+      <ContainerCard className='m-auto flex flex-col justify-center'>
         {loading && <Spinner />}
-        <h1 className='text-3xl text-center'>Pedidos</h1>
-        <div className='flex justify-between text-center my-2'>
+        <h1 className='text-center text-3xl'>Pedidos</h1>
+        <div className='my-2 flex justify-between text-center'>
           <RedLink
             to='/admins/add-order'
             className={
               matchRoute('/admins/add-order')
-                ? 'bg-red-600 text-yellow-400 w-24'
-                : 'text-white w-24'
+                ? 'w-24 bg-red-600 text-yellow-400'
+                : 'w-24 text-white'
             }>
             Adicionar
           </RedLink>
@@ -60,8 +60,8 @@ function Admins() {
             to='/admins/orders'
             className={
               matchRoute('/admins/orders')
-                ? 'bg-red-600 text-yellow-400 w-24'
-                : 'text-white w-24'
+                ? 'w-24 bg-red-600 text-yellow-400'
+                : 'w-24 text-white'
             }>
             Todos
           </RedLink>
@@ -69,8 +69,8 @@ function Admins() {
             to='/admins/kitchen'
             className={
               matchRoute('/admins/kitchen')
-                ? 'bg-red-600 text-yellow-400 w-24'
-                : 'text-white w-24'
+                ? 'w-24 bg-red-600 text-yellow-400'
+                : 'w-24 text-white'
             }>
             Cozinha
           </RedLink>
