@@ -1,11 +1,11 @@
 function RedInput({
+  autoComplete,
   className,
-  onChange,
   id,
+  onChange,
   placeholder,
   type,
   value,
-  autoComplete,
 }) {
   return (
     <input

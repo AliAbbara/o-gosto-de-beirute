@@ -6,8 +6,8 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from 'firebase/auth'
-import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
-import { db, auth } from '../../firebase.config'
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
+import { auth, db } from '../../firebase.config'
 import RedInput from '../../components/inputs/RedInput'
 import RedLink from '../../components/links/RedLink'
 import RedButton from '../../components/buttons/RedButton'

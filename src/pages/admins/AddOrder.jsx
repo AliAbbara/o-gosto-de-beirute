@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import {
-  doc,
-  setDoc,
   collection,
-  serverTimestamp,
+  doc,
   getDocs,
+  serverTimestamp,
+  setDoc,
 } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import { menu } from '../../assets//menu/menuItems'
@@ -68,16 +68,16 @@ function AddOrder() {
   const {
     comment,
     customer,
-    ifood,
-    ifoodNum,
-    paidIfood,
-    ifoodDelivery,
     discount,
     discountPer,
+    ifood,
+    ifoodDelivery,
+    ifoodNum,
+    orderType,
+    paidIfood,
+    subtotal,
     table,
     total,
-    subtotal,
-    orderType,
   } = order
 
   // -------------------onMutate - Order Form------------------------------
@@ -147,7 +147,7 @@ function AddOrder() {
       subtotal = total * percentage
       normalArray.map((item) => {
         total = total + item
-        subtotal = subtotal + item
+        return (subtotal = subtotal + item)
       })
     } else {
       bag.map((item) => {

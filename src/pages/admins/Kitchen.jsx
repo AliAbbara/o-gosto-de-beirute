@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import {
-  getDocs,
   collection,
-  query,
-  orderBy,
-  getDoc,
-  updateDoc,
   doc,
+  getDoc,
+  getDocs,
+  orderBy,
+  query,
+  updateDoc,
 } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import Spinner from '../../components/other/Spinner'

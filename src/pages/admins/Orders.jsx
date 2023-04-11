@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import {
-  getDocs,
-  collection,
-  query,
-  orderBy,
-  getDoc,
-  updateDoc,
   doc,
+  collection,
+  getDoc,
+  getDocs,
+  orderBy,
+  query,
   serverTimestamp,
+  updateDoc,
 } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import Spinner from '../../components/other/Spinner'

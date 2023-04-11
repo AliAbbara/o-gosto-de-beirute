@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { doc, updateDoc, getDoc, serverTimestamp } from 'firebase/firestore'
+import { doc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import { menu } from '../../assets/menu/menuItems'
 import { v4 as uuidv4 } from 'uuid'
@@ -64,16 +64,16 @@ function EditOrder() {
   const {
     comment,
     customer,
-    ifood,
-    ifoodNum,
-    paidIfood,
-    ifoodDelivery,
     discount,
     discountPer,
+    ifood,
+    ifoodDelivery,
+    ifoodNum,
+    orderType,
+    paidIfood,
+    subtotal,
     table,
     total,
-    subtotal,
-    orderType,
   } = order
 
   // -------------------onMutate - Order Form------------------------------
@@ -143,7 +143,7 @@ function EditOrder() {
       subtotal = total * percentage
       normalArray.map((item) => {
         total = total + item
-        subtotal = subtotal + item
+        return (subtotal = subtotal + item)
       })
     } else {
       bag.map((item) => {

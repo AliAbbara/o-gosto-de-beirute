@@ -4,9 +4,9 @@ import { BiPencil } from 'react-icons/bi'
 import { toast } from 'react-toastify'
 import {
   onAuthStateChanged,
+  sendPasswordResetEmail,
   updateProfile,
   updateEmail,
-  sendPasswordResetEmail,
 } from 'firebase/auth'
 import { auth } from '../../firebase.config'
 import { checkAdmin } from '../../assets/hooks/checkAdmin'

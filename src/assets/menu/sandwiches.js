@@ -9,7 +9,7 @@ export const sandwiches = [
     type: 'Sandwich',
     prepTime: '8-12',
     price: '22.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -22,7 +22,7 @@ export const sandwiches = [
     type: 'Sandwich',
     prepTime: '8-12',
     price: '18.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -35,7 +35,7 @@ export const sandwiches = [
     type: 'Sandwich',
     prepTime: '8-12',
     price: '26.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -48,7 +48,7 @@ export const sandwiches = [
     type: 'Sandwich',
     prepTime: '8-12',
     price: '22.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -61,7 +61,7 @@ export const sandwiches = [
     type: 'Sandwich',
     prepTime: '8-12',
     price: '28.00',
-    spicey: true,
+    spicy: true,
     vegan: false,
   },
   {
@@ -74,7 +74,7 @@ export const sandwiches = [
     type: 'Sandwich',
     prepTime: '8-12',
     price: '20.00',
-    spicey: false,
+    spicy: false,
     vegan: true,
   },
 ]

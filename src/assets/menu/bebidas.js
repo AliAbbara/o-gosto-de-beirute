@@ -8,7 +8,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -20,7 +20,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -32,7 +32,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '6.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -44,7 +44,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '7.50',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -56,7 +56,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -68,7 +68,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -80,7 +80,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -92,7 +92,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -104,7 +104,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -116,7 +116,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -128,7 +128,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -140,7 +140,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -152,7 +152,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -164,7 +164,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '2.50',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -176,7 +176,7 @@ export const bebidas = [
     type: 'Drink',
     prepTime: '1',
     price: '3.50',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
 ]

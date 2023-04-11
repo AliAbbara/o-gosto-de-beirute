@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { SiIfood } from 'react-icons/si'
 import ItemButton from '../buttons/ItemButton'
 
-function OrderCard({ order, onDispatch, onShowClose }) {
+function OrderCard({ onDispatch, onShowClose, order }) {
   const {
     createdAt,
     done,

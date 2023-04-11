@@ -1,6 +1,6 @@
 import circleLogo from '../../assets//imgs/circleLogo.png'
 
-function RingCard({ children, title, className }) {
+function RingCard({ children, className, title }) {
   return (
     <div
       className={

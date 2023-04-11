@@ -8,7 +8,7 @@ export const porcoes = [
     type: 'Porcao',
     prepTime: '6-10',
     price: '8.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -20,7 +20,7 @@ export const porcoes = [
     type: 'Porcao',
     prepTime: '6-10',
     price: '5.00',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -32,7 +32,7 @@ export const porcoes = [
     type: 'Salgado',
     prepTime: '6-10',
     price: '3.50',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -44,7 +44,7 @@ export const porcoes = [
     type: 'Salgado',
     prepTime: '6-10',
     price: '3.50',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   // {
@@ -55,7 +55,7 @@ export const porcoes = [
   //   type: 'Salgado',
   //   prepTime: '6-10',
   //   price: '3.5,
-  //   spicey: false,
+  //   spicy: false,
   //   vegan: false,
   // },
   {
@@ -67,7 +67,7 @@ export const porcoes = [
     type: 'Molho',
     prepTime: '2',
     price: '1.50',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -80,7 +80,7 @@ export const porcoes = [
     type: 'Molho',
     prepTime: '2',
     price: '1.50',
-    spicey: false,
+    spicy: false,
     vegan: false,
   },
   {
@@ -92,7 +92,7 @@ export const porcoes = [
     type: 'Molho',
     prepTime: '2',
     price: '1.50',
-    spicey: false,
+    spicy: false,
     vegan: true,
   },
 ]
