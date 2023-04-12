@@ -1,12 +1,13 @@
-import SwiperCore, { EffectCoverflow, Pagination } from 'swiper'
+import SwiperCore, { EffectCoverflow, Pagination, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import RingCard from './RingCard'
-import 'swiper/swiper-bundle.css'
 import 'swiper/swiper.css'
 
 SwiperCore.use([EffectCoverflow, Pagination])
 
 function DefCard({ images, items, title }) {
+  // const [showPics, setShowPics] = useState(true)
+
   const slidesPerViewDesktop = 2.5
   const slidesPerViewTablet = 2
   const slidesPerViewPhone = 1.2
@@ -23,25 +24,42 @@ function DefCard({ images, items, title }) {
     },
   }
 
+  // const onStartHover = () => {
+  //   setShowPics(true)
+  // }
+  // const onEndHover = () => {
+  //   setTimeout(() => setShowPics(false), 280)
+  // }
+
   return (
     <RingCard title={title}>
       <Swiper
-        className='ml-10 h-48 sm:h-60'
+        className='ml-10 h-48 sm:h-60 overflow-y-visible'
         effect={'coverflow'}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false,
+          waitForTransition: false,
+        }}
         centeredSlides={true}
         slidesPerView={'auto'}
         breakpoints={breakpoints}
         coverflowEffect={{
-          rotate: 50,
-          stretch: 50,
-          depth: 250,
-          modifier: 1,
+          rotate: 10,
+          stretch: 70,
           slideShadows: false,
         }}>
         {items.map((item) => (
           <SwiperSlide key={item.id}>
             {images ? (
-              <div className='w-52 sm:w-72 h-40 sm:h-52 text-white rounded-lg border-2 border-yellow-300'>
+              <div
+                // onMouseEnter={onStartHover}
+                // onMouseLeave={onEndHover}
+                className='w-52 sm:w-72 h-40 sm:h-52 flex flex-col items-center text-white rounded-lg border-2 border-yellow-300'>
+                {/* <PicsCard
+                  className={showPics ? 'block' : 'hidden'}
+                  key={123123123}
+                /> */}
                 <img
                   className='w-full h-full rounded-md'
                   src={item.image}
