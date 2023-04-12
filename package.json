@@ -17,13 +17,15 @@
     "react-toastify": "^9.1.2",
     "swiper": "^9.1.1",
     "uuidv4": "^6.2.13",
+    "watch": "^1.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build --watch",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch": "react-scripts watch"
   },
   "eslintConfig": {
     "extends": [
