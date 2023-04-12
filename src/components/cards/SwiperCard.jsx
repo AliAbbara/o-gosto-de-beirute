@@ -1,9 +1,9 @@
-import SwiperCore, { EffectCoverflow, Pagination, Autoplay } from 'swiper'
+import SwiperCore, { EffectCoverflow } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import RingCard from './RingCard'
 import 'swiper/swiper.css'
 
-SwiperCore.use([EffectCoverflow, Pagination])
+SwiperCore.use([EffectCoverflow])
 
 function DefCard({ images, items, title }) {
   // const [showPics, setShowPics] = useState(true)
@@ -38,13 +38,8 @@ function DefCard({ images, items, title }) {
   return (
     <RingCard title={title}>
       <Swiper
-        className='ml-10 h-48 sm:h-60 overflow-y-visible'
+        className='h-56 sm:h-64'
         effect={'coverflow'}
-        autoplay={{
-          delay: 1000,
-          disableOnInteraction: false,
-          waitForTransition: false,
-        }}
         centeredSlides={true}
         slidesPerView={'auto'}
         breakpoints={breakpoints}
@@ -59,7 +54,7 @@ function DefCard({ images, items, title }) {
               <div
                 // onMouseEnter={onStartHover}
                 // onMouseLeave={onEndHover}
-                className='w-52 sm:w-72 h-40 sm:h-52 flex flex-col items-center text-white rounded-lg border-2 border-yellow-300'>
+                className='w-60 sm:w-80 h-48 sm:h-56 flex flex-col items-center text-white rounded-lg border-2 border-yellow-300'>
                 {/* <PicsCard
                   className={showPics ? 'block' : 'hidden'}
                   key={123123123}
@@ -72,9 +67,9 @@ function DefCard({ images, items, title }) {
                 <p className='text-center'>{item.name}</p>
               </div>
             ) : (
-              <div className='p-4 w-52 sm:w-72 h-40 sm:h-52 flex flex-col justify-between items-center text-white rounded-lg border-2 border-yellow-300'>
-                <div>{item.name}</div>
-                <div>{item.description}</div>
+              <div className='p-2 w-68 sm:w-80 h-52 sm:h-56 flex flex-col justify-evenly items-center rounded-lg bg-red-700 border-2 border-yellow-300'>
+                <div className='mb-2 text-xl font-semibold'>{item.name}</div>
+                <div className='text-ellipsis'>{item.description}</div>
               </div>
             )}
           </SwiperSlide>
