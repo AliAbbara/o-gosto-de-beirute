@@ -51,20 +51,21 @@ function AboutUs({ setLoading }) {
           ervas e especiarias, depois frito até ficar crocante.
         </p>
         <p>
-          We take pride in using only the freshest and highest quality
-          ingredients in our dishes. We believe that the secret to delicious
-          food is in the details, and we pay attention to every aspect of our
-          dishes, from the seasoning to the cooking method, to ensure that every
-          bite is bursting with flavor.
+          Orgulhamo-nos de usar apenas os ingredientes mais frescos e da mais
+          alta qualidade em nossos pratos. Acreditamos que o segredo de uma
+          comida deliciosa está nos detalhes, e prestamos atenção em todos os
+          aspectos de nossos pratos, desde o tempero até o modo de preparo, para
+          garantir que cada mordida seja repleta de sabor.
         </p>
         <p>
-          Whether you're a fan of Middle Eastern cuisine or trying it for the
-          first time, we promise to take you on a culinary journey through the
-          flavors and aromas of Lebanon and the Middle East.
+          Seja você um fã da culinária do Oriente Médio ou esteja
+          experimentando-a pela primeira vez, prometemos levá-lo a uma viagem
+          culinária pelos sabores e aromas do Líbano e do Oriente Médio.
         </p>
         <p>
-          We hope to see you soon at our restaurant, where you can experience
-          the taste of Lebanon and the Middle East right here in Brazil.
+          Esperamos vê-lo em breve em nosso restaurante, onde você poderá
+          experimentar o sabor do Líbano e do Oriente Médio aqui mesmo no
+          Brasil.
         </p>
       </div>
     </RingCard>
