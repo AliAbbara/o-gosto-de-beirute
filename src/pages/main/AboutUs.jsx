@@ -33,12 +33,6 @@ function AboutUs({ setLoading }) {
           desde então tem sido um sucesso.
         </p>
         <p>
-          Orgulhamo-nos do facto de o nosso restaurante ser totalmente
-          controlado pela família. Da cozinha à frente da casa, todos os
-          aspectos do negócio são gerenciados por nossos familiares. Acreditamos
-          que esse toque pessoal é o que torna nossa comida e serviço únicos.
-        </p>
-        <p>
           No O Gosto de Beirute, oferecemos uma grande variedade de pratos
           autênticos libaneses e do Oriente Médio, preparados com ingredientes
           frescos e receitas tradicionais. Nossos shawarmas são feitos com
