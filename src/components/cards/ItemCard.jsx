@@ -51,7 +51,7 @@ function ItemCard({ item }) {
           </RedLink>
           <RedLink
             target='_blank'
-            to='https://wa.me/5517996620999'
+            // to='https://wa.me/5517996620999'
             className='w-fit flex items-center'>
             Fale Conosco
             <BsWhatsapp className='ml-1' />
