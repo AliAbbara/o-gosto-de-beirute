@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import SwiperCore, { EffectCoverflow } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Tooltip } from 'daisyui'
+import RedButton from './../buttons/RedButton'
 import RingCard from './RingCard'
 import 'swiper/swiper.css'
 
 SwiperCore.use([EffectCoverflow])
 
 function DefCard({ images, items, title }) {
-  const [showDesc, setShowDesc] = useState(false)
-  const [active, setActive] = useState(null)
+  const [showPics, setShowPics] = useState(false)
 
   const slidesPerViewDesktop2 = 3.5
   const slidesPerViewDesktop = 2.5
@@ -31,6 +30,14 @@ function DefCard({ images, items, title }) {
     },
   }
 
+  const onHoverStart = () => {
+    console.log('123')
+  }
+
+  const onHoverEnd = () => {
+    console.log('asd')
+  }
+
   return (
     <RingCard title={title} className='overflow-y-visible'>
       <Swiper
@@ -47,14 +54,7 @@ function DefCard({ images, items, title }) {
         {items.map((item) => (
           <SwiperSlide key={item.id}>
             {images ? (
-              <div
-                // onMouseOver={onStartHover}
-                // onMouseOut={onEndHover}
-                className='w-60 sm:w-80 h-48 sm:h-56 flex flex-col items-center text-white rounded-lg border-2 border-yellow-300'>
-                {/* <PicsCard
-                  className={showPics ? 'block' : 'hidden'}
-                  key={123123123}
-                /> */}
+              <div className='w-60 sm:w-80 h-48 sm:h-56 flex flex-col items-center text-white rounded-lg border-2 border-yellow-300'>
                 <img
                   className='w-full h-full rounded-md'
                   src={item.image}
@@ -72,6 +72,12 @@ function DefCard({ images, items, title }) {
               <div className='p-2 w-68 sm:w-80 h-52 sm:h-56 flex flex-col justify-evenly items-center rounded-lg bg-red-700 border-2 border-yellow-300'>
                 <div className='mb-2 text-xl font-semibold'>{item.name}</div>
                 <div>{item.description}</div>
+                <button
+                  onMouseOver={onHoverStart}
+                  onMouseOut={onHoverEnd}
+                  className='px-2 mt-1 text-center rounded-lg hover:bg-red-600 duration-150'>
+                  Imagens
+                </button>
               </div>
             )}
           </SwiperSlide>
