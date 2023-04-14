@@ -56,7 +56,7 @@ function DefCard({ images, items, title }) {
                 <img
                   onClick={onHoverStart(index)}
                   className={
-                    (activeIndex === index ? 'hidden' : 'fade-in') +
+                    (activeIndex === index ? 'hidden fade-out' : 'fade-in') +
                     ' w-full h-full rounded-md hover:cursor-pointer'
                   }
                   src={item.image}

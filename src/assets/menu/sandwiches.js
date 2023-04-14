@@ -78,7 +78,7 @@ export const sandwiches = [
   {
     id: '5CarnePicante',
     image:
-      'https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/Carne%20Picante%2Fbase.jpg?alt=media&token=8351822a-bb13-40b7-8eee-3b114ae48976',
+      'https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/Carne%20Picante%2Fpopup3.webp?alt=media&token=fdc067dd-8f2b-4a4f-aea6-2e9ee94d248b',
     popup1:
       'https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/Carne%20Picante%2Fpopup1.webp?alt=media&token=2e3bff98-1435-493e-a064-e7aedf241d8d',
     popup2:
