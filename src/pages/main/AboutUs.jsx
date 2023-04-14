@@ -36,13 +36,12 @@ function AboutUs({ setLoading }) {
           No O Gosto de Beirute, oferecemos uma grande variedade de pratos
           autênticos libaneses e do Oriente Médio, preparados com ingredientes
           frescos e receitas tradicionais. Nossos shawarmas são feitos com
-          frango marinado, carne ou cordeiro e cozidos lentamente em uma
-          churrasqueira vertical para criar uma carne macia e saborosa que é
+          frango marinado ou carne para criar uma carne macia e saborosa que é
           então embrulhada em pão sírio recém-assado. Nossas fajitas são feitas
-          à maneira libanesa, com suculentos cortes de carne bovina, frango ou
-          cordeiro, grelhados na perfeição e servidos com legumes frescos e
-          molhos. e o Falafel original, feito com uma mistura de grão-de-bico,
-          ervas e especiarias, depois frito até ficar crocante.
+          à maneira libanesa, com suculentos cortes de carne ou frango,
+          grelhados na perfeição e servidos com legumes frescos e molhos. E o
+          Falafel original, feito com uma mistura de grão-de-bico, ervas e
+          especiarias, depois frito até ficar crocante.
         </p>
         <p>
           Orgulhamo-nos de usar apenas os ingredientes mais frescos e da mais

@@ -13,7 +13,7 @@ function ItemCard({ item }) {
       <div
         className={
           (type === 'Drink' ? 'h-32 w-32 sm:w-36' : 'h-52 w-52 sm:w-64') +
-          ' m-auto sm:mr-2 relative'
+          ' m-auto sm:mr-2 fade-in relative'
         }>
         <p className='p-1 w-fit absolute text-2xl text-red-700 bg-yellow-300 rounded-lg'>
           R$ {price}

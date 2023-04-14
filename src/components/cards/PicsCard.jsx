@@ -1,28 +1,17 @@
-function PicsCard({ className }) {
+function PicsCard({ className, onClick, popup1, popup2, popup3, name }) {
   return (
     <div
+      onClick={onClick}
       className={
-        className +
-        ' flex h-60 w-80 transition ease-in-out delay-50 -translate-y-5 hover:scale-110 duration-300 rounded-lg bg-red-700'
+        'h-full w-76 flex rounded-lg bg-red-700 hover:cursor-pointer ' +
+        className
       }>
       <div className='flex w-1/2'>
-        <img
-          className='rounded-lg'
-          src='https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/imagesGeneral%2FPastelzinhoDeQueijo.jpg?alt=media&token=6a9c845a-3128-4601-9113-0f8d179f43b0'
-          alt=''
-        />
+        <img className='rounded-lg' src={popup1} alt={name + 'popup 1'} />
       </div>
       <div className='flex flex-col w-1/2'>
-        <img
-          className='h-1/2 rounded-lg'
-          src='https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/imagesGeneral%2FBatataFrita.jpg?alt=media&token=e456a551-ec2e-41dc-9141-93f7f9600f3f'
-          alt=''
-        />
-        <img
-          className='h-1/2 rounded-lg'
-          src='https://firebasestorage.googleapis.com/v0/b/o-gosto-de-beirute.appspot.com/o/imagesGeneral%2FQuibedeCarne.jpg?alt=media&token=0004b6cf-9b60-4c91-b82d-99b387ea6b02'
-          alt=''
-        />
+        <img className='h-1/2 rounded-lg' src={popup2} alt={name + 'popup 2'} />
+        <img className='h-1/2 rounded-lg' src={popup3} alt={name + 'popup 3'} />
       </div>
     </div>
   )
