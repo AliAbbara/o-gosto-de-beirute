@@ -9,7 +9,7 @@ function RingCard({ children, className, title }) {
       }>
       <div className='absolute w-ring flex justify-center items-center'>
         <img src={circleLogo} alt='logo' />
-        <div className='w-fit absolute text-3xl rounded-lg backdrop-blur-md backdrop-contrast-125'>
+        <div className='w-fit absolute text-3xl rounded-lg bg-red-700'>
           <p>{title}</p>
         </div>
       </div>
