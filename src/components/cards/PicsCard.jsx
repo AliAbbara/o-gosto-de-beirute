@@ -3,15 +3,15 @@ function PicsCard({ className, onClick, popup1, popup2, popup3, name }) {
     <div
       onClick={onClick}
       className={
-        'h-full w-76 flex rounded-lg bg-red-700 hover:cursor-pointer ' +
+        'h-full w-76 flex rounded-md bg-red-700 hover:cursor-pointer ' +
         className
       }>
       <div className='flex w-1/2'>
-        <img className='rounded-lg' src={popup1} alt={name + 'popup 1'} />
+        <img className='rounded-md' src={popup1} alt={name + 'popup 1'} />
       </div>
       <div className='flex flex-col w-1/2'>
-        <img className='h-1/2 rounded-lg' src={popup2} alt={name + 'popup 2'} />
-        <img className='h-1/2 rounded-lg' src={popup3} alt={name + 'popup 3'} />
+        <img className='h-1/2 rounded-md' src={popup2} alt={name + 'popup 2'} />
+        <img className='h-1/2 rounded-md' src={popup3} alt={name + 'popup 3'} />
       </div>
     </div>
   )
