@@ -122,7 +122,7 @@ function Profile() {
   }, [])
 
   return (
-    <ContainerCard className='m-auto max-w-screen-sm flex flex-col justify-center'>
+    <ContainerCard className='m-auto max-w-screen-sm relative z-10 flex flex-col justify-center'>
       {loading && <Spinner />}
       <h1 className='text-center text-3xl'>Perfil</h1>
       {loggedIn ? (

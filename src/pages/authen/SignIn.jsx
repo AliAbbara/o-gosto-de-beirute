@@ -56,7 +56,7 @@ function SignIn({ setLoading }) {
   }, [])
 
   return (
-    <ContainerCard className='m-auto max-w-screen-sm flex flex-col justify-center'>
+    <ContainerCard className='m-auto max-w-screen-sm relative z-10 flex flex-col justify-center'>
       <h1 className='text-center text-3xl'>Login</h1>
       <form onSubmit={onSubmit} className='mt-6 text-xl'>
         <div className='mb-2'>
