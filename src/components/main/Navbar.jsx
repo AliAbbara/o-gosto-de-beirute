@@ -59,14 +59,14 @@ function Navbar() {
         </RedLink>
         <RedButton
           onClick={() => setNavbarOpen(!navbarOpen)}
-          className='ml-2 relative hidden sm:block lg:hidden text-xl'>
+          className='ml-2 hidden sm:block lg:hidden text-xl'>
           <TfiLayoutListPost />
         </RedButton>
       </div>
       {/* Dropdown menu container div */}
       <div
         className={
-          'mt-2 w-36 absolute lg:hidden z-10 right-4 top-16 rounded-lg bg-red-700 border-2 border-yellow-300 shadow-2xl shadow-black' +
+          'mt-2 w-36 absolute z-30 lg:hidden fade-in right-4 top-16 rounded-lg bg-red-700 border-2 border-yellow-300 shadow-2xl shadow-black' +
           (navbarOpen ? ' flex' : ' hidden')
         }>
         <ul className='w-full flex flex-col text-center list-none'>

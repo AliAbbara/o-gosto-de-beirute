@@ -8,6 +8,7 @@
 }
 * {
   font-family: 'Cuprum';
+  z-index: 1;
 }
 /*----------------------------------------------------------------*/
 
@@ -68,7 +69,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgba(105, 105, 105, 0.5);
-  z-index: 5000;
+  z-index: 50;
 }
 .spinner {
   width: 64px;

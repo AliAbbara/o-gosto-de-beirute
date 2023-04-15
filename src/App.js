@@ -41,7 +41,7 @@ function App() {
   }, [])
 
   return (
-    <div className='mb-14 sm:mb-2'>
+    <div className='mb-16 sm:mb-2'>
       {loading && <Spinner />}
       <ScrollToTop />
       <Navbar />
