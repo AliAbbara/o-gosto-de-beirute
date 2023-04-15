@@ -32,42 +32,44 @@ function Navbar() {
   }, [auth])
 
   return (
-    <ContainerCard className='flex relative z-20 justify-between items-center'>
-      {/* Logo icon and name piece */}
-      <div className='w-full lg:w-1/3 flex items-center text-2xl font-semibold'>
-        <img src={logo} alt='Ogosto logo' className='mr-2 w-10' />
-        <Link to='/' onClick={() => setNavbarOpen(false)}>
-          O GOSTO DE BEIRUTE
-        </Link>
-      </div>
-      {/* Navbar items list */}
-      <ul className='min-w-fit hidden lg:flex text-center'>
-        {menuItems.map((item) => (
-          <li
-            key={item.id}
-            className='rounded-lg hover:bg-red-600 duration-100'>
-            <Link className='px-4' to={'/' + item.path}>
-              {item.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      {/* Sign in and menu button div */}
-      <div className='sm:w-1/3 flex justify-end items-center'>
-        <RedLink to={loggedIn ? '/profile' : '/sign-in'}>
-          {loggedIn ? <CgProfile size={20} /> : <VscSignIn size={20} />}
-        </RedLink>
-        <RedButton
-          onClick={() => setNavbarOpen(!navbarOpen)}
-          className='ml-2 hidden sm:block lg:hidden text-xl'>
-          <TfiLayoutListPost />
-        </RedButton>
-      </div>
+    <>
+      <ContainerCard className='flex relative z-10 justify-between items-center'>
+        {/* Logo icon and name piece */}
+        <div className='w-full lg:w-1/3 flex items-center text-2xl font-semibold'>
+          <img src={logo} alt='Ogosto logo' className='mr-2 w-10' />
+          <Link to='/' onClick={() => setNavbarOpen(false)}>
+            O GOSTO DE BEIRUTE
+          </Link>
+        </div>
+        {/* Navbar items list */}
+        <ul className='min-w-fit hidden lg:flex text-center'>
+          {menuItems.map((item) => (
+            <li
+              key={item.id}
+              className='rounded-lg hover:bg-red-600 duration-100'>
+              <Link className='px-4' to={'/' + item.path}>
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        {/* Sign in and menu button div */}
+        <div className='sm:w-1/3 flex justify-end items-center'>
+          <RedLink to={loggedIn ? '/profile' : '/sign-in'}>
+            {loggedIn ? <CgProfile size={20} /> : <VscSignIn size={20} />}
+          </RedLink>
+          <RedButton
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            className='ml-2 hidden sm:block lg:hidden text-xl'>
+            <TfiLayoutListPost />
+          </RedButton>
+        </div>
+      </ContainerCard>
       {/* Dropdown menu container div */}
       <div
         className={
           (navbarOpen ? 'flex' : 'hidden') +
-          ' dropMenu lg:hidden fade-in rounded-lg bg-red-700 border-2 border-yellow-300 shadow-2xl shadow-black'
+          ' dropMenu lg:hidden fade-in text-white rounded-lg bg-red-700 border-2 border-yellow-300 shadow-2xl shadow-black'
         }>
         <ul className='w-full flex flex-col text-center list-none'>
           {menuItems.map((item) => (
@@ -83,7 +85,7 @@ function Navbar() {
           ))}
         </ul>
       </div>
-    </ContainerCard>
+    </>
   )
 }
 

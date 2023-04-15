@@ -34,8 +34,8 @@ body {
   position: absolute;
   width: 9rem;
   z-index: 20;
-  top: 4.4rem;
-  right: -2px;
+  top: 4.5rem;
+  right: 1rem;
 }
 
 @keyframes fade-out {
