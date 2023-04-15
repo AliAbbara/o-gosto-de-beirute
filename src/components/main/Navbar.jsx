@@ -32,7 +32,7 @@ function Navbar() {
   }, [auth])
 
   return (
-    <ContainerCard className='flex justify-between items-center'>
+    <ContainerCard className='flex relative z-20 justify-between items-center'>
       {/* Logo icon and name piece */}
       <div className='w-full lg:w-1/3 flex items-center text-2xl font-semibold'>
         <img src={logo} alt='Ogosto logo' className='mr-2 w-10' />
@@ -66,14 +66,14 @@ function Navbar() {
       {/* Dropdown menu container div */}
       <div
         className={
-          'mt-2 w-36 absolute z-30 lg:hidden fade-in right-4 top-16 rounded-lg bg-red-700 border-2 border-yellow-300 shadow-2xl shadow-black' +
-          (navbarOpen ? ' flex' : ' hidden')
+          (navbarOpen ? 'flex' : 'hidden') +
+          ' dropMenu lg:hidden fade-in rounded-lg bg-red-700 border-2 border-yellow-300 shadow-2xl shadow-black'
         }>
         <ul className='w-full flex flex-col text-center list-none'>
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className='py-1 rounded-lg hover:bg-red-600 hover:cursor-pointer duration-100'>
+              className='py-2 rounded-lg hover:bg-red-600 hover:cursor-pointer duration-100'>
               <Link
                 to={'/' + item.path}
                 onClick={() => setNavbarOpen(!navbarOpen)}>

@@ -30,6 +30,14 @@ body {
   top: -4rem;
 }
 
+.dropMenu {
+  position: absolute;
+  width: 9rem;
+  z-index: 20;
+  top: 4.4rem;
+  right: -2px;
+}
+
 @keyframes fade-out {
   from {
     opacity: 1;
