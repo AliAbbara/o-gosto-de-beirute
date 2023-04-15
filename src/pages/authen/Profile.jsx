@@ -99,6 +99,7 @@ function Profile() {
     setLoading(true)
     auth.signOut()
     setLoading(false)
+    toast.success('Você foi desconectado com sucesso!')
   }
 
   useEffect(() => {
